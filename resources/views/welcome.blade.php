@@ -83,6 +83,9 @@
                 <div class="title m-b-md">
                     SGSI
                 </div>
+                <div class="links">
+                    <a href="{{ route('sgsi.index') }}">Listado de Dominios</a>
+                </div>
             </div>
         </div>
     </body>

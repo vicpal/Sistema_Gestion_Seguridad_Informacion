@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Sgsi;
 
 use Illuminate\Database\Eloquent\Model;
 
