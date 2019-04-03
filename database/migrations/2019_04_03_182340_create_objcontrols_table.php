@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSgsisTable extends Migration
+class CreateObjcontrolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class CreateSgsisTable extends Migration
      */
     public function up()
     {
-        Schema::create('sgsis', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('objcontrols', function (Blueprint $table) {
+            $table->bigIncrements('id'); /*Esta debe ser llave Primaria */
+            $table->tinyint('numero_objc');
+            $table->string('nombre_objc');
+
+            $table->tinyint('numero_dom'); /*Esta debe ser llave foranea */
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateSgsisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sgsis');
+        Schema::dropIfExists('objcontrols');
     }
 }
