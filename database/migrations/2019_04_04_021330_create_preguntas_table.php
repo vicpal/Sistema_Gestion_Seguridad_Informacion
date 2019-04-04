@@ -17,7 +17,7 @@ class CreatePreguntasTable extends Migration
             $table->bigIncrements('id'); /*Esta debe ser llave Primaria */
             $table->string('nombre_preg');
             
-            $table->tinyint('numero_con'); /*Esta debe ser llave foranea */
+            $table->tinyint('numero_con')->unique(); /*Esta debe ser llave foranea */
 
             $table->timestamps();
         });

@@ -15,10 +15,10 @@ class CreateObjcontrolsTable extends Migration
     {
         Schema::create('objcontrols', function (Blueprint $table) {
             $table->bigIncrements('id'); /*Esta debe ser llave Primaria */
-            $table->tinyint('numero_objc');
+            $table->tinyint('numero_objc')->unique();
             $table->string('nombre_objc');
 
-            $table->tinyint('numero_dom'); /*Esta debe ser llave foranea */
+            $table->tinyint('numero_dom')->unique(); /*Esta debe ser llave foranea */
             $table->timestamps();
         });
     }
