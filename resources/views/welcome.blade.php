@@ -84,8 +84,8 @@
                     SGSI
                 </div>
                 <div class="links">
-                    <a href="{{ route('dominios.index') }}">SISTEMA DE GESTION DE LA SEGURIDAD DE LA INFORMACIÓN</a></br>
-                    <a href="{{ route('dominios.index') }}">GTC-IEC/ISO 27002:2015</a>
+                    <a href="">SISTEMA DE GESTION DE LA SEGURIDAD DE LA INFORMACIÓN</a></br>
+                    <a href="">GTC-IEC/ISO 27002:2015</a>
                 </div>
             </div>
         </div>
