@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Sgsi\Respuestas;
 
 class RespuestasTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class RespuestasTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Respuestas::class, 10)->create();
     }
 }

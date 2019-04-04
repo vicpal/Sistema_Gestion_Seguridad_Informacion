@@ -24,3 +24,10 @@ $factory->define(User::class, function (Faker $faker) {
         'remember_token' => Str::random(10),
     ];
 });
+
+$factory->define(Dominios::class, function (Faker $faker) {
+    return [
+        'numero_dom' => $faker->sentence(2),
+        'nombre_dom' => $faker->text(50),
+    ];
+});

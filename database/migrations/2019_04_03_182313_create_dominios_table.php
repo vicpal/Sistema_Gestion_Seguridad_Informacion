@@ -15,7 +15,7 @@ class CreateDominiosTable extends Migration
     {
         Schema::create('dominios', function (Blueprint $table) {
             $table->bigIncrements('id'); /*Esta debe ser llave Primaria */
-            $table->tinyint('numero_dom')->unique();
+            $table->integer('numero_dom')->unique();
             $table->string('nombre_dom');
             $table->timestamps();
         });

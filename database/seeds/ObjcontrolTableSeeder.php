@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Sgsi\Objcontrol;
 
 class ObjcontrolTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class ObjcontrolTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Objcontrol::class, 10)->create();
     }
 }

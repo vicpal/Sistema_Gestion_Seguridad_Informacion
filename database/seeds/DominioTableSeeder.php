@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Sgsi\Dominios;
 
 class DominioTableSeeder extends Seeder
 {
@@ -11,6 +12,8 @@ class DominioTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Dominios::class, 10)->create();
     }
 }
+
+/* NO SE PUDIERON CREAR LOS SEEDER POR ERROR EN LA CONFIGURACION DEL ARCHIVO */

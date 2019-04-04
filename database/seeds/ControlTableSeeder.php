@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Sgsi\Control;
 
 class ControlTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class ControlTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Control::class, 10)->create();
     }
 }
