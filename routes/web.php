@@ -19,4 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('sgsi','SgsiController');
+Route::resource('dominios','DominiosController');
+Route::resource('objcontrol','ObjcontrolController');
+Route::resource('control','ControlController');
+Route::resource('preguntas','PreguntasController');
