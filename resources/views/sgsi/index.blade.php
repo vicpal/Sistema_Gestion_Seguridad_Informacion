@@ -19,9 +19,19 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    @foreach($variables as $variable)
+                    <tr>
+                        <td>{{ $variable->id }}</td>
+                        <td>{{ $variable->numero_dom }}</td>
+                        <td>{{ $variable->nombre_dom }}</td>
+                        <td>ver</td>
+                        <td>editar</td>
+                        <td>borrar</td>
+                    </tr>
+                    @endforeach
                 </tbody> 
             </table>
+                {!! $variables->render() !!}
         </div>
     </div>
 </div>
