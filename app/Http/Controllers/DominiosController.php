@@ -7,6 +7,7 @@ use Sgsi\Dominios;
 
 class DominiosController extends Controller
 {
+    
     /**
      * Create a new controller instance.
      *
@@ -22,8 +23,16 @@ class DominiosController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(){
+    public function index()
+    {
+        //return "index";
+        $variables = Dominios::orderBy('id', 'DESC')->paginate();
+        return view('sgsi/index', compact('variables'));
+    }
+
+    /*public function index(){
         $variables = Dominios::orderBy('id', 'DESC')->paginate();
         return view('sgsi.index', compact('variables'));
-    }
+    }*/
+
 }
