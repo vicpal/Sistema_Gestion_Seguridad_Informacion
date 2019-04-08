@@ -25,9 +25,7 @@ class DominiosController extends Controller
      */
     public function index()
     {
-        //return "index";
-        $variables = Dominios::orderBy('id', 'DESC')->paginate();
-        return view('sgsi/index', compact('variables'));
+        return "sgsi/index";
     }
 
     /*public function index(){
