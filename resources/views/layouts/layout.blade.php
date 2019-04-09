@@ -149,7 +149,7 @@
 		<section class="content-header">
 			<h1>
 				Sistema de Gestión de la Seguridad de la Información <br>
-				<small>Inicia Aqui</small>
+				<!-- <small>Inicia Aqui</small> -->
 			</h1>
 			<!-- MAPA DE SITIO -->
 			<ol class="breadcrumb">

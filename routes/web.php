@@ -13,6 +13,9 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/sgsi/index', 'DominiosController@index')->name('index');
+Route::get('/sgsi/create', 'DominiosController@create')->name('create');
+Route::get('/sgsi/edit', 'DominiosController@edit')->name('edit');
+Route::get('/sgsi/show', 'DominiosController@show')->name('show');
 
 //Route::resource('dominios','DominiosController');
 Route::resource('objcontrol','ObjcontrolController');

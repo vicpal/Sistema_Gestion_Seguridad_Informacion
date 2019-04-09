@@ -28,7 +28,7 @@
                     </tr>
                     @endforeach
                 </tbody> 
-            </table><a href="{{ route('dominios.create') }}" class="btn btn-primary pull-left">Nuevo</a>
+            </table>
         </div>
     </div>
 </div>

@@ -2,15 +2,19 @@
 
 @section('content')
 
-	<div><h3>Crear</h3>
-		{!! Form::open(['route' => 'dominios.store']) !!}
-		@include('dominios.fragment.form')
+	<form action="" method="POST">
+        <legend>Crear</legend>
 
-		{!! Form::close !!}
-	</div>
+        <div>
+            <label for="">Número del Dominio</label>
+            <input name="numero_dom" type="numero" class="form-control" id="" placeholder="Número del Dominio">
+        </div>
 
-	<div>
-		@include('dominios.fragment.aside')		
-	</div>
+        <div>
+            <label for="">Nombre del Dominio</label>
+            <input name="nombre_dom" type="nombre" class="form-control" id="" placeholder="Nombre del Dominio">
+        </div>       
+
+    </form>
 
 @endsection

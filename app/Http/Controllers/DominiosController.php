@@ -26,13 +26,23 @@ class DominiosController extends Controller
 
     public function index()
     {
-        //return "/sgsi/index";
-        $dominios = Dominios::orderBy('id', 'DESC')->paginate();
-        return view('/sgsi/index', compact('dominios'));
+        return view('/sgsi/index');
     }
 
-    public function create(){
-        return view('dominios.create');
+    public function create()
+    {
+        return view('/sgsi/create');
+    }
+
+    public function edit()
+    {
+        return view('/sgsi/edit');
+    }
+
+    public function show()
+    {
+        $dominios = Dominios::orderBy('id', 'DESC')->paginate();
+        return view('/sgsi/show', compact('dominios'));
     }
 
 }
