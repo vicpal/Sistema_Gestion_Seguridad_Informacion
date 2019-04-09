@@ -162,13 +162,13 @@
 
 		<!-- Main content -->
 		<section class="content">
-			<!-- Default box -->
-			<div class="box">
+			<!-- Default box
+			<div class="box"> -->
 				@yield('content')
 				<!-- /.box-body -->
 				
-				<!-- /.box-footer-->
-			</div>
+				<!-- /.box-footer
+			</div> -->
 			<!-- /.box -->
 		</section>
 		<!-- /.content -->
