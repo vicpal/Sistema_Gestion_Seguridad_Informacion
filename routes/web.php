@@ -14,7 +14,7 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/sgsi/index', 'DominiosController@index')->name('index');
 
-Route::resource('dominios','DominiosController');
+//Route::resource('dominios','DominiosController');
 Route::resource('objcontrol','ObjcontrolController');
 Route::resource('control','ControlController');
 Route::resource('preguntas','PreguntasController');

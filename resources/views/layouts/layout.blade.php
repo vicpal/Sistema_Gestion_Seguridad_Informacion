@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ViP | SGSI</title>
+	<title>{{ config('app.name', 'SGSI') }}</title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.7 -->
@@ -32,7 +32,7 @@
 			<!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>SG</b>SI</span>
 			<!-- logo for regular state and mobile devices -->
-			<span class="logo-lg"><b>SGSI</b> Calidad</span>
+			<span class="navbar-brand"><b>SGSI</b> Calidad</span>
 		</a>
     	<!-- Header Navbar: style can be found in header.less -->
 		<nav class="navbar navbar-static-top">
@@ -49,26 +49,23 @@
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-							<span class="hidden-xs">Alexander Pierce</span>
+							{{ Auth::user()->name }}
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header">
 								<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-								<p> Alexander Pierce - Web Developer <small>Member since Nov. 2012</small></p>
+								<p>{{ Auth::user('id')->name }} - Web Developer <small>Member since Nov. 2018</small></p>
 							</li>
 						<!-- Menu Footer-->
 						<li class="user-footer">
 							<div class="pull-right">
-								<a href="http://localhost:8000/" class="btn btn-default btn-flat">Sign out</a>
+								<a href="{{ route('logout') }}" class="btn btn-default btn-flat">Salir</a>
 							</div>
 						</li>
 					</ul>
 				</li>
 				<!-- Control Sidebar Toggle Button -->
-				<li>
-					<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-				</li>
 				</ul>
 			</div>
 		</nav>
@@ -86,7 +83,7 @@
 			<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-			<p>Alexander Pierce</p>
+			<p>{{ Auth::user()->name }}</p>
 			<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
