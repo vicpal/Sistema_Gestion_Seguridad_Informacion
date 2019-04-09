@@ -56,21 +56,20 @@
 							<li class="user-header">
 								<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 								<p>{{ Auth::user('id')->name }} - Web Developer <small>Member since Nov. 2018</small></p>
+								<li class="user-footer">
+									<div class="pull-right">
+										<a class="btn btn-default btn-flat" href="{{ route('logout') }}"
+											onclick="event.preventDefault();
+												document.getElementById('logout-form').submit();">
+											{{ __('Salir') }}
+									</a>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+											@csrf
+									</form>
+									</div>
+              	</li>
 							</li>
 						<!-- Menu Footer-->
-						<li class="user-footer">
-							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Salir') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-						</li>
 					</ul>
 				</li>
 				<!-- Control Sidebar Toggle Button -->

@@ -26,26 +26,26 @@ class DominiosController extends Controller
 
     public function index()
     {
-        return view('/sgsi/index');
+        $dominios = Dominios::orderBy('id','ASC')->paginate(6);
+        return view('dominios.index',compact('dominios')); 
     }
 
     public function create()
     {
-        return view('/sgsi/create');
+        return view('dominios.create');
     }
 
     public function store(Request $request)
     {
-        //return view('/sgsi/store');
         $this->validate($request, [
             'numero_dom' => 'required|integer',
             'nombre_dom' => 'required|string',
         ]);
-            $dir = new Dominios();
-            $dir->numero_dom = $request->input('numero_dom');
-            $dir->nombre_dom = $request->input('nombre_dom');
+            $dominios = new Dominios();
+            $dominios->numero_dom = $request->input('numero_dom');
+            $dominios->nombre_dom = $request->input('nombre_dom');
 
-            $dir->save();
+            $dominios->save();
 
             //return response()->json(['res' => 'Dominio creado correctamente']); //devuelvo un resultado de exito
             return redirect()->route('dominios.create')->with('success','Dominios Creado Satisfactoriamente');
@@ -53,21 +53,36 @@ class DominiosController extends Controller
     
     public function edit($id)
     {
-        //return view('/sgsi/edit');
-        $dominios=dominio::find($id);
-        return view('dominio.show',compact('dominios'));
+        $dominios = Dominios::find($id);
+        return view('dominios.edit', compact('dominios'));
     }
 
-    public function show()
+    public function update(Request $request, $id)
     {
-        $dominios = Dominios::orderBy('id', 'ASC')->paginate();
-        return view('/sgsi/show', compact('dominios'));
+        $this->validate($request, [
+            'numero_dom' => 'required|integer',
+            'nombre_dom' => 'required|string',
+        ]);
+            $dominios = Dominios::find($id);
+            $dominios->numero_dom = $request->input('numero_dom');
+            $dominios->nombre_dom = $request->input('nombre_dom');
+
+            $dominios->save();
+
+            //return response()->json(['res' => 'Contacto Actualizado Correctamente']); //devuelvo un resultado de exito
+            return redirect()->route('dominios.edit', $id)->with('success','Dominios Actualizado Satisfactoriamente');
+    }
+    
+    public function show($id)
+    {
+        $dominios = Dominios::find($id);
+        return view('dominios.show',compact('dominios'));
     }
 
     public function destroy($id)
     {
-        dominio:show($id)->delete();
-        return redirect()->route('dominio.show')->with('success','Dominio Eliminado Satisfactoriamente');
+        Dominios::find($id)->delete();
+        return redirect()->route('dominios.index')->with('success','Dominio Eliminado Satisfactoriamente');
     }
 
 }
