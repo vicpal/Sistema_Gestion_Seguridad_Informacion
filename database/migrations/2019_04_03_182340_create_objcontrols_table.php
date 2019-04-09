@@ -18,7 +18,9 @@ class CreateObjcontrolsTable extends Migration
             $table->integer('numero_objc')->unique();
             $table->string('nombre_objc');
 
-            $table->integer('numero_dom')->unique(); /*Esta debe ser llave foranea */
+            $table->unsignedBigInteger('dominio_id');
+            $table->foreign('dominio_id')->references('id')->on('dominios');
+            
             $table->timestamps();
         });
     }

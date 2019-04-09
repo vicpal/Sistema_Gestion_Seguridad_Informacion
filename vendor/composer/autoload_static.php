@@ -60,7 +60,6 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
-            'Sgsi\\' => 5,
         ),
         'R' => 
         array (
@@ -124,6 +123,10 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
         'B' => 
         array (
             'BeyondCode\\DumpServer\\' => 22,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -222,10 +225,6 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
-        'Sgsi\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/app',
-        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -322,6 +321,10 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
         array (
             0 => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src',
         ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/app',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -357,6 +360,39 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
     );
 
     public static $classMap = array (
+        'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Control' => __DIR__ . '/../..' . '/app/Control.php',
+        'App\\Dominios' => __DIR__ . '/../..' . '/app/Dominios.php',
+        'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
+        'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
+        'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
+        'App\\Http\\Controllers\\ControlController' => __DIR__ . '/../..' . '/app/Http/Controllers/ControlController.php',
+        'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DominiosController' => __DIR__ . '/../..' . '/app/Http/Controllers/DominiosController.php',
+        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\ObjcontrolController' => __DIR__ . '/../..' . '/app/Http/Controllers/ObjcontrolController.php',
+        'App\\Http\\Controllers\\PreguntasController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreguntasController.php',
+        'App\\Http\\Controllers\\RespuestasController' => __DIR__ . '/../..' . '/app/Http/Controllers/RespuestasController.php',
+        'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
+        'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
+        'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
+        'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
+        'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
+        'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
+        'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
+        'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Objcontrol' => __DIR__ . '/../..' . '/app/Objcontrol.php',
+        'App\\Preguntas' => __DIR__ . '/../..' . '/app/Preguntas.php',
+        'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
+        'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
+        'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
+        'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Respuestas' => __DIR__ . '/../..' . '/app/Respuestas.php',
+        'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',
         'BeyondCode\\DumpServer\\Dumper' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/Dumper.php',
@@ -3152,40 +3188,6 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
         'SebastianBergmann\\Timer\\RuntimeException' => __DIR__ . '/..' . '/phpunit/php-timer/src/RuntimeException.php',
         'SebastianBergmann\\Timer\\Timer' => __DIR__ . '/..' . '/phpunit/php-timer/src/Timer.php',
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
-        'Sgsi\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
-        'Sgsi\\Control' => __DIR__ . '/../..' . '/app/Control.php',
-        'Sgsi\\Dominios' => __DIR__ . '/../..' . '/app/Dominios.php',
-        'Sgsi\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'Sgsi\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
-        'Sgsi\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
-        'Sgsi\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
-        'Sgsi\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
-        'Sgsi\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
-        'Sgsi\\Http\\Controllers\\ControlController' => __DIR__ . '/../..' . '/app/Http/Controllers/ControlController.php',
-        'Sgsi\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'Sgsi\\Http\\Controllers\\DominiosController' => __DIR__ . '/../..' . '/app/Http/Controllers/DominiosController.php',
-        'Sgsi\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
-        'Sgsi\\Http\\Controllers\\ObjcontrolController' => __DIR__ . '/../..' . '/app/Http/Controllers/ObjcontrolController.php',
-        'Sgsi\\Http\\Controllers\\PreguntasController' => __DIR__ . '/../..' . '/app/Http/Controllers/PreguntasController.php',
-        'Sgsi\\Http\\Controllers\\RespuestasController' => __DIR__ . '/../..' . '/app/Http/Controllers/RespuestasController.php',
-        'Sgsi\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
-        'Sgsi\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
-        'Sgsi\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
-        'Sgsi\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
-        'Sgsi\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
-        'Sgsi\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
-        'Sgsi\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
-        'Sgsi\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'Sgsi\\Objcontrol' => __DIR__ . '/../..' . '/app/Objcontrol.php',
-        'Sgsi\\Preguntas' => __DIR__ . '/../..' . '/app/Preguntas.php',
-        'Sgsi\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
-        'Sgsi\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
-        'Sgsi\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
-        'Sgsi\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
-        'Sgsi\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'Sgsi\\Respuestas' => __DIR__ . '/../..' . '/app/Respuestas.php',
-        'Sgsi\\Share' => __DIR__ . '/../..' . '/app/Share.php',
-        'Sgsi\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\CommandLoader\\CommandLoaderInterface' => __DIR__ . '/..' . '/symfony/console/CommandLoader/CommandLoaderInterface.php',
         'Symfony\\Component\\Console\\CommandLoader\\ContainerCommandLoader' => __DIR__ . '/..' . '/symfony/console/CommandLoader/ContainerCommandLoader.php',

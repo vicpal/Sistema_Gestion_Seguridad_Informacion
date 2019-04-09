@@ -18,7 +18,9 @@ class CreateControlsTable extends Migration
             $table->integer('numero_con')->unique();
             $table->string('nombre_con');
 
-            $table->integer('numero_objc')->unique(); /*Esta debe ser llave foranea */
+            $table->unsignedBigInteger('objcontrol_id');
+            $table->foreign('objcontrol_id')->references('id')->on('objcontrols');
+            
             $table->timestamps();
         });
     }

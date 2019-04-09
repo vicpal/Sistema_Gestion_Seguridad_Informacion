@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Pagina Principal</a>
+                        <a href="{{ url('/sgsi/index') }}">Pagina Principal</a>
                     @else
                         <a href="{{ route('login') }}">Iniciar Sesion</a>
 

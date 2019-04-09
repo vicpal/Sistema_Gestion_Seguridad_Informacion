@@ -1,9 +1,9 @@
 <?php
 
-namespace Sgsi\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Sgsi\Dominios;
+use App\Dominios;
 
 class DominiosController extends Controller
 {
@@ -23,14 +23,12 @@ class DominiosController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
     public function index()
     {
-        return "sgsi/index";
+        //return "/sgsi/index";
+        $dominios = Dominios::orderBy('id', 'DESC')->paginate();
+        return view('/sgsi/index', compact('dominios'));
     }
-
-    /*public function index(){
-        $variables = Dominios::orderBy('id', 'DESC')->paginate();
-        return view('sgsi.index', compact('variables'));
-    }*/
 
 }
