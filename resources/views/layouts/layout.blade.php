@@ -59,9 +59,17 @@
 							</li>
 						<!-- Menu Footer-->
 						<li class="user-footer">
-							<div class="pull-right">
-								<a href="{{ route('logout') }}" class="btn btn-default btn-flat">Salir</a>
-							</div>
+							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Salir') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
 						</li>
 					</ul>
 				</li>
@@ -84,7 +92,7 @@
 			</div>
 			<div class="pull-left info">
 			<p>{{ Auth::user()->name }}</p>
-			<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+			<!-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> -->
 			</div>
 		</div>
 		<!-- search form -->
@@ -152,19 +160,19 @@
 			<!-- FIN MAPA -->
 		</section>
 
-			<!-- Main content -->
-			<section class="content">
-				<!-- Default box -->
-				<div class="box">
-					@yield('content')
-					<!-- /.box-body -->
-					
-					<!-- /.box-footer-->
-				</div>
-				<!-- /.box -->
-			</section>
+		<!-- Main content -->
+		<section class="content">
+			<!-- Default box -->
+			<div class="box">
+				@yield('content')
+				<!-- /.box-body -->
+				
+				<!-- /.box-footer-->
+			</div>
+			<!-- /.box -->
+		</section>
 		<!-- /.content -->
-		</div>
+	</div>
 	<!-- /.content-wrapper -->
 
 	<!-- =============================================== -->

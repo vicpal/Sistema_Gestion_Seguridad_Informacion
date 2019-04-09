@@ -31,4 +31,8 @@ class DominiosController extends Controller
         return view('/sgsi/index', compact('dominios'));
     }
 
+    public function create(){
+        return view('dominios.create');
+    }
+
 }
