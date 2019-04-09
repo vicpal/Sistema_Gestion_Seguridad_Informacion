@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-10">
-            <h4>
-                Listado de Dominios Registrados
+            <h4><strong>
+                Listado de Dominios Registrados GTC-IEC/ISO 27002:2015</strong>
             </h4>
             <table class="table table-hover table-striped">
                 <thead>

@@ -34,15 +34,40 @@ class DominiosController extends Controller
         return view('/sgsi/create');
     }
 
-    public function edit()
+    public function store(Request $request)
     {
-        return view('/sgsi/edit');
+        //return view('/sgsi/store');
+        $this->validate($request, [
+            'numero_dom' => 'required|integer',
+            'nombre_dom' => 'required|string',
+        ]);
+            $dir = new Dominios();
+            $dir->numero_dom = $request->input('numero_dom');
+            $dir->nombre_dom = $request->input('nombre_dom');
+
+            $dir->save();
+
+            //return response()->json(['res' => 'Dominio creado correctamente']); //devuelvo un resultado de exito
+            return redirect()->route('dominios.create')->with('success','Dominios Creado Satisfactoriamente');
+    }
+    
+    public function edit($id)
+    {
+        //return view('/sgsi/edit');
+        $dominios=dominio::find($id);
+        return view('dominio.show',compact('dominios'));
     }
 
     public function show()
     {
-        $dominios = Dominios::orderBy('id', 'DESC')->paginate();
+        $dominios = Dominios::orderBy('id', 'ASC')->paginate();
         return view('/sgsi/show', compact('dominios'));
+    }
+
+    public function destroy($id)
+    {
+        dominio:show($id)->delete();
+        return redirect()->route('dominio.show')->with('success','Dominio Eliminado Satisfactoriamente');
     }
 
 }
