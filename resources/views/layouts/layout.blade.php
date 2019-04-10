@@ -28,7 +28,7 @@
 
   	<header class="main-header">
 		<!-- Logo -->
-		<a href="http://localhost:8000/sgsi/index" class="logo">
+		<a href="http://localhost:8000/dominios" class="logo">
 			<!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>SG</b>SI</span>
 			<!-- logo for regular state and mobile devices -->
@@ -116,8 +116,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="../../index.html"><i class="fa fa-circle-o"></i> Opcion 1</a></li>
-				<li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Opcion 2</a></li>
+				<li><a href="http://localhost:8000/dominios"><i class="fa fa-circle-o"></i> Listar Dominios</a></li>
+				<li><a href="http://localhost:8000/dominios/create"><i class="fa fa-circle-o"></i> Crear Dominios</a></li>
 			</ul>
 			</li>
 						
@@ -180,7 +180,7 @@
 		<div class="pull-right hidden-xs">
 		<b>Version</b> 1.0
 		</div>
-		<strong>Copyright &copy; 2018-2019 <a href="http://localhost:8000/sgsi/index">ViPCorp - SGSI</a>.</strong> All rights
+		<strong>Copyright &copy; 2018-2019 <a href="http://localhost:8000/dominios"> ViPCorp - SGSI</a>.</strong> All rights
 		reserved.
 	</footer>
 

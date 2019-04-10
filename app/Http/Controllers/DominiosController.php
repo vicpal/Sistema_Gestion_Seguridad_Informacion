@@ -26,13 +26,13 @@ class DominiosController extends Controller
 
     public function index()
     {
-        $dominios = Dominios::orderBy('id','ASC')->paginate(6);
-        return view('dominios.index',compact('dominios')); 
+        $dominios = Dominios::orderBy('id','ASC')->paginate();
+        return view('/sgsi/index',compact('dominios')); 
     }
 
     public function create()
     {
-        return view('dominios.create');
+        return view('/sgsi/create');
     }
 
     public function store(Request $request)
@@ -54,7 +54,7 @@ class DominiosController extends Controller
     public function edit($id)
     {
         $dominios = Dominios::find($id);
-        return view('dominios.edit', compact('dominios'));
+        return view('/sgsi/edit', compact('dominios'));
     }
 
     public function update(Request $request, $id)
@@ -78,11 +78,11 @@ class DominiosController extends Controller
         $dominios = Dominios::find($id);
         return view('dominios.show',compact('dominios'));
     }
-
+    /*
     public function destroy($id)
     {
         Dominios::find($id)->delete();
         return redirect()->route('dominios.index')->with('success','Dominio Eliminado Satisfactoriamente');
     }
-
+    */
 }

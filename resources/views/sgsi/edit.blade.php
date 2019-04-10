@@ -18,10 +18,10 @@
         </div>
     @endif
 
-<form action="{{ route('dominios.update',$dominios->id) }}" method="POST" role="form">
+<form action="{{ route('dominios.update', $dominios->id) }}" method="POST" role="form">
         {{ csrf_field() }}
         <input name="_method" type="hidden" value="PATCH">
-        <legend>Editar Dominio</legend>
+        <legend>Editar Dominios</legend>
 
         <div class="form-row">
             <div class="form-group col-md-2">

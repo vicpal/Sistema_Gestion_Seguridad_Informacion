@@ -10,14 +10,25 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 //Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 //Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+//ruta del index de la app
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/dominios', 'DominiosController@index');
-Route::get('/dominios/create', 'DominiosController@create');
-Route::get('/dominios/{dominio}', 'DominiosController@show');
-Route::get('/dominios', 'DominiosController@store');
+Route::get('/sgsi/index', 'DominiosController@index')->name('index');
+Route::get('/sgsi/create', 'DominiosController@create')->name('create');
+Route::get('/sgsi/edit/{id}', 'DominiosController@edit')->name('edit');
+Route::get('/sgsi/update/{id}', 'DominiosController@update')->name('update');
+Route::get('/sgsi/destroy/{id}', 'DominiosController@destroy')->name('destroy');
+Route::get('/sgsi/show/{id}', 'DominiosController@show')->name('show');
 
-//Route::resource('dominios','DominiosController');
+Route::get('/sgsi/store', 'DominiosController@store')->name('store');
+
+//Route::get('/sgsi/listado', 'DominiosController@listado')->name('listado');
+
+Route::resource('dominios','DominiosController');
 Route::resource('objcontrol','ObjcontrolController');
 Route::resource('control','ControlController');
 Route::resource('preguntas','PreguntasController');
