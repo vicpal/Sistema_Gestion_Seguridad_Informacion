@@ -12,9 +12,12 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/index', 'DominiosController@index')->name('index');
+Route::get('/dominios', 'DominiosController@index');
+Route::get('/dominios/create', 'DominiosController@create');
+Route::get('/dominios/{dominio}', 'DominiosController@show');
+Route::get('/dominios', 'DominiosController@store');
 
-Route::resource('dominios','DominiosController');
+//Route::resource('dominios','DominiosController');
 Route::resource('objcontrol','ObjcontrolController');
 Route::resource('control','ControlController');
 Route::resource('preguntas','PreguntasController');
