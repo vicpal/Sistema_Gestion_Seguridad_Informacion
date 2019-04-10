@@ -110,13 +110,13 @@
 			<li class="header">MENÚ DE NAVIGACIÓN</li>
 			<li class="treeview">
 			<a href="#">
-				<i class="fa fa-tachometer"></i> <span>Panel de Administracón</span>
+				<i class="fa fa-tachometer"></i> <span>Panel de Administración</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="http://localhost:8000/dominios"><i class="fa fa-circle-o"></i> Listar Dominios</a></li>
+				<li><a href="http://localhost:8000/sgsi/listado"><i class="fa fa-circle-o"></i> Listar Dominios</a></li>
 				<li><a href="http://localhost:8000/dominios/create"><i class="fa fa-circle-o"></i> Crear Dominios</a></li>
 			</ul>
 			</li>
@@ -124,7 +124,7 @@
 			<li class="treeview">
 			<a href="#">
 				<i class="fa fa-laptop"></i>
-				<span>Submenu 2</span>
+				<span>Submenú 2</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -152,8 +152,8 @@
 			</h1>
 			<!-- MAPA DE SITIO -->
 			<ol class="breadcrumb">
-				<li><a href="http://localhost:8000/sgsi/index"><i class="fa fa-dashboard"></i> Inicio</a></li>
-				<li><a href="#">Paso 1</a></li>
+				<li><a href="http://localhost:8000/dominios"><i class="fa fa-dashboard"></i> Inicio</a></li>
+				<!-- <li><a href="#">Paso 1</a></li> -->
 				<li class="active">Usted Esta Aqui</li>
 			</ol>
 			<!-- FIN MAPA -->

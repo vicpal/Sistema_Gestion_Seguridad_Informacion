@@ -26,7 +26,7 @@ class DominiosController extends Controller
 
     public function index()
     {
-        $dominios = Dominios::orderBy('id','ASC')->paginate();
+        $dominios = Dominios::orderBy('id');
         return view('/sgsi/index',compact('dominios')); 
     }
 
@@ -51,6 +51,12 @@ class DominiosController extends Controller
             return redirect()->route('dominios.create')->with('success','Dominios Creado Satisfactoriamente');
     }
     
+    public function show($id)
+    {
+        $dominios = Dominios::find($id);
+        return view('dominios.show',compact('dominios'));
+    }
+
     public function edit($id)
     {
         $dominios = Dominios::find($id);
@@ -73,16 +79,19 @@ class DominiosController extends Controller
             return redirect()->route('dominios.edit', $id)->with('success','Dominios Actualizado Satisfactoriamente');
     }
     
-    public function show($id)
-    {
-        $dominios = Dominios::find($id);
-        return view('dominios.show',compact('dominios'));
-    }
-    /*
     public function destroy($id)
     {
-        Dominios::find($id)->delete();
-        return redirect()->route('dominios.index')->with('success','Dominio Eliminado Satisfactoriamente');
+        $dominios = Dominios::find($id);
+        $dominios->delete();
+        return back()->with('info', 'Eliminado VIP');
+        //Dominios::find($id)->delete();
+        //return redirect()->route('dominios.index')->with('success','Dominio Eliminado Satisfactoriamente');
     }
-    */
+    
+    // Funciones para Contenido de la Pagina
+    public function listado()
+    {
+        $dominios = Dominios::orderBy('id','ASC')->paginate(17);
+        return view('/sgsi/listado',compact('dominios'));
+    }
 }

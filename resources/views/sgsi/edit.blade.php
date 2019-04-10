@@ -35,7 +35,8 @@
         </div>
         
             <button type="submit" class="btn btn-primary pull-left">Editar Registro</button>
-            <a href="{{ route('dominios.index') }}">Atras</a>
+            <a href="/sgsi/listado" class="btn btn-primary pull-right" >Volver al Listado</a>
+            
     </form>
 
 @endsection

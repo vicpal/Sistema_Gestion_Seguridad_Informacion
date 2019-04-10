@@ -21,13 +21,14 @@ Route::get('/sgsi/index', 'DominiosController@index')->name('index');
 Route::get('/sgsi/create', 'DominiosController@create')->name('create');
 Route::get('/sgsi/edit/{id}', 'DominiosController@edit')->name('edit');
 Route::get('/sgsi/update/{id}', 'DominiosController@update')->name('update');
-Route::get('/sgsi/destroy/{id}', 'DominiosController@destroy')->name('destroy');
+Route::delete('/sgsi/destroy/{id}', 'DominiosController@destroy')->name('destroy');
 Route::get('/sgsi/show/{id}', 'DominiosController@show')->name('show');
-
 Route::get('/sgsi/store', 'DominiosController@store')->name('store');
 
-//Route::get('/sgsi/listado', 'DominiosController@listado')->name('listado');
+// Vistas con contenido para el Sitio. Pero además de crear aqui, tambien se debe crear en el Controlador.
+Route::get('/sgsi/listado', 'DominiosController@listado')->name('listado');
 
+// Controladores Globales
 Route::resource('dominios','DominiosController');
 Route::resource('objcontrol','ObjcontrolController');
 Route::resource('control','ControlController');

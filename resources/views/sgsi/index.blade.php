@@ -15,7 +15,7 @@
             <img src="/img/icontec.jpg" alt="GTC-IEC/ISO 27002:2015">
         </div>
     </div>
-
+    <!--
     <div class="container">
         <div class="row">
             <div class="col-sm-10">
@@ -47,7 +47,8 @@
                 </table>
             </div>
         </div>
-    </div> 
+    </div>
+    -->
 
 @endsection
 

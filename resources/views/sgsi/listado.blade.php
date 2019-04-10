@@ -2,6 +2,24 @@
 
 @section('content')
 
+    @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Error!</strong> Revise los campos obligatorios.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if(Session::has('success'))
+        <div class="alert alert-info" class="close">
+            {{Session::get('success')}}
+        </div>
+    @endif
+
+<!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
+
 <div class="container">
     <div class="row">
         <div class="col-sm-10">
@@ -25,12 +43,18 @@
                         <td>{{ $dominio->nombre_dom }}</td>
                         <!-- <td>ver</td> -->
                         <td>
-                            <a href="{{ route('dominios.edit', $dominio->id) }}">Editar</a>
+                            <a href="{{ route('dominios.edit', $dominio->id) }}" class="btn btn-primary btn-xs" method="POST"><span class="glyphicon glyphicon-pencil"></span></a>
                         </td>
-                        <td>Eliminar</td>
+                        <td>
+                            <form action="{{ route('dominios.destroy', $dominio->id) }}" method="POST">
+                                {{csrf_field()}}
+                                <input name="_method" type="hidden" value="DELETE">
+                                <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                            </form>
+                        </td>
                     </tr>
                     @endforeach
-                </tbody> 
+                </tbody>
             </table>
         </div>
     </div>
