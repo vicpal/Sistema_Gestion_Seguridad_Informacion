@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 use App\Dominios;
 
@@ -26,8 +28,11 @@ class DominiosController extends Controller
 
     public function index()
     {
+        $dominios = DB::table('dominios')->paginate(6);
+        return view('/sgsi/listado', ['dominios' => $dominios]);
+        /*
         $dominios = Dominios::orderBy('id','ASC')->paginate();
-        return view('/sgsi/listado',compact('dominios'));
+        return view('/sgsi/listado',compact('dominios'));*/
     }
 
     public function create()
@@ -83,7 +88,7 @@ class DominiosController extends Controller
     {
         $dominios = Dominios::find($id);
         $dominios->delete();
-        return back()->with('info', 'Eliminado VIP');
+        return back()->with('dominios.index')->with('success','Dominio Eliminado Satisfactoriamente');
         //Dominios::find($id)->delete();
         //return redirect()->route('dominios.index')->with('success','Dominio Eliminado Satisfactoriamente');
     }

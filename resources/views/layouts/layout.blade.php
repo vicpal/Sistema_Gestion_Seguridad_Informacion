@@ -28,7 +28,7 @@
 
   	<header class="main-header">
 		<!-- Logo -->
-		<a href="http://localhost:8000/dominios" class="logo">
+		<a href="{{ route('dominios.index') }}" class="logo">
 			<!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>SG</b>SI</span>
 			<!-- logo for regular state and mobile devices -->
@@ -116,20 +116,22 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Listar Dominios</a></li>
+				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Dominios</a></li>
+				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Obj. de Control</a></li>
+				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Control</a></li>
 			</ul>
 			</li>
 						
 			<li class="treeview">
 			<a href="#">
 				<i class="fa fa-laptop"></i>
-				<span>Submenú 2</span>
+				<span>Encuentas</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Opcion 1</a></li>
+				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
 				<li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Opcion 2</a></li>
 				<li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Opcion 3</a></li>
 			</ul>

@@ -68,6 +68,7 @@
                             </tr>
                         </tfoot>
                     </table>
+                    {{ $dominios->links() }}
                 </div>
             <!-- /.box-body -->
             </div>
@@ -78,7 +79,7 @@
     <!-- /.row -->
         <div class="row">
             <a href="{{ route('dominios.create') }}" class="btn btn-primary">Crear dominio</a>
-        </div>
+        </div> 
 </section>
 <!-- /.content -->
     

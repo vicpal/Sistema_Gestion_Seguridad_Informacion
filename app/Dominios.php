@@ -13,3 +13,4 @@ class Dominios extends Model
    protected $dates = ['deleted_at'];
 
 }
+
