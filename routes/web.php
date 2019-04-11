@@ -31,8 +31,8 @@ Route::get('/sgsi/store', 'DominiosController@store')->name('store'); */
 //Route::get('/sgsi/listado', 'DominiosController@listado')->name('listado');
 
 // Controladores Globales
-Route::get('/sgsi', 'HomeController@index');
+Route::get('/sgsi', 'HomeController@index');//url que se coloca en el navegador
 Route::resource('sgsi/dominios','DominiosController');//(index, create, edit, delete) una ruta
-Route::resource('sgsi/objcontrol','ObjcontrolController');
+Route::resource('sgsi/objcontrol','ObjcontrolController');//url que se coloca en el navegador
 Route::resource('sgsi/control','ControlController');
 Route::resource('sgsi/preguntas','PreguntasController');

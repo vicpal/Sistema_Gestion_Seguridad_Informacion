@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('sgsi/index');//si dice view() quiere decir que es una vista que esta en una ruta de view de la carpeta resource
+        return view('sgsi/index');
+        //si dice view() quiere decir que es una vista que esta en una ruta de view de la carpeta resource
     }
 }

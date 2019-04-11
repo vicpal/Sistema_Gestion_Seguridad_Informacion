@@ -77,9 +77,9 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
-        <div class="row">
+        <div class="footer">
             <a href="{{ route('dominios.create') }}" class="btn btn-primary">Crear dominio</a>
-        </div> 
+        </div>
 </section>
 <!-- /.content -->
     
