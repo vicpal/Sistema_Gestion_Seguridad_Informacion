@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Objcontrol;
 
 class ObjcontrolController extends Controller
 {
@@ -24,12 +26,12 @@ class ObjcontrolController extends Controller
      */
     public function index()
     {
-        /*$objc = DB::table('objcontrols')->paginate(6);
-        return view('/sgsi/objControl/index', ['objc' => $objc]);
-        $objc = Objcontrol::orderBy('id','ASC')->paginate(6);
-        return view('/sgsi/ObjControl/objcontrol',compact('objc'));*/
+        $objc = DB::table('objcontrols')->paginate();
+        return view('/sgsi/ObjControl/index', ['objc' => $objc]);
+        /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
+        return view('/sgsi/objcontrol/index', compact('objc'));*/
         
-        return view('/sgsi/ObjControl/index');//view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
+        //return view('/sgsi/objcontrol/index'); //view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
 
     }
 
@@ -57,7 +59,7 @@ class ObjcontrolController extends Controller
     public function show($id)
     {
         $objc = Objcontrol::find($id);
-        return view('objcontrol.show',compact('objc'));
+        return view('/sgsi/objcontrol/show',compact('objc'));
     }
 
     public function edit($id)

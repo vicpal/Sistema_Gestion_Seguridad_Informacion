@@ -62,16 +62,16 @@
 											onclick="event.preventDefault();
 												document.getElementById('logout-form').submit();">
 											{{ __('Salir') }}
-									</a>
-									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+										</a>
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
 											@csrf
-									</form>
+										</form>
 									</div>
-              	</li>
+              					</li>
 							</li>
 						<!-- Menu Footer-->
-					</ul>
-				</li>
+						</ul>
+					</li>
 				<!-- Control Sidebar Toggle Button -->
 				</ul>
 			</div>
@@ -117,7 +117,7 @@
 			</a>
 			<ul class="treeview-menu">
 				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Dominios</a></li>
-				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Obj. de Control</a></li>
+				<li><a href="{{ route('objcontrol.index') }}"><i class="fa fa-circle-o"></i> Obj. de Control</a></li>
 				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Control</a></li>
 			</ul>
 			</li>
