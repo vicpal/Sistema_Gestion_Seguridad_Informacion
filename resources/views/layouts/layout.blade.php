@@ -116,8 +116,7 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="http://localhost:8000/sgsi/listado"><i class="fa fa-circle-o"></i> Listar Dominios</a></li>
-				<li><a href="http://localhost:8000/dominios/create"><i class="fa fa-circle-o"></i> Crear Dominios</a></li>
+				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Listar Dominios</a></li>
 			</ul>
 			</li>
 						
@@ -206,5 +205,6 @@
     $('.sidebar-menu').tree()
   })
 </script>
+
 </body>
 </html>

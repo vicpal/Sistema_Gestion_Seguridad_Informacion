@@ -20,45 +20,67 @@
 
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
-<div class="container">
+<!-- Main content -->
+<section class="container">
     <div class="row">
-        <div class="col-sm-10">
-            <h4><strong>
-                Listado de Dominios Registrados GTC-IEC/ISO 27002:2015</strong>
-            </h4>
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th width="50px">ID</th>
-                        <th>Numero del Dominio</th>
-                        <th>Nombre del Dominio</th>
-                        <th colspan="3">&nbsp</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($dominios as $dominio)
-                    <tr>
-                        <td>{{ $dominio->id }}</td>
-                        <td>{{ $dominio->numero_dom }}</td>
-                        <td>{{ $dominio->nombre_dom }}</td>
-                        <!-- <td>ver</td> -->
-                        <td>
-                            <a href="{{ route('dominios.edit', $dominio->id) }}" class="btn btn-primary btn-xs" method="POST"><span class="glyphicon glyphicon-pencil"></span></a>
-                        </td>
-                        <td>
-                            <form action="{{ route('dominios.destroy', $dominio->id) }}" method="POST">
-                                {{csrf_field()}}
-                                <input name="_method" type="hidden" value="DELETE">
-                                <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+        <div class="col-xs-10">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"><strong>Lista de Dominios GTC-IEC/ISO 27002:2015</strong></h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Núm Dominio</th>
+                                <th>Nombre del Dominio</th>
+                                <th colspan="2">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($dominios as $dominio)
+                            <tr>
+                                <td>{{ $dominio->id }}</td>
+                                <td>{{ $dominio->numero_dom }}</td>
+                                <td>{{ $dominio->nombre_dom }}</td>
+                                <!-- <td>ver</td> -->
+                                <td>
+                                    <a href="{{ route('dominios.edit', $dominio->id) }}" class="btn btn-primary btn-xs" method="POST"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
+                                <td>
+                                    <form action="{{ route('dominios.destroy', $dominio->id) }}" method="POST">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Id</th>
+                                <th>Núm Dominio</th>
+                                <th>Nombre del Dominio</th>
+                                <th colspan="2" text-alighh="center">Opciones</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            <!-- /.box-body -->
+            </div>
+          <!-- /.box -->
         </div>
+        <!-- /.col -->
     </div>
-</div>
-
+    <!-- /.row -->
+        <div class="row">
+            <a href="{{ route('dominios.create') }}" class="btn btn-primary">Crear dominio</a>
+        </div>
+</section>
+<!-- /.content -->
+    
 @endsection
 

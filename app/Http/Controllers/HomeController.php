@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('sgsi/index');//si dice view() quiere decir que es una vista que esta en una ruta de view de la carpeta resource
     }
 }
