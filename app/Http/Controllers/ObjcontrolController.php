@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Objcontrol;
+use App\Dominios;
 
 class ObjcontrolController extends Controller
 {
@@ -26,18 +27,25 @@ class ObjcontrolController extends Controller
      */
     public function index()
     {
+
         $objc = DB::table('objcontrols')->paginate();
         return view('/sgsi/ObjControl/index', ['objc' => $objc]);
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
         return view('/sgsi/objcontrol/index', compact('objc'));*/
-        
+        $dom = Dominios::select('dominios.numero_dom')
+                ->join('objcontrols', 'dominios.id', '=', 'objcontrols.dominio_id')
+                ->get();
+                    echo '$dominios';
+        return $dom;
+
         //return view('/sgsi/objcontrol/index'); //view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
 
     }
 
     public function create()
     {
-        return view('/sgsi/objcontrol/create');
+        $dominios = Dominios::all();
+        return view('/sgsi/objcontrol/create', compact('dominios'));
     }
 
     public function store(Request $request)
@@ -49,6 +57,8 @@ class ObjcontrolController extends Controller
             $objc = new Objcontrol();
             $objc->numero_objc = $request->input('numero_objc');
             $objc->nombre_objc = $request->input('nombre_objc');
+            // Esta linea de abajo, hace relacion al campo relacionado en otra tabla - Revisar
+            $dominio->numero_dom = $request->input('numero_dom');
 
             $objc->save();
 

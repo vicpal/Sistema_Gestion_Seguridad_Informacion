@@ -12,5 +12,9 @@ class Dominios extends Model
    use SoftDeletes;
    protected $dates = ['deleted_at'];
 
+   protected $fillable = [
+      'id', 'numero_dom', 'nombre_dom'
+   ];
+
 }
 

@@ -44,7 +44,7 @@
                             @foreach($objc as $obj)
                             <tr>
                                 <td>{{ $obj->id }}</td>
-                                <td></td>
+                                <td>{{ $obj->dominio_id}}</td>
                                 <td>{{ $obj->numero_objc }}</td>
                                 <td>{{ $obj->nombre_objc }}</td>
                                 <!-- <td>ver</td> -->
@@ -81,7 +81,7 @@
     </div>
     <!-- /.row -->
         <div class="footer">
-            <a href="{{ route('objcontrol.create') }}" class="btn btn-primary">Crear dominio</a>
+            <a href="{{ route('objcontrol.create') }}" class="btn btn-primary">Crear Obj-Control</a>
         </div>
 </section>
 <!-- /.content -->

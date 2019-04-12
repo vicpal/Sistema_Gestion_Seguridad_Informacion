@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="#" class="form-control" id="inputText"  value="#" readonly>
+                            <input type="Text" name="#" class="form-control" id="inputText" value="#" disabled>
                         </div>
                     </div>
                     <div class="form-group">
