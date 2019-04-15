@@ -32,12 +32,7 @@ class ObjcontrolController extends Controller
         return view('/sgsi/ObjControl/index', ['objc' => $objc]);
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
         return view('/sgsi/objcontrol/index', compact('objc'));*/
-        $dom = Dominios::select('dominios.numero_dom')
-                ->join('objcontrols', 'dominios.id', '=', 'objcontrols.dominio_id')
-                ->get();
-                    echo '$dominios';
-        return $dom;
-
+        
         //return view('/sgsi/objcontrol/index'); //view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
 
     }

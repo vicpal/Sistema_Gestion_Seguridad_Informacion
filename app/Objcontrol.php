@@ -15,6 +15,5 @@ class Objcontrol extends Model
     protected $fillable = [
         'id', 'numero_objc', 'nombre_objc', 'dominio_id'
      ];
-
     
 }

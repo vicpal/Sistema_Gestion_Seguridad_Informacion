@@ -44,7 +44,7 @@
                             @foreach($objc as $obj)
                             <tr>
                                 <td>{{ $obj->id }}</td>
-                                <td>{{ $obj->dominio_id}}</td>
+                                <td>{{ $obj->dominio_id}}</td> <!-- Traer el Num Dominio -->
                                 <td>{{ $obj->numero_objc }}</td>
                                 <td>{{ $obj->nombre_objc }}</td>
                                 <!-- <td>ver</td> -->
