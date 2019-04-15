@@ -28,11 +28,16 @@ class ObjcontrolController extends Controller
     public function index()
     {
 
-        $objc = DB::table('objcontrols')->paginate();
+        /*$objc = DB::table('objcontrols')->paginate();
         return view('/sgsi/ObjControl/index', ['objc' => $objc]);
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
         return view('/sgsi/objcontrol/index', compact('objc'));*/
-        
+        $objc = DB::table('objcontrols')
+        ->join('dominios', 'dominios.id', '=', 'objcontrols.dominio_id')
+        ->select('dominios.numero_dom', 'objcontrols.id', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
+        ->get();
+        return view('/sgsi/ObjControl/index', ['objc' => $objc]);
+        //dd($objc);
         //return view('/sgsi/objcontrol/index'); //view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
 
     }
@@ -52,8 +57,9 @@ class ObjcontrolController extends Controller
             $objc = new Objcontrol();
             $objc->numero_objc = $request->input('numero_objc');
             $objc->nombre_objc = $request->input('nombre_objc');
-            // Esta linea de abajo, hace relacion al campo relacionado en otra tabla - Revisar
-            $dominio->numero_dom = $request->input('numero_dom');
+            // Esta linea de abajo, hace relacion al campo relacionado en la tabla dominios.
+            // Al momento de hacer el INSERT manda un mensaje de error de integridad. 
+            $objc->dominio_id = $request->input('dominio_id');
 
             $objc->save();
 
