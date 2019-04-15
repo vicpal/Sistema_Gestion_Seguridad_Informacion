@@ -40,6 +40,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if($dominios->count())
                             @foreach($dominios as $dominio)
                             <tr>
                                 <td>{{ $dominio->id }}</td>
@@ -58,6 +59,11 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="8">No hay registro !!</td>
+                                </tr>
+                        @endif
                         </tbody>
                         <tfoot>
                             <tr>

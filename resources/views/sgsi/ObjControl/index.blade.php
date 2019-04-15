@@ -41,6 +41,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @if($objc->count())
                             @foreach($objc as $obj)
                             <tr>
                                 <td>{{ $obj->id }}</td>
@@ -60,6 +61,11 @@
                                 </td>
                             </tr>
                             @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="8">No hay registro !!</td>
+                                </tr>
+                        @endif
                         </tbody>
                         <tfoot>
                             <tr>
@@ -73,7 +79,7 @@
                     </table>
                     
                 </div>
-            <!-- /.box-body -->
+            <!-- /.box-body --> 
             </div>
           <!-- /.box -->
         </div>
