@@ -57,8 +57,7 @@ class ObjcontrolController extends Controller
             $objc = new Objcontrol();
             $objc->numero_objc = $request->input('numero_objc');
             $objc->nombre_objc = $request->input('nombre_objc');
-            // Esta linea de abajo, hace relacion al campo relacionado en la tabla dominios.
-            // Al momento de hacer el INSERT manda un mensaje de error de integridad. 
+            // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
             $objc->dominio_id = $request->input('dominio_id');
 
             $objc->save();
@@ -70,7 +69,7 @@ class ObjcontrolController extends Controller
     public function show($id)
     {
         $objc = Objcontrol::find($id);
-        return view('/sgsi/objcontrol/show',compact('objc'));
+        return view('/sgsi/objcontrol/show', compact('objc'));
     }
 
     public function edit($id)
@@ -84,6 +83,7 @@ class ObjcontrolController extends Controller
         $this->validate($request, [
             'numero_objc' => 'required|integer',
             'nombre_objc' => 'required|string',
+            'dominio_id' => 'required|integer',
         ]);
             $objc = Objcontrol::find($id);
             $objc->numero_objc = $request->input('numero_objc');

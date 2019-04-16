@@ -77,7 +77,7 @@
                             </tr>
                         </tfoot>
                     </table>
-                    
+                    <!-- EN ESTA LINEA VA EL PAGINATE pero no funciona -->
                 </div>
             <!-- /.box-body --> 
             </div>
