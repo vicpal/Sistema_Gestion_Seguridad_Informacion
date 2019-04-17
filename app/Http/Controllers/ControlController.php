@@ -31,7 +31,8 @@ class ControlController extends Controller
         $contr = DB::table('controls')
         ->join('dominios', 'dominios.id', '=', 'controls.dominio_id')
         ->join('objcontrols', 'objcontrols.id', '=', 'controls.objcontrol_id')
-        ->select('*')
+        ->where('controls.deleted_at', NULL)
+        ->select('controls.id', 'dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'controls.numero_con', 'controls.nombre_con')
         ->get();
 
         return view('/sgsi/Control/index', ['contr' => $contr]);
@@ -76,9 +77,38 @@ class ControlController extends Controller
         return view('/sgsi/control/show', compact('contr'));
     }
 
+    public function edit($id)
+    {
+        //$contr = Control::find($id);
+        $contr = DB::table('controls')
+        ->join('dominios', 'dominios.id', '=', 'controls.objcontrol_id')
+        ->join('objcontrols', 'objcontrols.id', '=', 'controls.objcontrol_id')
+        ->where('controls.id', $id)->first();
 
+        //dd($contr);
+        return view('/sgsi/control/edit', compact('contr'));
+    }
 
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'numero_con' => 'required|integer',
+            'nombre_con' => 'required|string',
+            
+        ]);
+            Control::find($id)->update($request->all());
+            //$contr->numero_con = $request->input('numero_con');
+            //$contr->nombre_con = $request->input('nombre_con');
 
+            $contr->save();
 
+            return redirect()->route('control.edit', $id)->with('success','Control Actualizado Satisfactoriamente');
+    }
+
+    public function destroy($id)
+    {
+        Control::find($id)->delete();
+        return redirect()->route('control.index')->with('success','Dominio Eliminado Satisfactoriamente');
+    }
 
 }

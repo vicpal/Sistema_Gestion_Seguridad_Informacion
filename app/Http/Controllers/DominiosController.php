@@ -27,10 +27,10 @@ class DominiosController extends Controller
 
     public function index()
     {
-        $dominios = DB::table('dominios')->paginate(6);
-        return view('/sgsi/listado', ['dominios' => $dominios]);
-        /*
-        $dominios = Dominios::orderBy('id','ASC')->paginate();
+        $dominios = DB::table('dominios')->where('deleted_at', NULL)->paginate(6);
+        return view('/sgsi/listado', compact('dominios'));
+        
+        /*$dominios = Dominios::orderBy('id','ASC')->paginate();
         return view('/sgsi/listado', compact('dominios'));*/
         
     }

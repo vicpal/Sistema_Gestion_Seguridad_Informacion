@@ -34,6 +34,7 @@ class ObjcontrolController extends Controller
         return view('/sgsi/objcontrol/index', compact('objc'));*/
         $objc = DB::table('objcontrols')
         ->join('dominios', 'dominios.id', '=', 'objcontrols.dominio_id')
+        ->where('objcontrols.deleted_at', NULL)
         ->select('dominios.numero_dom', 'objcontrols.id', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
         ->get();
         return view('/sgsi/ObjControl/index', ['objc' => $objc]);
