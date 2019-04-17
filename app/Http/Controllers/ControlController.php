@@ -31,7 +31,7 @@ class ControlController extends Controller
         $contr = DB::table('controls')
         ->join('dominios', 'dominios.id', '=', 'controls.dominio_id')
         ->join('objcontrols', 'objcontrols.id', '=', 'controls.objcontrol_id')
-        ->select('controls.id', 'dominios.numero_dom', 'objcontrols.numero_objc', 'controls.numero_con', 'controls.nombre_con')
+        ->select('*')
         ->get();
 
         return view('/sgsi/Control/index', ['contr' => $contr]);
@@ -41,15 +41,8 @@ class ControlController extends Controller
 
     public function create()
     {
-        $contr = DB::table('controls')
-        ->join('dominios', 'dominios.id', '=', 'controls.dominio_id')
-        ->join('objcontrols', 'objcontrols.id', '=', 'controls.objcontrol_id')
-        ->select('controls.id', 'dominios.id', 'dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.id', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'controls.dominio_id', 'controls.objcontrol_id', 'controls.numero_con', 'controls.nombre_con')
-        ->get();
-        //dd($contr);
-        return view('/sgsi/control/create', ['contr' => $contr]);
-        
-        //return view('/sgsi/control/create');
+        $contr = Dominios::all();
+        return view('/sgsi/control/create', compact('contr'));
     }
 
     public function store(Request $request)

@@ -32,10 +32,10 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="dominio_id" id="dominio_id" required>
+                            <select class="form-control" name="id" id="id" required>
                                 <option value=""> -- Escoja el Dominio -- </option>
                                @foreach ($contr as $cont)
-                                    <option value="{{ $cont->dominio_id }}">{{ $cont->nombre_dom }}</option>
+                                    <option value="{{ $cont->id }}">{{ $cont->nombre_dom }}</option>
                                @endforeach
                             </select>
                         </div>
@@ -43,10 +43,10 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" required>
+                            <select class="form-control" name="dominio_id" id="dominio_id" required>
                                 <option value=""> -- Escoja el Obj de Control -- </option>
                                @foreach ($contr as $cont)
-                                    <option value="{{ $cont->objcontrol_id }}">{{ $cont->nombre_objc }}</option>
+                                    <option value="{{ $cont->dominio_id }}">{{ $cont->nombre_objc }}</option>
                                @endforeach
                             </select>
                         </div>

@@ -15,6 +15,7 @@ class CreatePreguntasTable extends Migration
     {
         Schema::create('preguntas', function (Blueprint $table) {
             $table->bigIncrements('id'); /*Esta debe ser llave Primaria */
+            $table->integer('numero_preg')->unique();
             $table->string('nombre_preg');
             
             $table->unsignedBigInteger('control_id');
