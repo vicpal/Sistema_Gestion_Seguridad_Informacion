@@ -41,15 +41,18 @@ class ControlController extends Controller
 
     public function create()
     {
-        $contr = Dominios::all();
+        $contr = DB::table('dominios')
+        ->join('objcontrols', 'objcontrols.dominio_id', '=', 'dominios.id')
+        ->select('dominios.id', 'dominios.nombre_dom', 'objcontrols.id', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
+        ->get();
+        
+        //dd($contr);
         return view('/sgsi/control/create', compact('contr'));
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'numero_dom' => 'required|integer',
-            'numero_objc' => 'required|integer',
             'numero_con' => 'required|integer',
             'nombre_con' => 'required|string',
         ]);
