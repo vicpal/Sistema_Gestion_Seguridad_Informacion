@@ -46,8 +46,8 @@
                             @foreach($contr as $cont)
                             <tr>
                                 <td>{{ $cont->id }}</td>
-                                <td>{{ $cont->numero_dom }}</td> <!-- Traer el Num Dominio -->
-                                <td>{{ $cont->numero_objc }}</td>
+                                <td>{{ $cont->dominio->numero_dom }}</td> <!-- Traer el Num Dominio -->
+                                <td>{{ $cont->objcontrol->numero_objc }}</td>
                                 <td>{{ $cont->numero_con }}</td>
                                 <td>{{ $cont->nombre_con }}</td>
                                 <!-- <td>ver</td> -->
