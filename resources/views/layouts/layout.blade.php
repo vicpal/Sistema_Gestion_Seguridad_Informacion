@@ -131,8 +131,8 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
-				<li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Opcion 2</a></li>
+				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
+				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Opcion 2</a></li>
 				<li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Opcion 3</a></li>
 			</ul>
 			</li>
