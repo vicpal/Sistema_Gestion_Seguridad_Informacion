@@ -28,16 +28,16 @@ class ObjcontrolController extends Controller
     public function index()
     {
 
-        /*$objc = DB::table('objcontrols')->paginate();
-        return view('/sgsi/ObjControl/index', ['objc' => $objc]);
+        $objc=Objcontrol::orderBy('id','ASC')->paginate(3);
+        return view('/sgsi/ObjControl/index', compact('objc'));
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
-        return view('/sgsi/objcontrol/index', compact('objc'));*/
+        return view('/sgsi/objcontrol/index', compact('objc'));
         $objc = DB::table('objcontrols')
         ->join('dominios', 'dominios.id', '=', 'objcontrols.dominio_id')
         ->where('objcontrols.deleted_at', NULL)
         ->select('dominios.numero_dom', 'objcontrols.id', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
-        ->get();
-        return view('/sgsi/ObjControl/index', ['objc' => $objc]);
+        ->get();*/
+        
         //dd($objc);
         //return view('/sgsi/objcontrol/index'); //view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
 

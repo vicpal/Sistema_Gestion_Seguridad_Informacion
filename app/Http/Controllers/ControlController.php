@@ -28,14 +28,17 @@ class ControlController extends Controller
     public function index()
     {
 
-        $contr = DB::table('controls')
+        $contr=Control::orderBy('id','ASC')->paginate(3);
+        return view('/sgsi/control/index', compact('contr'));
+
+        /*$contr = DB::table('controls')
         ->join('dominios', 'dominios.id', '=', 'controls.dominio_id')
         ->join('objcontrols', 'objcontrols.id', '=', 'controls.objcontrol_id')
         ->where('controls.deleted_at', NULL)
         ->select('controls.id', 'dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'controls.numero_con', 'controls.nombre_con')
         ->get();
 
-        return view('/sgsi/Control/index', ['contr' => $contr]);
+        return view('/sgsi/Control/index', ['contr' => $contr]);*/
         //return view('/sgsi/objcontrol/index'); //view('/unacarpeta/subcarpeta/terceracarpeta/nesimacarpeta/nombre_del_archivo_sin_blade.php')
 
     }

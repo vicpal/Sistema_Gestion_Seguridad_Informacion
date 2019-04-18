@@ -32,13 +32,13 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Número del Dominio</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_dom" class="form-control" id="inputNumber" placeholder="Número">
+                            <input type="number" name="numero_dom" class="form-control" id="inputNumber" placeholder="Número"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="nombre_dom" class="form-control" id="inputText" placeholder="Nombre del Dominio">
+                            <input type="Text" name="nombre_dom" class="form-control" id="inputText" placeholder="Nombre del Dominio" required>
                         </div>
                     </div>
                 </div>

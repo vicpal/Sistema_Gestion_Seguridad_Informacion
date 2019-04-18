@@ -25,6 +25,10 @@
                 <h3 class="box-title">Registrar Nuevo Control</h3>
             </div>
             <!-- /.box-header -->
+            <!-- Script para Habilitar los campos del Formulario -->
+            <script>
+                function cambio(){ $('#objcontrol_id').attr('disabled', false); $('#numero_con').attr('disabled',false); $('#nombre_con').attr('disabled',false);}
+            </script>
             <!-- form start -->
             <form class="form-horizontal" action="{{ route('control.store') }}" method="POST" role="form">
             {{ csrf_field() }}
@@ -32,7 +36,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="dominio_id" id="dominio_id" required>
+                            <select class="form-control" name="dominio_id" id="dominio_id" required onChange="cambio()">
                                 <option value=""> -- Escoja el Dominio -- </option>
                                 @foreach ($contr as $cont)
                                     <option value="{{ $cont->id }}">{{ $cont->nombre_dom }}</option>
@@ -43,7 +47,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" required>
+                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required>
                                 <option value=""> -- Escoja el Obj de Control -- </option>
                                @foreach ($contr as $cont)
                                     <option value="{{ $cont->id }}">{{ $cont->nombre_objc }}</option>
@@ -54,13 +58,13 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Control</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_con" id="numero_con" class="form-control" placeholder="Número">
+                            <input type="number" name="numero_con" id="numero_con" class="form-control" placeholder="Número" disabled required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Control</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="nombre_con" id="nombre_con" class="form-control" placeholder="Nombre del Dominio">
+                            <input type="Text" name="nombre_con" id="nombre_con" class="form-control" placeholder="Nombre del Dominio" disabled required>
                         </div>
                     </div>
                 </div>

@@ -80,7 +80,7 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <!-- EN ESTA LINEA VA EL PAGINATE pero no funciona -->
+                    {{ $contr->links() }}
                 </div>
             <!-- /.box-body --> 
             </div>
