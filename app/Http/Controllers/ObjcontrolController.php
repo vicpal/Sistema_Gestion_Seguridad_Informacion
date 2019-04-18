@@ -75,7 +75,8 @@ class ObjcontrolController extends Controller
 
     public function edit($id)
     {
-        $objc = Objcontrol::find($id);
+        $objc=Objcontrol::find($id);
+        //dd($objc->dominio->nombre_dom, $objc->dominio->id);
         return view('/sgsi/objcontrol/edit', compact('objc'));
     }
 
@@ -84,7 +85,7 @@ class ObjcontrolController extends Controller
         $this->validate($request, [
             'numero_objc' => 'required|integer',
             'nombre_objc' => 'required|string',
-            'dominio_id' => 'required|integer',
+
         ]);
             $objc = Objcontrol::find($id);
             $objc->numero_objc = $request->input('numero_objc');

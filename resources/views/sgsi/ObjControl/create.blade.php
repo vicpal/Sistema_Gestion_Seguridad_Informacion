@@ -25,14 +25,18 @@
                 <h3 class="box-title">Registrar Nuevo Objetivo de Control</h3>
             </div>
             <!-- /.box-header -->
-            <!-- form start -->
+            <!-- Script para Habilitar los campos del Formulario -->
+            <script>
+                function cambio(){ $('#numero_objc').attr('disabled', false); $('#nombre_objc').attr('disabled',false);}
+            </script>
+             <!-- form start -->
             <form class="form-horizontal" action="{{ route('objcontrol.store') }}" method="POST" role="form">
             {{ csrf_field() }}
                 <div class="box-body">
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="dominio_id" id="dominio_id" required>
+                            <select class="form-control" name="dominio_id" id="dominio_id" required onChange="cambio()">
                                 <option value=""> -- Escoja el Dominio -- </option>
                                @foreach ($dominios as $dominio)
                                     <option value="{{ $dominio->id }}">{{ $dominio->nombre_dom }}</option>
@@ -43,13 +47,13 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Obj Control</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_objc" id="numero_objc" class="form-control" placeholder="Número">
+                            <input type="number" name="numero_objc" id="numero_objc" class="form-control" placeholder="Número" disabled required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Objetivo de Control</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="nombre_objc" id="nombre_objc" class="form-control" placeholder="Nombre del Dominio">
+                            <input type="Text" name="nombre_objc" id="nombre_objc" class="form-control" placeholder="Nombre del Dominio" disabled required>
                         </div>
                     </div>
                 </div>

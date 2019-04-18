@@ -33,7 +33,7 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Número del Dominio</label>
                         <div class="col-sm-2">
-                            <input type="text" name="numero_dom" class="form-control" id="inputNumber" value="{{ $dominios->numero_dom }}">
+                            <input type="text" name="numero_dom" class="form-control" id="inputNumber" value="{{ $dominios->numero_dom }}" disabled>
                         </div>
                     </div>
                     <div class="form-group">

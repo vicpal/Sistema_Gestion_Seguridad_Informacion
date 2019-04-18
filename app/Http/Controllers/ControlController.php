@@ -79,13 +79,8 @@ class ControlController extends Controller
 
     public function edit($id)
     {
-        //$contr = Control::find($id);
-        $contr = DB::table('controls')
-        ->join('dominios', 'dominios.id', '=', 'controls.objcontrol_id')
-        ->join('objcontrols', 'objcontrols.id', '=', 'controls.objcontrol_id')
-        ->where('controls.id', $id)->first();
-
-        //dd($contr);
+        $contr = Control::find($id);
+        //dd($contr->dominio->nombre_dom, $contr->objcontrol->nombre_objc);
         return view('/sgsi/control/edit', compact('contr'));
     }
 
@@ -96,12 +91,11 @@ class ControlController extends Controller
             'nombre_con' => 'required|string',
             
         ]);
-            Control::find($id)->update($request->all());
-            //$contr->numero_con = $request->input('numero_con');
-            //$contr->nombre_con = $request->input('nombre_con');
+            $contr = Control::find($id);
+            $contr->numero_con = $request->input('numero_con');
+            $contr->nombre_con = $request->input('nombre_con');
 
             $contr->save();
-
             return redirect()->route('control.edit', $id)->with('success','Control Actualizado Satisfactoriamente');
     }
 

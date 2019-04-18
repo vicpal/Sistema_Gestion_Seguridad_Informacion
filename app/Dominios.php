@@ -15,5 +15,15 @@ class Dominios extends Model
    protected $table = 'dominios';
    protected $fillable = ['id', 'numero_dom', 'nombre_dom'];
 
+   //DOMINIO (1)------(*) OBJCONTROL Primera relacion (ONE TO MANY)
+   public function objcontrols(){
+      return $this->hasMany('App\Objcontrol');
+   }
+
+   //DOMINIO (1) ------------> (*) CONTROL (ONE TO MANY)
+   public function controls(){
+      return $this->hasMany('App\Control');
+   }
+ 
 }
 

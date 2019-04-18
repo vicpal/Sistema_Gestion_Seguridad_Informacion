@@ -14,5 +14,16 @@ class Objcontrol extends Model
 
     protected $table = 'objcontrols';
     protected $fillable = ['id', 'numero_objc', 'nombre_objc', 'dominio_id'];
+
+    //OBJCONTROL (*)---------(1) DOMINIO one to many inverse
+
+    public function dominio(){
+        return $this->belongsTo('App\Dominios');
+    }
+
+    //OBJCONTROL (1) -----------> (*) CONTROL - ONE TO MANY
+    public function controls(){
+        return $this->hasMany('App\Control');
+    }
     
 }

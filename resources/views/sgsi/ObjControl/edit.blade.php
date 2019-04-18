@@ -34,7 +34,7 @@
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
                             <select class="form-control" name="dominio_id" id="dominio_id" disabled>
-                                <option value="">{{ $objc->dominio_id }}</option>
+                                <option value="{{ $objc->dominio->id }}">{{ $objc->dominio->nombre_dom }}</option>
                             </select>
                         </div>
                     </div>

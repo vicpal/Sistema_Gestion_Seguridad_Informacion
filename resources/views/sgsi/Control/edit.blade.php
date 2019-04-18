@@ -28,12 +28,13 @@
             <!-- form start -->
             <form class="form-horizontal" action="{{ route('control.update', $contr->id) }}" method="POST" role="form">
             {{ csrf_field() }}
+            <input name="_method" type="hidden" value="PATCH">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
                             <select class="form-control" name="dominio_id" id="dominio_id" disabled>
-                                <option value="">{{ $contr->nombre_dom }}</option>
+                                <option value="{{ $contr->dominio->id }}">{{ $contr->dominio->nombre_dom }}</option>
                             </select>
                         </div>
                     </div>
@@ -41,7 +42,7 @@
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">
                             <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled>
-                                <option value="">{{ $contr->nombre_objc }}</option>
+                                <option value="{{ $contr->objcontrol->id }}">{{ $contr->objcontrol->nombre_objc }}</option>
                             </select>
                         </div>
                     </div>

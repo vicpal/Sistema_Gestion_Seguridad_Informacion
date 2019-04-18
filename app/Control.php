@@ -14,4 +14,14 @@ class Control extends Model
     protected $table = 'controls';
     protected $fillable = ['numero_con', 'nombre_con'];
 
+// CONTROL (*) -------------> (1) DOMINIOS one to many inverse
+    public function dominio(){
+        return $this->belongsTo('App\Dominios');
+    }
+
+    //CONTROL (*) -------------> (1) OBJCONTROL ONE TO MANY INVERSE
+    public function objcontrol(){
+        return $this->belongsTo('App\Objcontrol');
+    }
+
 }
