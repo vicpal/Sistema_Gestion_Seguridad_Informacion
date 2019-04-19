@@ -22,45 +22,39 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Registrar Nueva Pregunta</h3>
+                <h3 class="box-title">Editar Control</h3>
             </div>
             <!-- /.box-header -->
-            <!-- Script para Habilitar los campos del Formulario -->
-            <script>
-                function cambio(){ $('#numero_preg').attr('disabled',false); $('#nombre_preg').attr('disabled',false);}
-            </script>
             <!-- form start -->
-            <form class="form-horizontal" action="{{ route('preguntas.store') }}" method="POST" role="form">
+            <form class="form-horizontal" action="{{ route('preguntas.update', $pregu->id) }}" method="POST" role="form">
             {{ csrf_field() }}
+            <input name="_method" type="hidden" value="PATCH">
                 <div class="box-body">
-                    <div class="form-group">
+                <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Control</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="control_id" id="control_id" required onChange="cambio()">
-                                <option value=""> -- Escoja el Control -- </option>
-                                @foreach ($contr as $cont)
-                                    <option value="{{ $cont->id }}">{{ $cont->nombre_con }}</option>
-                                @endforeach
+                            <select class="form-control" name="control_id" id="control_id" disabled>
+                                <option value="{{ $pregu->control->id }}">{{ $pregu->control->nombre_con }}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Pregunta</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_preg" id="numero_preg" class="form-control" placeholder="Núm Pregunta" disabled required>
+                            <input type="number" name="numero_preg" id="numero_preg" class="form-control" placeholder="Núm Pregunta" value="{{ $pregu->numero_preg }}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Descripción de la Pregunta</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Pregunta" disabled required>
+                            <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Pregunta" value="{{ $pregu->nombre_preg }}" required>
                         </div>
                     </div>
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <a href="{{ route('preguntas.index') }}" class="btn btn-default">Volver al Listado</a>
-                    <button type="submit" class="btn btn-primary pull-right">Crear Pregunta</button>
+                    <button type="submit" class="btn btn-primary pull-right">Editar Pregunta</button>
                 </div>
               <!-- /.box-footer -->
             </form>

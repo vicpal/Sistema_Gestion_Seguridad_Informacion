@@ -105,7 +105,7 @@ class ControlController extends Controller
     public function destroy($id)
     {
         Control::find($id)->delete();
-        return redirect()->route('control.index')->with('success','Dominio Eliminado Satisfactoriamente');
+        return redirect()->route('control.index')->with('success','Control Eliminado Satisfactoriamente');
     }
 
 }

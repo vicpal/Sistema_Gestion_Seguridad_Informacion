@@ -53,8 +53,39 @@ class PreguntasController extends Controller
             return redirect()->route('preguntas.create')->with('success','Pregunta Creada Satisfactoriamente');
     }
 
+    public function show($id)
+    {
+        $pregu = Preguntas::find($id);
+        return view('/sgsi/pregunta/show', compact('pregu'));
+    }
 
+    public function edit($id)
+    {
+        $pregu = Preguntas::find($id);
+        //dd($pregu->preguntas->numero_preg, $pregu->preguntas->nombre_preg);
+        return view('/sgsi/pregunta/edit', compact('pregu'));
+    }
 
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'numero_preg' => 'required|integer',
+            'nombre_preg' => 'required|string',
+            
+        ]);
+            $pregu = Preguntas::find($id);
+            $pregu->numero_preg = $request->input('numero_preg');
+            $pregu->nombre_preg = $request->input('nombre_preg');
+
+            $pregu->save();
+            return redirect()->route('preguntas.edit', $id)->with('success','Pregunta Actualizada Satisfactoriamente');
+    }
+
+    public function destroy($id)
+    {
+        Preguntas::find($id)->delete();
+        return redirect()->route('preguntas.index')->with('success','Pregunta Eliminada Satisfactoriamente');
+    }
 
 
 }
