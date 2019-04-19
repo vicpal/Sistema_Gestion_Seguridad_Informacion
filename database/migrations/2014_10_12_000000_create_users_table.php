@@ -22,6 +22,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->unsignedBigInteger('tipoUsuario_id'); // Este campo se agrego manualmente para relacionar
+            // con la tabla TIPOS DE USUARIOS. Asi debemos crear un modulo para la creación de
+            // usuarios del sistema.
+            $table->foreign('tipoUsuario_id')->references('id')->on('tipos_usuario');
         });
     }
 
