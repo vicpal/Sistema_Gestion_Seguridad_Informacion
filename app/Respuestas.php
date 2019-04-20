@@ -35,4 +35,9 @@ class Respuestas extends Model
         return $this->belongsTo('App\Encuesta');
     }
 
+    // RESPUESTAS (*) -------------> (1) USER one to many inverse
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
 }

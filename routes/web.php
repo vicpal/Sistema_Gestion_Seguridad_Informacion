@@ -39,4 +39,5 @@ Route::resource('sgsi/preguntas','PreguntasController');
 Route::resource('sgsi/respuestas','RespuestasController');
 Route::resource('sgsi/encuesta','EncuestaController');
 Route::resource('sgsi/reportepdf','ReportePDFController');
+Route::resource('sgsi/user','UserController');
 
