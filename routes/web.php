@@ -37,10 +37,3 @@ Route::resource('sgsi/objcontrol','ObjcontrolController');//url que se coloca en
 Route::resource('sgsi/control','ControlController');
 Route::resource('sgsi/preguntas','PreguntasController');
 Route::resource('sgsi/respuestas','RespuestasController');
-
-Route::get(' sgsi/respuestas/{respuesta}.show', function (Request $request, $id) {
-    return $request->respuestas()->downloadInvoice($id, [
-        'vendor'  => 'PERSON',
-        'product' => 'FIRST PERSON',
-    ]);
-});
