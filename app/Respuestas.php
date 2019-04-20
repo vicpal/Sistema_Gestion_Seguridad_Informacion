@@ -15,7 +15,7 @@ class Respuestas extends Model
         return $this->belongsTo('App\Dominios');
     }
 
-    //RESPUESTAS (*) -------------> (1) OBJCONTROL ONE TO MANY INVERSE
+    //RESPUESTAS (*) -------------> (1) OBJCONTROL one to many inverse
     public function objcontrol(){
         return $this->belongsTo('App\Objcontrol');
     }
@@ -30,5 +30,9 @@ class Respuestas extends Model
         return $this->belongsTo('App\Preguntas');
     }
 
+    // RESPUESTAS (*) -------------> (1) ENCUESTA one to many inverse
+    public function encuesta(){
+        return $this->belongsTo('App\Encuesta');
+    }
 
 }

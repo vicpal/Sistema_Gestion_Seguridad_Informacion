@@ -61,6 +61,6 @@ class RespuestasController extends Controller
         return view('/sgsi/respuestas/show', compact('respu'));
     }
 
-
+    
 
 }

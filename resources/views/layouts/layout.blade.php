@@ -131,9 +131,9 @@
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
-				<li><a href="{{ route('respuestas.index') }}"><i class="fa fa-circle-o"></i> Encuestas Realizadas</a></li>
-				<li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Opcion 3</a></li>
+				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Crear Preguntas</a></li>
+				<li><a href="{{ route('encuesta.index') }}"><i class="fa fa-circle-o"></i> Encuestas Realizadas</a></li>
+				<li><a href="{{ route('respuestas.index') }}"><i class="fa fa-circle-o"></i> Tabla de Resultados</a></li>
 			</ul>
 			</li>
 
@@ -215,19 +215,7 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
-<script>
-  $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
-  })
-</script>
+
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

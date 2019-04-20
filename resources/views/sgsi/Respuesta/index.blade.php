@@ -38,9 +38,10 @@
                                 <th>Núm Obj. Control</th>
                                 <th>Núm Control</th>
                                 <th>Núm Preg</th>
+                                <th>Núm Encue</th>
+                                <th>Usuario</th>
                                 <th>Respuesta</th>
-                                <th>Núm Enc</th>
-                                <th colspan="1">PDF</th>
+                                <!-- <th colspan="1">PDF</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -52,13 +53,14 @@
                                 <td>{{ $resp->objcontrol->numero_objc }}</td>
                                 <td>{{ $resp->control->numero_con }}</td>
                                 <td>{{ $resp->pregunta->numero_preg }}</td>
+                                <td>{{ $resp->encuesta->encuesta_num }}</td>
+                                <td>{{ $resp->usuario_id }}</td>
                                 <td>{{ $resp->respuesta }}</td>
-                                <td>{{ $resp->encuesta_num }}</td>
-                                <td>
+                                <!-- <td>
                                     <a href=" " class="btn btn-primary btn-xs" method="POST">
                                         <span class="glyphicon glyphicon-download-alt"></span>
                                     </a>
-                                </td>
+                                </td> -->
                             </tr>
                             @endforeach
                             @else
@@ -74,9 +76,10 @@
                                 <th>Núm Obj. Control</th>
                                 <th>Núm Control</th>
                                 <th>Núm Preg</th>
+                                <th>Núm Encue</th>
+                                <th>Usuario</th>
                                 <th>Respuesta</th>
-                                <th>Núm Enc</th>
-                                <th colspan="1">PDF</th>
+                                <!-- <th colspan="1">PDF</th> -->
                             </tr>
                         </tfoot>
                     </table>
