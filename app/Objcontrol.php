@@ -16,7 +16,6 @@ class Objcontrol extends Model
     protected $fillable = ['id', 'numero_objc', 'nombre_objc', 'dominio_id'];
 
     //OBJCONTROL (*)---------(1) DOMINIO one to many inverse
-
     public function dominio(){
         return $this->belongsTo('App\Dominios');
     }
@@ -26,4 +25,8 @@ class Objcontrol extends Model
         return $this->hasMany('App\Control');
     }
     
+    //OBJCONTROL (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    public function respuestas(){
+        return $this->hasMany('App\Respuestas');
+    }
 }

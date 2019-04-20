@@ -19,5 +19,9 @@ class Preguntas extends Model
         return $this->belongsTo('App\Control');
     }
 
+    //PREGUNTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    public function respuestas(){
+    return $this->hasMany('App\Respuestas');
+    }
 
 }

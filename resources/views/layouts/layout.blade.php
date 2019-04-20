@@ -95,7 +95,7 @@
 			</div>
 		</div>
 		<!-- search form -->
-		<form action="#" method="get" class="sidebar-form">
+		<form action=" " method="get" class="sidebar-form">
 			<div class="input-group">
 			<input type="text" name="q" class="form-control" placeholder="Search...">
 			<span class="input-group-btn">
@@ -125,15 +125,28 @@
 			<li class="treeview">
 			<a href="#">
 				<i class="fa fa-laptop"></i>
-				<span>Encuentas</span>
+				<span>Preparar Encuesta</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 			<ul class="treeview-menu">
 				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
-				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Opcion 2</a></li>
+				<li><a href="{{ route('respuestas.index') }}"><i class="fa fa-circle-o"></i> Encuestas Realizadas</a></li>
 				<li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Opcion 3</a></li>
+			</ul>
+			</li>
+
+			<li class="treeview">
+			<a href="#">
+				<i class="fa fa-laptop"></i>
+				<span>Usuarios de Sistema</span>
+				<span class="pull-right-container">
+				<i class="fa fa-angle-left pull-right"></i>
+				</span>
+			</a>
+			<ul class="treeview-menu">
+				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
 			</ul>
 			</li>
 		</ul>
@@ -202,6 +215,19 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()

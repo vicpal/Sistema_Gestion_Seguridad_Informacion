@@ -29,5 +29,9 @@ class Control extends Model
         return $this->hasMany('App\Preguntas');
     }
 
+    //CONTROL (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    public function respuestas(){
+    return $this->hasMany('App\Respuestas');
+    }
 
 }
