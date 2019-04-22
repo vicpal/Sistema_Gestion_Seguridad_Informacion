@@ -30,6 +30,7 @@ class ObjcontrolController extends Controller
 
         $objc=Objcontrol::orderBy('id','ASC')->paginate(3);
         return view('/sgsi/ObjControl/index', compact('objc'));
+        
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
         return view('/sgsi/objcontrol/index', compact('objc'));
         $objc = DB::table('objcontrols')

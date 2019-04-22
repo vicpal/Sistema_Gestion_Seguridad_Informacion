@@ -12,7 +12,7 @@ class Control extends Model
     protected $dates = ['deleted_at'];
 
     protected $table = 'controls';
-    protected $fillable = ['numero_con', 'nombre_con'];
+    protected $fillable = ['id', 'numero_con', 'nombre_con', 'dominio_id', 'objcontrol_id'];
 
     /* ---------------------------------------------------------------------- */
 

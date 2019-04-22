@@ -39,21 +39,29 @@
                             <select class="form-control" name="dominio_id" id="dominio_id" required onChange="cambio()">
                                 <option value=""> -- Escoja el Dominio -- </option>
                                 @foreach ($contr as $cont)
-                                    <option value="{{ $cont->id }}">{{ $cont->nombre_dom }}</option>
+                                    @if($contr->count())
+                                        <option value="{{ $cont->id }}">{{ $cont->nombre_dom }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
+                        
                         <div class="col-sm-8">
                             <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required>
                                 <option value=""> -- Escoja el Obj de Control -- </option>
-                               @foreach ($contr as $cont)
-                                    <option value="{{ $cont->id }}">{{ $cont->nombre_objc }}</option>
+                                @foreach ($contr as $cont)
+                                    @if($contr->count())
+                                        @if($cont->id == $cont->dominio_id)
+                                            <option value="{{ $cont->id }}">{{ $cont->nombre_objc }}</option>
+                                        @endif
+                                    @endif
                                @endforeach
                             </select>
                         </div>
+                        
                     </div>
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Control</label>

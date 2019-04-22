@@ -47,9 +47,10 @@ class ControlController extends Controller
     {
         $contr = DB::table('dominios')
         ->join('objcontrols', 'objcontrols.dominio_id', '=', 'dominios.id')
-        ->select('dominios.id', 'dominios.nombre_dom', 'objcontrols.id', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
+        ->select('dominios.id', 'dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.id', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
         ->get();
         
+        //$contr = Dominios::all();
         //dd($contr);
         return view('/sgsi/control/create', compact('contr'));
     }
