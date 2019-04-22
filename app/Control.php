@@ -14,7 +14,9 @@ class Control extends Model
     protected $table = 'controls';
     protected $fillable = ['numero_con', 'nombre_con'];
 
-    // CONTROL (*) -------------> (1) DOMINIOS one to many inverse
+    /* ---------------------------------------------------------------------- */
+
+    // CONTROL (*) -------------> (1) DOMINIOS ONE TO MANY INVERSE
     public function dominio(){
         return $this->belongsTo('App\Dominios');
     }
@@ -23,6 +25,8 @@ class Control extends Model
     public function objcontrol(){
         return $this->belongsTo('App\Objcontrol');
     }
+
+    /* --------------------------------------------------------------------- */
 
     //CONTROL (1) ------------> (*) PREGUNTAS (ONE TO MANY)
     public function preguntas(){
@@ -33,5 +37,11 @@ class Control extends Model
     public function respuestas(){
     return $this->hasMany('App\Respuestas');
     }
+
+    //CONTROL (1) ------------> (*) ENCUESTAS (ONE TO MANY)
+    public function encuestas(){
+        return $this->hasMany('App\Encuesta');
+    }
+    
 
 }

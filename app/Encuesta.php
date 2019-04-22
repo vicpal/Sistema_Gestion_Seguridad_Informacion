@@ -14,10 +14,33 @@ class Encuesta extends Model
     protected $table = 'encuestas';
     protected $fillable = ['id', 'encuesta_num'];
 
-    //ENCUESTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
-    public function respuestas(){
-    return $this->hasMany('App\Respuestas');
+    /* ------------------------------------------------------------ */
+
+    //ENCUESTA (*)---------(1) DOMINIO ONE TO MANY INVERSE
+    public function dominio(){
+        return $this->belongsTo('App\Dominios');
+    }
+    
+    //ENCUESTA (*)---------(1) OBJCONTROL ONE TO MANY INVERSE
+    public function objcontrol(){
+        return $this->belongsTo('App\Objcontrol');
     }
 
+    //ENCUESTA (*)---------(1) CONTROL ONE TO MANY INVERSE
+    public function control(){
+        return $this->belongsTo('App\Control');
+    }
+
+    /* ------------------------------------------------------------ */
+
+    //ENCUESTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    public function preguntas(){
+        return $this->hasMany('App\Preguntas');
+    }
+    
+    //ENCUESTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    public function respuestas(){
+        return $this->hasMany('App\Respuestas');
+    }
 
 }

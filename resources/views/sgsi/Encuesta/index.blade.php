@@ -36,7 +36,7 @@
                                 <th>Id</th>
                                 <th>Núm Encuesta</th>
                                 <th>Creada</th>
-                                <th colspan="2">Opciones</th>
+                                <th colspan="3">Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +47,11 @@
                                 <td>{{ $enc->encuesta_num }}</td>
                                 <td>{{ $enc->created_at }}</td>
                                 <td>
+                                    <a href="{{ route('encuesta.show', $enc->id) }}" class="btn btn-primary btn-xs" method="POST">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                </td>
+                                <td>
                                     <form action="{{ route('encuesta.destroy', $enc->id) }}" method="POST">
                                         {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
@@ -54,7 +59,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <a href=" " class="btn btn-primary btn-xs" method="POST">
+                                    <a href="{{ route('encuesta.index', $enc->id) }}" class="btn btn-primary btn-xs" method="POST">
                                         <span class="glyphicon glyphicon-download-alt"></span>
                                     </a>
                                 </td>
@@ -71,7 +76,7 @@
                                 <th>Id</th>
                                 <th>Núm Encuesta</th>
                                 <th>Creada</th>
-                                <th colspan="2">Opciones</th>
+                                <th colspan="3">Opciones</th>
                             </tr>
                         </tfoot>
                     </table>

@@ -14,14 +14,24 @@ class Preguntas extends Model
     protected $table = 'preguntas';
     protected $fillable = ['id', 'numero_preg', 'nombre_preg', 'control_id'];
 
+    /* ------------------------------------------------------------- */
+    
     //PREGUNTAS (*) -------------> (1) CONTROL ONE TO MANY INVERSE
     public function control(){
         return $this->belongsTo('App\Control');
     }
 
+    //PREGUNTAS (*) -------------> (1) ENCUESTA ONE TO MANY INVERSE
+    public function encuesta(){
+        return $this->belongsTo('App\Encuesta');
+    }
+
+    /* ------------------------------------------------------------ */
+    
     //PREGUNTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
     public function respuestas(){
-    return $this->hasMany('App\Respuestas');
+        return $this->hasMany('App\Respuestas');
     }
+
 
 }

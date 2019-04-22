@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Encuesta;
+use App\Preguntas;
+use App\Respuestas;
 
 class EncuestaController extends Controller
 {
@@ -28,6 +30,19 @@ class EncuestaController extends Controller
         return view('/sgsi/encuesta/index', compact('encu'));
     }
 
+    public function create()
+    {
+        $encu = Respuestas::all();
+        return view('/sgsi/respuestas/create', compact('encu'));
+    }
+
+    public function show($id)
+    {
+        $encu = Respuestas::find($id);
+        //dd($encu);
+        return view('/sgsi/encuesta/show', compact('encu'));
+    }
+    
     public function destroy($id)
     {
         Encuesta::find($id)->delete();

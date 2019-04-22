@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Respuestas extends Model
 {
     protected $table = 'respuestas';
-    protected $fillable = ['id', 'control_id', 'pregunta_id', 'respuesta'];
-
+    protected $fillable = ['id', 'dominio_id', 'objcontrol_id', 'control_id', 'pregunta_id', 'respuesta', 'encuesta_id', 'usuario_id'];
+ 
+    /* -------------------------------------------------------------- */
     
     //RESPUESTAS (*)---------(1) DOMINIO one to many inverse
     public function dominio(){
@@ -33,11 +34,6 @@ class Respuestas extends Model
     // RESPUESTAS (*) -------------> (1) ENCUESTA one to many inverse
     public function encuesta(){
         return $this->belongsTo('App\Encuesta');
-    }
-
-    // RESPUESTAS (*) -------------> (1) USER one to many inverse
-    public function user(){
-        return $this->belongsTo('App\User');
     }
 
 }
