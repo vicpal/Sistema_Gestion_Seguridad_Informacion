@@ -40,41 +40,46 @@
                                 <option value=""> -- Escoja el Dominio -- </option>
                                 @foreach ($contr as $cont)
                                     @if($contr->count())
-                                        <option value="{{ $cont->id }}">{{ $cont->nombre_dom }}</option>
+                                        <option value="{{ $cont->dominio->id }}">{{ $cont->dominio->nombre_dom }}</option>
                                     @endif
                                 @endforeach
                             </select>
                         </div>
                     </div>
+                   <!-- {{ $cont->id }} /
+                        {{ $cont->numero_objc }} /
+                        {{ $cont->nombre_objc }} /
+                        {{ $cont->dominio->numero_dom }} /
+                        {{ $cont->dominio->nombre_dom }} /
+                        {{ $cont->dominio_id }} -->
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
-                        
                         <div class="col-sm-8">
                             <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required>
                                 <option value=""> -- Escoja el Obj de Control -- </option>
                                 @foreach ($contr as $cont)
-                                    @if($contr->count())
-                                        @if($cont->id == $cont->dominio_id)
-                                            <option value="{{ $cont->id }}">{{ $cont->nombre_objc }}</option>
-                                        @endif
+                                    @if($cont->dominio->id == $cont->dominio_id)
+                                        <option value="{{ $cont->id }}">{{ $cont->nombre_objc }}</option>
                                     @endif
-                               @endforeach
+                                @endforeach
                             </select>
                         </div>
-                        
                     </div>
+
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Control</label>
                         <div class="col-sm-2">
                             <input type="number" name="numero_con" id="numero_con" class="form-control" placeholder="Número" disabled required>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Control</label>
                         <div class="col-sm-8">
                             <input type="Text" name="nombre_con" id="nombre_con" class="form-control" placeholder="Nombre del Dominio" disabled required>
                         </div>
                     </div>
+
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
