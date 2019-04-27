@@ -50,7 +50,7 @@ class ControlController extends Controller
         ->select('dominios.id', 'dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.id', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'objcontrols.dominio_id')
         ->get();*/
         
-        $contr = Objcontrol::all();
+        $contr = Objcontrol::all()->unique('dominio_id');
         //dd($contr);
         return view('/sgsi/control/create', compact('contr'));
     }
@@ -61,18 +61,21 @@ class ControlController extends Controller
             'numero_con' => 'required|integer',
             'nombre_con' => 'required|string',
         ]);
-            $contr = new Control();
-            $contr->numero_con = $request->input('numero_con');
-            $contr->nombre_con = $request->input('nombre_con');
-            // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
-            $contr->dominio_id = $request->input('dominio_id');
-            $contr->objcontrol_id = $request->input('objcontrol_id');
+        //dd($request);
 
-            $contr->save();
+        //SELECT max(numero_con +1) as nextNumControl FROM `controls` WHERE dominio_id = 1 and objcontrol_id = 1
 
-            //return response()->json(['res' => 'Dominio creado correctamente']); //devuelvo un resultado de exito
-            return redirect()->route('control.create')->with('success','Control Creado Satisfactoriamente');
+        $contr = new Control();
+        $contr->numero_con = $nextNumControl;
+        $contr->nombre_con = $request->input('nombre_con');
+        // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
+        $contr->dominio_id = $request->input('dominio_id');
+        $contr->objcontrol_id = $request->input('objcontrol_id');
 
+        $contr->save();
+        
+        //return response()->json(['res' => 'Control creado correctamente']); //devuelvo un resultado de exito
+        return redirect()->route('control.create')->with('success','Control Creado Satisfactoriamente');
     }
 
     public function show($id)

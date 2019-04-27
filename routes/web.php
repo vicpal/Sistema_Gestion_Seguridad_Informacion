@@ -40,6 +40,6 @@ Route::resource('sgsi/respuestas','RespuestasController');
 Route::resource('sgsi/encuesta','EncuestaController');
 Route::resource('sgsi/reportepdf','ReportePDFController');
 
-
-
+// Ruta Personalizada para llamar una Funcion por Allax
+Route::get('sgsi/ajax/objcontrol/{id}', 'ObjcontrolController@findById');
 

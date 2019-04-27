@@ -67,7 +67,16 @@ class ObjcontrolController extends Controller
             //return response()->json(['res' => 'Dominio creado correctamente']); //devuelvo un resultado de exito
             return redirect()->route('objcontrol.create')->with('success','Objetivo de Control Creado Satisfactoriamente');
     }
-    
+    /* -- Esta funcion se creo para colocar un filtro en la vista create de Control. -- */
+    public function findById($id){
+        $objc = DB::table('objcontrols')
+                        ->where('deleted_at', NULL)
+                        ->where('dominio_id', $id)
+                        ->get();
+
+        return response()->json(['objc' => $objc ]);
+    }
+
     public function show($id)
     {
         $objc = Objcontrol::find($id);

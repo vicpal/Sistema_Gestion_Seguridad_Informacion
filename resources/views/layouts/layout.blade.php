@@ -215,6 +215,9 @@
 <script src="/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/js/demo.js"></script>
+<script src="/js2/axios.min.js"></script>
+<script src="/js2/vue.min.js"></script>
+<script src="/js2/scripts.js"></script>
 
 <script>
   $(document).ready(function () {

@@ -20,14 +20,14 @@
 
     <div class="col-md-10">
         <!-- Horizontal Form -->
-        <div class="box box-info">
+        <div class="box box-info" id="createControl">
             <div class="box-header with-border">
                 <h3 class="box-title">Registrar Nuevo Control</h3>
             </div>
             <!-- /.box-header -->
             <!-- Script para Habilitar los campos del Formulario -->
             <script>
-                function cambio(){ $('#objcontrol_id').attr('disabled', false); $('#numero_con').attr('disabled',false); $('#nombre_con').attr('disabled',false);}
+                function cambio(){ }
             </script>
             <!-- form start -->
             <form class="form-horizontal" action="{{ route('control.store') }}" method="POST" role="form">
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="dominio_id" id="dominio_id" required onChange="cambio()">
+                            <select class="form-control" name="dominio_id" id="dominio_id" required v-on:change="getObjcontrol">
                                 <option value=""> -- Escoja el Dominio -- </option>
                                 @foreach ($contr as $cont)
                                     @if($contr->count())
@@ -57,11 +57,9 @@
                         <div class="col-sm-8">
                             <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required>
                                 <option value=""> -- Escoja el Obj de Control -- </option>
-                                @foreach ($contr as $cont)
-                                    @if($cont->dominio->id == $cont->dominio_id)
-                                        <option value="{{ $cont->id }}">{{ $cont->nombre_objc }}</option>
-                                    @endif
-                                @endforeach
+                                @verbatim
+                                <option v-for="val in objc" v-bind:value="val.id">{{ val.nombre_objc }}</option>
+                                @endverbatim
                             </select>
                         </div>
                     </div>
