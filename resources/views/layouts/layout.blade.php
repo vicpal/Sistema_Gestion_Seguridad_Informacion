@@ -54,7 +54,7 @@
 						<ul class="dropdown-menu">
 							<!-- User image -->
 							<li class="user-header">
-								<img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+								<img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 								<p>{{ Auth::user('id')->name }} - Web Developer <small>Member since Nov. 2018</small></p>
 								<li class="user-footer">
 									<div class="pull-right">
@@ -139,14 +139,14 @@
 
 			<li class="treeview">
 			<a href="#">
-				<i class="fa fa-laptop"></i>
+				<i class="fa fa-user-o"></i>
 				<span>Usuarios de Sistema</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>
 			</a>
 			<ul class="treeview-menu">
-				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-circle-o"></i> Usuarios</a></li>
+				<li><a href="{{ route('usuario.index') }}"><i class="fa fa-circle-o"></i> Listar Usuarios</a></li>
 			</ul>
 			</li>
 		</ul>

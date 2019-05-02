@@ -28,7 +28,7 @@ class ControlController extends Controller
     public function index()
     {
 
-        $contr=Control::orderBy('id','ASC')->paginate(3);
+        $contr=Control::orderBy('id','ASC')->paginate(5);
         return view('/sgsi/control/index', compact('contr'));
 
         /*$contr = DB::table('controls')
@@ -58,22 +58,30 @@ class ControlController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'numero_con' => 'required|integer',
+            //'numero_con' => 'required|integer',
             'nombre_con' => 'required|string',
         ]);
         //dd($request);
 
+        $nextNumControl = DB::table('controls')
+        ->join('objcontrols', 'controls.objcontrol_id', '=', 'objcontrols.id')
+        ->join('dominios', 'controls.dominio_id', '=', 'dominios.id')
+        ->where('objcontrols.id', $request->input('objcontrol_id'))
+        ->where('dominios.id', $request->input('dominio_id'))
+        ->max('controls.numero_con');
+                
         //SELECT max(numero_con +1) as nextNumControl FROM `controls` WHERE dominio_id = 1 and objcontrol_id = 1
+        //SELECT max(numero_con + 1) as nextNumControl FROM controls, objcontrols WHERE controls.dominio_id = 1 and objcontrols.numero_objc = 1
 
         $contr = new Control();
-        $contr->numero_con = $nextNumControl;
+        $contr->numero_con = $nextNumControl + 1;
         $contr->nombre_con = $request->input('nombre_con');
         // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
         $contr->dominio_id = $request->input('dominio_id');
         $contr->objcontrol_id = $request->input('objcontrol_id');
 
         $contr->save();
-        
+        //dd($contr);
         //return response()->json(['res' => 'Control creado correctamente']); //devuelvo un resultado de exito
         return redirect()->route('control.create')->with('success','Control Creado Satisfactoriamente');
     }

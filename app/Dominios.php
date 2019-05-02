@@ -25,6 +25,11 @@ class Dominios extends Model
       return $this->hasMany('App\Control');
    }
 
+   //DOMINIO (1) ------------> (*) PREGUNTAS (ONE TO MANY)
+   public function preguntas(){
+      return $this->hasMany('App\Preguntas');
+   }
+   
    //DOMINIO (1) ------------> (*) RESPUESTAS (ONE TO MANY)
    public function respuestas(){
       return $this->hasMany('App\Respuestas');

@@ -43,13 +43,13 @@
                                @endforeach
                             </select>
                         </div>
-                    </div>
+                    </div> <!--
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Obj Control</label>
                         <div class="col-sm-2">
                             <input type="number" name="numero_objc" id="numero_objc" class="form-control" placeholder="Número" disabled required>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Objetivo de Control</label>
                         <div class="col-sm-8">

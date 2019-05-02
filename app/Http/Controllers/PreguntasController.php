@@ -26,7 +26,7 @@ class PreguntasController extends Controller
      */
     public function index()
     {
-        $pregu = Preguntas::orderBy('id','ASC')->paginate(3);
+        $pregu = Preguntas::orderBy('id','ASC')->paginate(5);
         return view('/sgsi/pregunta/index', compact('pregu'));
     }
 
@@ -39,7 +39,7 @@ class PreguntasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'numero_preg' => 'required|integer',
+            //'numero_preg' => 'required|integer',
             'nombre_preg' => 'required|string',
         ]);
             $pregu = new Preguntas();

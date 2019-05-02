@@ -37,6 +37,8 @@ Route::resource('sgsi/objcontrol','ObjcontrolController');//url que se coloca en
 Route::resource('sgsi/control','ControlController');
 Route::resource('sgsi/preguntas','PreguntasController');
 Route::resource('sgsi/respuestas','RespuestasController');
+Route::resource('sgsi/usuario','UsuarioController');
+
 Route::resource('sgsi/encuesta','EncuestaController');
 Route::resource('sgsi/reportepdf','ReportePDFController');
 

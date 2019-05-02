@@ -16,6 +16,11 @@ class Preguntas extends Model
 
     /* ------------------------------------------------------------- */
     
+    //PREGUNTAS (*) -------------> (1) DOMINIO ONE TO MANY INVERSE
+    public function dominio(){
+        return $this->belongsTo('App\Dominios');
+    }
+    
     //PREGUNTAS (*) -------------> (1) CONTROL ONE TO MANY INVERSE
     public function control(){
         return $this->belongsTo('App\Control');

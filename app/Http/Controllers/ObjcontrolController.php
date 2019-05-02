@@ -28,7 +28,7 @@ class ObjcontrolController extends Controller
     public function index()
     {
 
-        $objc=Objcontrol::orderBy('id','ASC')->paginate(3);
+        $objc=Objcontrol::orderBy('id','ASC')->paginate(5);
         return view('/sgsi/ObjControl/index', compact('objc'));
         
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
@@ -53,11 +53,18 @@ class ObjcontrolController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'numero_objc' => 'required|integer',
+            //'numero_objc' => 'required|integer',
             'nombre_objc' => 'required|string',
         ]);
+            
+            $nextNumControl = DB::table('objcontrols')
+            ->join('dominios', 'objcontrols.dominio_id', '=', 'dominios.id')
+            ->where('dominios.id', $request->input('dominio_id'))
+            ->max('objcontrols.numero_objc');
+            //SELECT MAX(numero_objc + 1) as NumAlto FROM objcontrols, dominios WHERE dominios.id = objcontrols.dominio_id
+        
             $objc = new Objcontrol();
-            $objc->numero_objc = $request->input('numero_objc');
+            $objc->numero_objc = $nextNumControl + 1;
             $objc->nombre_objc = $request->input('nombre_objc');
             // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
             $objc->dominio_id = $request->input('dominio_id');

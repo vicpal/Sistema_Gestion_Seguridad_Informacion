@@ -49,13 +49,13 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Control</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_con" id="numero_con" class="form-control" placeholder="Número" value="{{ $contr->numero_con }}">
+                            <input type="number" name="numero_con" id="numero_con" class="form-control" value="{{ $contr->numero_con }}" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Control</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="nombre_con" id="nombre_con" class="form-control" placeholder="Nombre del Dominio" value="{{ $contr->nombre_con }}">
+                            <input type="Text" name="nombre_con" id="nombre_con" class="form-control" value="{{ $contr->nombre_con }}">
                         </div>
                     </div>
                 </div>

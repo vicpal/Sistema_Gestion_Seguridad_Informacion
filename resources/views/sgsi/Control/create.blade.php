@@ -63,14 +63,14 @@
                             </select>
                         </div>
                     </div>
-
+<!--
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Control</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_con" id="numero_con" class="form-control" placeholder="Número" disabled required>
+                            <input type="number" name="numero_con" id="numero_con" class="form-control" placeholder="{{ $contr }}" disabled required>{{ $contr }}
                         </div>
                     </div>
-
+-->
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Control</label>
                         <div class="col-sm-8">
