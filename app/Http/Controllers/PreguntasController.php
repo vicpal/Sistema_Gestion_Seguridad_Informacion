@@ -32,7 +32,7 @@ class PreguntasController extends Controller
 
     public function create()
     {
-        $contr = Control::all();
+        $contr = Control::all()->unique('objcontrol_id');
         return view('/sgsi/pregunta/create', compact('contr'));
     }
 
@@ -42,17 +42,25 @@ class PreguntasController extends Controller
             //'numero_preg' => 'required|integer',
             'nombre_preg' => 'required|string',
         ]);
+            
+            $nextNumPregunta = DB::table('preguntas')
+            ->join('controls', 'preguntas.objcontrol_id', '=', 'controls.id')
+            ->join('objcontrols', 'preguntas.objcontrol_id', '=', 'objcontrols.id')
+            ->where('controls.id', $request->input('control_id'))
+            ->where('objcontrols.id', $request->input('objcontrol_id'))
+            ->max('preguntas.numero_preg');
+        
             $pregu = new Preguntas();
-            $pregu->numero_preg = $request->input('numero_preg');
-            $pregu->nombre_preg = $request->input('nombre_preg');
-            // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
+            $pregu->numero_preg = $nextNumPregunta + 1;
+            $pregu->nombre_preg = $request->input('nombre_preg'); 
+            $pregu->objcontrol_id = $request->input('objcontrol_id');
             $pregu->control_id = $request->input('control_id');
-
+            //dd($pregu);
             $pregu->save();
-
+                    /* FALTA MANDAR LA ID DEL DOMINIO, URGENTEEEEE */
             return redirect()->route('preguntas.create')->with('success','Pregunta Creada Satisfactoriamente');
     }
-
+    
     public function show($id)
     {
         $pregu = Preguntas::find($id);
@@ -62,19 +70,18 @@ class PreguntasController extends Controller
     public function edit($id)
     {
         $pregu = Preguntas::find($id);
-        //dd($pregu->preguntas->numero_preg, $pregu->preguntas->nombre_preg);
         return view('/sgsi/pregunta/edit', compact('pregu'));
     }
 
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'numero_preg' => 'required|integer',
+            //'numero_preg' => 'required|integer',
             'nombre_preg' => 'required|string',
             
         ]);
             $pregu = Preguntas::find($id);
-            $pregu->numero_preg = $request->input('numero_preg');
+            //$pregu->numero_preg = $request->input('numero_preg');
             $pregu->nombre_preg = $request->input('nombre_preg');
 
             $pregu->save();

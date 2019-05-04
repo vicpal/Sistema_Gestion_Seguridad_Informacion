@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Encuesta;
 use App\Preguntas;
 use App\Respuestas;
+use App\Usuario;
 
 class EncuestaController extends Controller
 {
@@ -32,13 +33,13 @@ class EncuestaController extends Controller
 
     public function create()
     {
-        $encu = Respuestas::all();
-        return view('/sgsi/respuestas/create', compact('encu'));
+        $encu = Encuesta::all();
+        return view('/sgsi/encuesta/create', compact('encu'));
     }
 
     public function show($id)
     {
-        $encu = Respuestas::find($id);
+        $encu = Encuesta::find($id);
         //dd($encu);
         return view('/sgsi/encuesta/show', compact('encu'));
     }

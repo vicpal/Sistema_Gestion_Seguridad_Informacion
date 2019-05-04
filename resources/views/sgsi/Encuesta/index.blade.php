@@ -35,6 +35,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Núm Encuesta</th>
+                                <th>Usuario</th>
                                 <th>Creada</th>
                                 <th colspan="3">Opciones</th>
                             </tr>
@@ -45,6 +46,7 @@
                             <tr>
                                 <td>{{ $enc->id }}</td>
                                 <td>{{ $enc->encuesta_num }}</td>
+                                <td>{{ $enc->usuario_id }}</td>
                                 <td>{{ $enc->created_at }}</td>
                                 <td>
                                     <a href="{{ route('encuesta.show', $enc->id) }}" class="btn btn-primary btn-xs" method="POST">
@@ -75,6 +77,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Núm Encuesta</th>
+                                <th>Usuario</th>
                                 <th>Creada</th>
                                 <th colspan="3">Opciones</th>
                             </tr>

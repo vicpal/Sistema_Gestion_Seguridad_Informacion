@@ -44,4 +44,5 @@ Route::resource('sgsi/reportepdf','ReportePDFController');
 
 // Ruta Personalizada para llamar una Funcion por Allax
 Route::get('sgsi/ajax/objcontrol/{id}', 'ObjcontrolController@findById');
+Route::get('sgsi/ajax/control/{id}', 'ControlController@findById');
 

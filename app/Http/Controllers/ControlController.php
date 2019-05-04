@@ -86,6 +86,15 @@ class ControlController extends Controller
         return redirect()->route('control.create')->with('success','Control Creado Satisfactoriamente');
     }
 
+    public function findById($id){
+        $contr = DB::table('controls')
+                        ->where('deleted_at', NULL)
+                        ->where('objcontrol_id', $id)
+                        ->get();
+
+        return response()->json(['contr' => $contr ]);
+    }
+    
     public function show($id)
     {
         $contr = Control::find($id);
