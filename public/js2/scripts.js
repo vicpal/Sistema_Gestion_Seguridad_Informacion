@@ -38,6 +38,7 @@ var createPregunta = new Vue({
 			axios.get(url).then(res => {
 				console.log(res.data.contr)
 				this.contr = res.data.contr//añado todos los registros que me devuelve la bd
+				$('#dominio_id').attr('disabled', false);
 				$('#objcontrol_id').attr('disabled', false);
 				$('#control_id').attr('disabled',false);
 				$('#nombre_preg').attr('disabled',false);

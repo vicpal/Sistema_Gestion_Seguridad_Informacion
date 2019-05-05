@@ -41,13 +41,13 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Núm. Pregunta</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_preg" id="numero_preg" class="form-control" placeholder="Núm Pregunta" value="{{ $pregu->numero_preg }}" required>
+                            <input type="number" name="numero_preg" id="numero_preg" class="form-control" value="{{ $pregu->numero_preg }}" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Descripción de la Pregunta</label>
                         <div class="col-sm-8">
-                            <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Pregunta" value="{{ $pregu->nombre_preg }}" required>
+                            <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" value="{{ $pregu->nombre_preg }}" required>
                         </div>
                     </div>
                 </div>

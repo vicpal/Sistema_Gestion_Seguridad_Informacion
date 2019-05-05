@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Dominios;
+use App\Objcontrol;
 use App\Control;
 use App\Preguntas;
 
@@ -41,26 +43,32 @@ class PreguntasController extends Controller
         $this->validate($request, [
             //'numero_preg' => 'required|integer',
             'nombre_preg' => 'required|string',
+            'dominio_id' => 'required|integer',
+            'objcontrol_id' => 'required|integer',
+            'control_id' => 'required|integer',
         ]);
             
             $nextNumPregunta = DB::table('preguntas')
             ->join('controls', 'preguntas.objcontrol_id', '=', 'controls.id')
             ->join('objcontrols', 'preguntas.objcontrol_id', '=', 'objcontrols.id')
+            ->join('dominios', 'preguntas.dominio_id', '=', 'dominios.id')
             ->where('controls.id', $request->input('control_id'))
             ->where('objcontrols.id', $request->input('objcontrol_id'))
+            ->where('dominios.id', $request->input('dominio_id'))
             ->max('preguntas.numero_preg');
         
             $pregu = new Preguntas();
             $pregu->numero_preg = $nextNumPregunta + 1;
-            $pregu->nombre_preg = $request->input('nombre_preg'); 
+            $pregu->nombre_preg = $request->input('nombre_preg');
+            $pregu->dominio_id = $request->input('dominio_id');
             $pregu->objcontrol_id = $request->input('objcontrol_id');
             $pregu->control_id = $request->input('control_id');
             //dd($pregu);
             $pregu->save();
-                    /* FALTA MANDAR LA ID DEL DOMINIO, URGENTEEEEE */
+                        /* FALTA VALIDAR Y MANDAR LA ID DEL DOMINIO, URGENTEEEEE */
             return redirect()->route('preguntas.create')->with('success','Pregunta Creada Satisfactoriamente');
     }
-    
+
     public function show($id)
     {
         $pregu = Preguntas::find($id);
@@ -93,6 +101,5 @@ class PreguntasController extends Controller
         Preguntas::find($id)->delete();
         return redirect()->route('preguntas.index')->with('success','Pregunta Eliminada Satisfactoriamente');
     }
-
 
 }

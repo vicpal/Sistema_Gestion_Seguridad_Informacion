@@ -35,6 +35,20 @@
                 <div class="box-body">
                    
                     <div class="form-group">
+                        <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" name="dominio_id" id="dominio_id" required v-on:change="getControl">
+                                <option value=""> -- Escoja el Dominio -- </option>
+                                    @foreach ($contr as $cont)
+                                        @if($contr->count())
+                                            <option value="{{ $cont->dominio->id }}">{{ $cont->dominio->nombre_dom }}</option>
+                                        @endif
+                                    @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">
                             <select class="form-control" name="objcontrol_id" id="objcontrol_id" required v-on:change="getControl">
@@ -52,7 +66,7 @@
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Control</label>
                         <div class="col-sm-8">
                             <select class="form-control" name="control_id" id="control_id" disabled required>
-                                <option value=""> -- Escoja el Obj de Control -- </option>
+                                <option value=""> -- Escoja el Control -- </option>
                                 @verbatim
                                     <option v-for="val in contr" v-bind:value="val.id">{{ val.nombre_con }}</option>
                                 @endverbatim

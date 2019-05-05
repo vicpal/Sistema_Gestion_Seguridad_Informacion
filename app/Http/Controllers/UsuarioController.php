@@ -65,7 +65,9 @@ class UsuarioController extends Controller
         $usua = new Usuario();
         $usua->nombre = $request->input('nombre');
         $usua->correo = $request->input('correo');
-        $usua->clave = $request->input('clave'); 
+        //$password = bcrypt('my-secret-password');
+        //$usua->clave = $request->input->('clave');
+        $usua->clave = bcrypt('clave');  
         $usua->tipoid = $request->input('tipoid');
 
         $usua->save();
