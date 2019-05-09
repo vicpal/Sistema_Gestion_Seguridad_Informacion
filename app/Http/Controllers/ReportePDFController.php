@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Dominios;
-use App\Objcontrol;
-use App\Control;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Preguntas;
-use App\Respuestas;
+
 
 class ReportePDFController extends Controller
 {
@@ -26,6 +24,8 @@ class ReportePDFController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+     /*
     public function index()
     {
         $repor = Respuestas::orderBy('id','ASC')->paginate(3);
@@ -55,6 +55,16 @@ class ReportePDFController extends Controller
     {
         $repor = ReportePDF::find($id);
         return view('/sgsi/reportepdf/show', compact('respu'));
+    }
+
+    */
+
+    public function reportPDF(){
+
+        $reports = Preguntas::get();
+        $pdf = PDF::loadView('sgsi/reportepdf/report', compact('reports'));
+        
+        return $pdf->download('report-list.pdf');
     }
 
 

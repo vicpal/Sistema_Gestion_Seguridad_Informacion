@@ -162,7 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-       
         LynX39\LaraPdfMerger\PdfMergerServiceProvider::class,
 
         /*
@@ -178,6 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        // Componente para crear PDF en laravel...
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -229,9 +230,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
         
         'PdfMerger' => LynX39\LaraPdfMerger\Facades\PdfMerger::class,
+        // Opción para crear PDF en laravel
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

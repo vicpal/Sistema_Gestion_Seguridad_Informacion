@@ -81,7 +81,7 @@
                 </div>
             <!-- /.box-body --> 
             </div>
-          <!-- /.box -->
+          <!-- /.box --> <a href="{{ route('report.pdf') }}">Clic PDF</a>
         </div>
         <!-- /.col -->
     </div>

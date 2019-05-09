@@ -40,9 +40,12 @@ Route::resource('sgsi/respuestas','RespuestasController');
 Route::resource('sgsi/usuario','UsuarioController');
 
 Route::resource('sgsi/encuesta','EncuestaController');
-Route::resource('sgsi/reportepdf','ReportePDFController');
+//Route::resource('sgsi/reportepdf','ReportePDFController');
 
 // Ruta Personalizada para llamar una Funcion por Allax
 Route::get('sgsi/ajax/objcontrol/{id}', 'ObjcontrolController@findById');
 Route::get('sgsi/ajax/control/{id}', 'ControlController@findById');
+
+// Ruta Personalizada para crear un PDF
+Route::get('sgsi/reportepdf', 'ReportePDFController@reportPDF')->name('report.pdf');
 
