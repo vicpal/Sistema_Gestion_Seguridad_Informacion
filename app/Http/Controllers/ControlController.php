@@ -75,8 +75,7 @@ class ControlController extends Controller
 
         $contr = new Control();
         $contr->numero_con = $nextNumControl + 1;
-        $contr->nombre_con = $request->input('nombre_con');
-        // PARA CORREGIR EL ERROR POR EL CUAL NO INSERTABA, CAMBIÉ EL TIPO DE CAMPO DE UNIQUE A INDEX EN LA BD. 
+        $contr->nombre_con = $request->input('nombre_con'); 
         $contr->dominio_id = $request->input('dominio_id');
         $contr->objcontrol_id = $request->input('objcontrol_id');
 

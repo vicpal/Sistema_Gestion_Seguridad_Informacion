@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" required v-on:change="getControl">
+                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required>
                                 <option value=""> -- Escoja el Obj de Control -- </option>
                                     @foreach ($contr as $cont)
                                         @if($contr->count())
