@@ -71,14 +71,27 @@
                             </select>
                         </div>
                     </div>
-
+                    <!-- Campo de Pregunta Inhabilitado por Campos Dinamicos para las Preguntas 
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Descripción de la Pregunta</label>
                         <div class="col-sm-8">
                             <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Descripción de la Pregunta" disabled required>
                         </div>
+                    </div> -->
+                    <!-- Desde Aqui comienza la prueba de campos dinamicos -->
+                    <div class="form-group">
+                        <a id="agregarCampo" class="btn btn-info" href="#">Add</span></a>
+                        <label for="inputText" class="col-sm-3 control-label">Preguntas:</label>
+                        <div class="col-sm-8">
+                            <div id="contenedor">
+                                <div class="added">
+                                    <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Pregunta 1" disabled required>
+                                    <a class="eliminar" href="#"><span class="glyphicon glyphicon-remove"></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    <!-- Fin Campos Dinamicos -->
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">

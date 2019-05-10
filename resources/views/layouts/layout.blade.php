@@ -224,6 +224,36 @@
     $('.sidebar-menu').tree()
   })
 </script>
+<!-- CREAR Y BORRAR CAMPOS DINAMICOS -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		var MaxInputs       = 5; //maximum input boxes allowed
+		var contenedor   	= $("#contenedor"); //Input boxes wrapper ID
+		var AddButton       = $("#agregarCampo"); //Add button ID
+		//var x = contenedor.length; //initlal text box count
+		var X = $("#contenedor div").length + 1;
+		var FieldCount = X-1; //to keep track of text box added
+		$(AddButton).click(function (e)  //on add input button click
+		{
+			if(X <= MaxInputs) //max input box allowed
+			{
+				FieldCount++; //text box added increment
+				//add input box
+				$(contenedor).append('<div class="added"><input type="text" name="nombre_preg[]" id="nombre_preg_'+ FieldCount +'"  class="form-control" placeholder="Pregunta '+ FieldCount +'"/><a href="#" class="eliminar"><span class="glyphicon glyphicon-remove"></a></div>');
+				X++; //text box increment
+			}
+		return false;
+		});
+		$("body").on("click",".eliminar", function(e){ //user click on remove text
+				if( X > 1 ) {
+						$(this).parent('div').remove(); //remove text box
+						X--; //decrement textbox
+				}
+		return false;
+		});
+	});
+</script>
+<!-- FIN CAMPOS DINAMICOS -->
 
 </body>
 </html>
