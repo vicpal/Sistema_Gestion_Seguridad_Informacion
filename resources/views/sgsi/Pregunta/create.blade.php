@@ -80,11 +80,11 @@
                     </div> -->
                     <!-- Desde Aqui comienza la prueba de campos dinamicos -->
                     <div class="form-group">
-                        <a id="agregarCampo" class="btn btn-info" href="#">Add</span></a>
+                        <a id="agregarCampo" class="btn btn-primary" href="#">Add</span></a>
                         <label for="inputText" class="col-sm-3 control-label">Preguntas:</label>
                         <div class="col-sm-8">
                             <div id="contenedor">
-                                <div class="added">
+                                <div class="added">     <!-- nombre_preg[] -->
                                     <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Pregunta 1" disabled required>
                                     <a class="eliminar" href="#"><span class="glyphicon glyphicon-remove"></a>
                                 </div>

@@ -30,7 +30,7 @@ var createPregunta = new Vue({
 		contr: null, objc: null,
 	},
 	methods: {
-		//Condicion 1 -obtener todos los registros de la bd
+		// ------- Condicion 1 -obtener todos los registros de la bd
 		getControl: function(){
 			let objcontrol_id = dqs('#objcontrol_id').value
 			let url = '/sgsi/ajax/control/' + objcontrol_id
@@ -42,18 +42,19 @@ var createPregunta = new Vue({
 				$('#control_id').attr('disabled',false);
 				$('#nombre_preg').attr('disabled',false);
 			})
-		}, // FIn Condición 1
-		
+		}, // ------- FIn Condición 1
+
+		// -----------CONDICIÓN 2 ---------
 		getObjetivo: function(){
 			let dominio_id = dqs('#dominio_id').value
-			  let url = '/sgsi/ajax/objcontrol/' + dominio_id
-			  //ejecuto la peticion ajax al controlador
-			  axios.get(url).then(res => {
-				  console.log(res.data.objc)
-				  this.objc = res.data.objc
-					  //añado todos los registros que me devuelve la bd
-					  $('#objcontrol_id').attr('disabled', false);
-			  })
-		  }
-	}
+				let url = '/sgsi/ajax/objcontrol/' + dominio_id
+				//ejecuto la peticion ajax al controlador
+				axios.get(url).then(res => {
+					console.log(res.data.objc)
+					this.objc = res.data.objc
+						//añado todos los registros que me devuelve la bd
+						$('#objcontrol_id').attr('disabled', false);
+				})
+		  	}
+	} // Fin de los Method
 })

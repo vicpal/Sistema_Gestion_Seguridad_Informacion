@@ -34,7 +34,7 @@ class PreguntasController extends Controller
 
     public function create()
     {
-        $contr = Control::all()->unique('objcontrol_id');
+        $contr = Control::all()->unique('dominio_id');
         return view('/sgsi/pregunta/create', compact('contr'));
     }
 

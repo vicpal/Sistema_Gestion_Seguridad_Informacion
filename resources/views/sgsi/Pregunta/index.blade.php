@@ -35,7 +35,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Control</th>
-                                <th>Núm Preg</th>
+                                <th>Preg</th>
                                 <th>Descripción de la Pregunta</th>
                                 <th colspan="2">Opciones</th>
                             </tr>
@@ -71,7 +71,7 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Control</th>
-                                <th>Núm Preg</th>
+                                <th>Preg</th>
                                 <th>Descripción de la Pregunta</th>
                                 <th colspan="2">Opciones</th>
                             </tr>
