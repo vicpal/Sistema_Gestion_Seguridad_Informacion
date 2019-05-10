@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Dominio</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="dominio_id" id="dominio_id" required v-on:change="getControl">
+                            <select class="form-control" name="dominio_id" id="dominio_id" required v-on:change="getObjetivo">
                                 <option value=""> -- Escoja el Dominio -- </option>
                                     @foreach ($contr as $cont)
                                         @if($contr->count())
@@ -51,13 +51,11 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">
-                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required>
+                            <select class="form-control" name="objcontrol_id" id="objcontrol_id" disabled required v-on:change="getControl">
                                 <option value=""> -- Escoja el Obj de Control -- </option>
-                                    @foreach ($contr as $cont)
-                                        @if($contr->count())
-                                            <option value="{{ $cont->objcontrol->id }}">{{ $cont->objcontrol->nombre_objc }}</option>
-                                        @endif
-                                    @endforeach
+                                @verbatim
+                                    <option v-for="val in objc" v-bind:value="val.id">{{ val.nombre_objc }}</option>
+                                @endverbatim
                             </select>
                         </div>
                     </div>
@@ -85,7 +83,7 @@
                 <!-- /.box-body -->
                 <div class="box-footer">
                     <a href="{{ route('preguntas.index') }}" class="btn btn-default">Volver al Listado</a>
-                    <button type="submit" class="btn btn-primary pull-right">Crear Control</button>
+                    <button type="submit" class="btn btn-primary pull-right">Crear Pregunta</button>
                 </div>
               <!-- /.box-footer -->
             </form>
