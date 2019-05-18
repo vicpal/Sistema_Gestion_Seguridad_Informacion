@@ -28,7 +28,7 @@ class ControlController extends Controller
     public function index()
     {
 
-        $contr=Control::orderBy('id','ASC')->paginate(5);
+        $contr=Control::orderBy('id','ASC')->paginate();
         return view('/sgsi/control/index', compact('contr'));
 
         /*$contr = DB::table('controls')

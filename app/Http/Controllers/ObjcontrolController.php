@@ -28,7 +28,7 @@ class ObjcontrolController extends Controller
     public function index()
     {
 
-        $objc=Objcontrol::orderBy('id','ASC')->paginate(5);
+        $objc=Objcontrol::orderBy('id','ASC')->paginate();
         return view('/sgsi/ObjControl/index', compact('objc'));
         
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();

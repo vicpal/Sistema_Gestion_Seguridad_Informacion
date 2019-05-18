@@ -12,15 +12,17 @@
 	<link rel="stylesheet" href="/css/font-awesome.min.css">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="/css/ionicons.min.css">
+	<!-- DATATABLES -->
+	<link rel="stylesheet" href="/css/dataTables.bootstrap.css">
+	<link rel="stylesheet" href="/css/dataTables.bootstrap.min.css">
+	<!-- FIN DATATABLES -->
 	<!-- Theme style -->
 	<link rel="stylesheet" href="/css/AdminLTE.min.css">
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
 		folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="/css/skins/_all-skins.min.css">
-
   	<!-- Google Font -->
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -208,6 +210,9 @@
 <script src="/js/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap.min.js"></script>
 <!-- SlimScroll -->
 <script src="/js/jquery.slimscroll.min.js"></script>
 <!-- FastClick -->
@@ -255,6 +260,20 @@
 	});
 </script>
 <!-- FIN CAMPOS DINAMICOS -->
-
+<!-- DATATABLES -->
+<script>
+  	$(function () {
+		$('#example1').DataTable()
+		$('#example2').DataTable({
+			'paging'      : true,
+			'lengthChange': false,
+			'searching'   : false,
+			'ordering'    : true,
+			'info'        : true,
+			'autoWidth'   : false
+    	})
+  	})
+</script>
+<!-- FIN DATATABLES -->
 </body>
 </html>

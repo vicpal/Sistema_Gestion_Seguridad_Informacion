@@ -21,22 +21,23 @@
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
 <!-- Main content -->
-<section class="container">
+<section class="content">
     <div class="row">
-        <div class="col-xs-10">
+        <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title"><strong>Lista de Dominios GTC-IEC/ISO 27002:2015</strong></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="example1" class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Núm Dominio</th>
                                 <th>Nombre del Dominio</th>
-                                <th colspan="2">Opciones</th>
+                                <th>Edi</th>
+                                <th>Del</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,10 +48,10 @@
                                 <td>{{ $dominio->numero_dom }}</td>
                                 <td>{{ $dominio->nombre_dom }}</td>
                                 <!-- <td>ver</td> -->
-                                <td>
+                                <td align="center">
                                     <a href="{{ route('dominios.edit', $dominio->id) }}" class="btn btn-primary btn-xs" method="POST"><span class="glyphicon glyphicon-pencil"></span></a>
                                 </td>
-                                <td>
+                                <td align="center">
                                     <form action="{{ route('dominios.destroy', $dominio->id) }}" method="POST">
                                         {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
@@ -70,11 +71,12 @@
                                 <th>Id</th>
                                 <th>Núm Dominio</th>
                                 <th>Nombre del Dominio</th>
-                                <th colspan="2" text-alighh="center">Opciones</th>
+                                <th>Edi</th>
+                                <th>Del</th>
                             </tr>
                         </tfoot>
                     </table>
-                    {{ $dominios->links() }}
+                    <!-- {{ $dominios->links() }} -->
                 </div>
             <!-- /.box-body -->
             </div>

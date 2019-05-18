@@ -27,7 +27,7 @@ class DominiosController extends Controller
 
     public function index()
     {
-        $dominios = DB::table('dominios')->where('deleted_at', NULL)->paginate(6);
+        $dominios = DB::table('dominios')->where('deleted_at', NULL)->paginate();
         return view('/sgsi/listado', compact('dominios'));
         
         /*$dominios = Dominios::orderBy('id','ASC')->paginate();
