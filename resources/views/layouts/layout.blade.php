@@ -20,6 +20,7 @@
 
   	<!-- Google Font -->
   	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <!-- Site wrapper -->
@@ -218,12 +219,12 @@
 <script src="/js2/axios.min.js"></script>
 <script src="/js2/vue.min.js"></script>
 <script src="/js2/scripts.js"></script>
-
 <script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
   })
 </script>
+<!-- ----------------------------------- ADICIONALES -------------------------------------- -->
 <!-- CREAR Y BORRAR CAMPOS DINAMICOS -->
 <script type="text/javascript">
 	$(document).ready(function() {

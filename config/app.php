@@ -234,6 +234,8 @@ return [
         'PdfMerger' => LynX39\LaraPdfMerger\Facades\PdfMerger::class,
         // Opción para crear PDF en laravel
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        // Clase FORM para crear Formularios
+        //...
 
     ],
 

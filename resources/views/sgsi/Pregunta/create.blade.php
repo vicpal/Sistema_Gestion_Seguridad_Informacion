@@ -17,7 +17,7 @@
             {{Session::get('success')}}
         </div>
     @endif
-
+    
     <div class="col-md-10">
         <!-- Horizontal Form -->
         <div class="box box-info" id="createPregunta">

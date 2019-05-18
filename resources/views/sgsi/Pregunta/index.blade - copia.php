@@ -27,7 +27,16 @@
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title"><strong>Listado de Preguntas por Control GTC-IEC/ISO 27002:2015</strong></h3>
-                    
+                        <!-- Este es el cuadro de Busqueda para las Preguntas -->
+                        <div class="box-tools">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="search" name="nombre_preg" class="form-control pull-right" placeholder="Buscar">
+                                    <div class="input-group-btn">
+                                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                    </div>
+                            </div>
+                        </div>
+                    <!-- FIN cuadro de Busqueda para las Preguntas -->
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -92,4 +101,6 @@
         </div>
 </section>
 <!-- /.content -->
+    
 @endsection
+

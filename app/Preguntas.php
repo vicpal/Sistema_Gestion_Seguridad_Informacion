@@ -12,7 +12,7 @@ class Preguntas extends Model
     protected $dates = ['deleted_at'];
 
     protected $table = 'preguntas';
-    protected $fillable = ['id', 'numero_preg', 'nombre_preg', 'control_id'];
+    protected $fillable = ['id', 'numero_preg', 'nombre_preg', 'control_id', 'objcontrol_id', 'dominio_id'];
 
     /* ------------------------------------------------------------- */
     
