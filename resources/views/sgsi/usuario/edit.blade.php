@@ -35,23 +35,23 @@
                         <div class="col-sm-3">
                             <select class="form-control" name="tipoid" id="tipoid" disabled>
                                 <option value="{{ $usua->tipoid }}">{{ $usua->tipoid }}</option>
-                            </select>
+                            </select> <!-- NO FUNCIONA EL TIPO DE USUARIO -->
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputNumber" class="col-sm-3 control-label">Nombre</label>
+                        <label for="inputText" class="col-sm-3 control-label">Nombre</label>
                         <div class="col-sm-6">
                             <input type="Text" name="nombre" id="nombre" class="form-control" value="{{ $usua->nombre }}">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputNumber" class="col-sm-3 control-label">Correo</label>
-                        <div class="col-sm-6">
-                            <input type="Text" name="correo" id="correo" class="form-control" value="{{ $usua->correo }}">
+                        <label for="inputEmail" class="col-sm-3 control-label">Correo</label>
+                        <div class="col-sm-6"> <!-- NO VALIDA LA ESTRUCTURA DE CORREO html -->
+                            <input type="email" name="correo" id="correo" class="form-control" value="{{ $usua->correo }}">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputText" class="col-sm-3 control-label">Clave</label>
+                        <label for="inputPassword" class="col-sm-3 control-label">Clave</label>
                         <div class="col-sm-6">
                             <input type="Password" name="clave" id="clave" class="form-control" value="{{ $usua->clave }}">
                         </div>

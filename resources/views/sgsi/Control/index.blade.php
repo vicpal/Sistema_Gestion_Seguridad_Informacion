@@ -81,7 +81,6 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <!-- {{ $contr->links() }} -->
                 </div>
             <!-- /.box-body --> 
             </div>

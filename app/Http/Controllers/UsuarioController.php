@@ -31,7 +31,7 @@ class UsuarioController extends Controller
         $usua = DB::table('usuario')
         ->join('tipousuario', 'usuario.tipoid', '=', 'tipousuario.id')
         ->where('usuario.deleted_at', NULL)
-        ->select('tipousuario.id', 'usuario.id', 'usuario.nombre', 'usuario.correo', 'tipousuario.tipo_nombre')->paginate(4);
+        ->select('usuario.id', 'usuario.nombre', 'usuario.correo', 'tipousuario.id', 'tipousuario.tipo_nombre')->paginate();
         //dd($usua);
         return view('/sgsi/usuario/index', compact('usua'));
     }
@@ -84,8 +84,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        $usua = Usuario::find($id);
-        return view('/sgsi/usuario/show', compact('usua'));
+        //
     }
 
     /**

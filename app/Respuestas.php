@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Respuestas extends Model
 {
+    //softdelete para "eliminar" un registro en la bd, solo coloca un timestamp en el campo "deleted_at"
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
+    
     protected $table = 'respuestas';
     protected $fillable = ['id', 'dominio_id', 'objcontrol_id', 'control_id', 'pregunta_id', 'respuesta', 'encuesta_id', 'usuario_id'];
  

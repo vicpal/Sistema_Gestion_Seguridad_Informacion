@@ -54,7 +54,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="inputNumber" class="col-sm-3 control-label">Correo Eléctronico</label>
+                        <label for="inputEmail" class="col-sm-3 control-label">Correo Eléctronico</label>
                         <div class="col-sm-8">
                             <input type="email" name="correo" id="correo" class="form-control" placeholder="Correo Eléctronico" disabled required>
                         </div>

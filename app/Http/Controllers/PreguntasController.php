@@ -28,7 +28,7 @@ class PreguntasController extends Controller
      */
     public function index()
     {
-        $pregu = Preguntas::orderBy('id','ASC')->paginate();
+        $pregu = Preguntas::all();
         return view('/sgsi/pregunta/index', compact('pregu'));
     }
 

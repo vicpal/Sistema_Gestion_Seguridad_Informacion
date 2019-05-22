@@ -233,7 +233,7 @@
 <!-- CREAR Y BORRAR CAMPOS DINAMICOS -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		var MaxInputs       = 4; //maximum input boxes allowed
+		var MaxInputs       = 5; //maximum input boxes allowed
 		var contenedor   	= $("#contenedor"); //Input boxes wrapper ID
 		var AddButton       = $("#agregarCampo"); //Add button ID
 		//var x = contenedor.length; //initlal text box count
@@ -260,7 +260,7 @@
 	});
 </script>
 <!-- FIN CAMPOS DINAMICOS -->
-<!-- DATATABLES -->
+<!-- Datatables -->
 <script>
   	$(function () {
 		$('#example1').DataTable()
@@ -274,6 +274,6 @@
     	})
   	})
 </script>
-<!-- FIN DATATABLES -->
+<!-- Fin Datatables -->
 </body>
 </html>

@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <label for="inputNumber" class="col-sm-3 control-label">Número Obj Control</label>
                         <div class="col-sm-2">
-                            <input type="number" name="numero_objc" class="form-control" id="inputNumber" value="{{ $objc->numero_objc }}">
+                            <input type="number" name="numero_objc" class="form-control" id="inputNumber" value="{{ $objc->numero_objc }}" disabled>
                         </div>
                     </div>
                     <div class="form-group">
