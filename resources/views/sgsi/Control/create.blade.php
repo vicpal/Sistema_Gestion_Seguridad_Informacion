@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <div class="col-md-10">
+    <div class="col-md-12">
         <!-- Horizontal Form -->
         <div class="box box-info" id="createControl">
             <div class="box-header with-border">

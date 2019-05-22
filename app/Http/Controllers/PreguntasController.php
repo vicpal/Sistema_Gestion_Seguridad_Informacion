@@ -65,7 +65,7 @@ class PreguntasController extends Controller
             $pregu->control_id = $request->input('control_id');
             //dd($pregu);
             $pregu->save();
-                        /* FALTA VALIDAR Y MANDAR LA ID DEL DOMINIO, URGENTEEEEE */
+                        
             return redirect()->route('preguntas.create')->with('success','Pregunta Creada Satisfactoriamente');
     }
 

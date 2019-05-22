@@ -233,7 +233,7 @@
 <!-- CREAR Y BORRAR CAMPOS DINAMICOS -->
 <script type="text/javascript">
 	$(document).ready(function() {
-		var MaxInputs       = 5; //maximum input boxes allowed
+		var MaxInputs       = 4; //maximum input boxes allowed
 		var contenedor   	= $("#contenedor"); //Input boxes wrapper ID
 		var AddButton       = $("#agregarCampo"); //Add button ID
 		//var x = contenedor.length; //initlal text box count
@@ -245,7 +245,7 @@
 			{
 				FieldCount++; //text box added increment
 				//add input box
-				$(contenedor).append('<div class="added"><input type="text" name="nombre_preg[]" id="nombre_preg_'+ FieldCount +'"  class="form-control" placeholder="Pregunta '+ FieldCount +'"/><a href="#" class="eliminar"><span class="glyphicon glyphicon-remove"></a></div>');
+				$(contenedor).append('<div class="added"><input type="text" name="nombre_preg[]" id="nombre_preg'+ FieldCount +'"  class="form-control" placeholder="Pregunta '+ FieldCount +'"/><a href="#" class="eliminar"><span class="glyphicon glyphicon-remove"></a></div>');
 				X++; //text box increment
 			}
 		return false;
