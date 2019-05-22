@@ -85,7 +85,7 @@
                         <div class="col-sm-8">
                             <div id="contenedor">
                                 <div class="added">     <!-- nombre_preg[] -->
-                                    <input type="Text" name="nombre_preg" id="nombre_preg" class="form-control" placeholder="Pregunta 1" disabled required>
+                                    <input type="Text" name="nombre_preg[]" id="nombre_preg" class="form-control" placeholder="Pregunta 1" disabled required>
                                         </br><!-- <a class="eliminar" href="#"><span class="glyphicon glyphicon-remove"></a> -->
                                 </div>
                             </div>

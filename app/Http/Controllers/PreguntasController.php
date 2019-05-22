@@ -28,7 +28,7 @@ class PreguntasController extends Controller
      */
     public function index()
     {
-        $pregu = Preguntas::orderBy('id','ASC')->paginate(5);
+        $pregu = Preguntas::orderBy('id','ASC')->paginate();
         return view('/sgsi/pregunta/index', compact('pregu'));
     }
 
@@ -42,7 +42,7 @@ class PreguntasController extends Controller
     {
         $this->validate($request, [
             //'numero_preg' => 'required|integer',
-            'nombre_preg' => 'required|string',
+            'nombre_preg' => 'required',
             'dominio_id' => 'required|integer',
             'objcontrol_id' => 'required|integer',
             'control_id' => 'required|integer',
@@ -57,14 +57,17 @@ class PreguntasController extends Controller
             ->where('dominios.id', $request->input('dominio_id'))
             ->max('preguntas.numero_preg');
         
-            $pregu = new Preguntas();
-            $pregu->numero_preg = $nextNumPregunta + 1;
-            $pregu->nombre_preg = $request->input('nombre_preg');
-            $pregu->dominio_id = $request->input('dominio_id');
-            $pregu->objcontrol_id = $request->input('objcontrol_id');
-            $pregu->control_id = $request->input('control_id');
-            //dd($pregu);
-            $pregu->save();
+            //dd($request->input('nombre_preg'));
+
+            foreach($request->input('nombre_preg') as $preg){
+                $pregu = new Preguntas();
+                $pregu->numero_preg = ++$nextNumPregunta;
+                $pregu->nombre_preg = $preg;
+                $pregu->dominio_id = $request->input('dominio_id');
+                $pregu->objcontrol_id = $request->input('objcontrol_id');
+                $pregu->control_id = $request->input('control_id');
+                $pregu->save();
+            }
                         
             return redirect()->route('preguntas.create')->with('success','Pregunta Creada Satisfactoriamente');
     }
