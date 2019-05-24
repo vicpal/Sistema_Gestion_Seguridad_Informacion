@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Usuario;
 use App\Tipousuario;
+use App\Usuario;
 
 class UsuarioController extends Controller
 {
@@ -28,10 +28,10 @@ class UsuarioController extends Controller
     public function index()
     {
         //$usua = Usuario::all();
-        $usua = DB::table('usuario')
-        ->join('tipousuario', 'tipousuario.id', '=', 'usuario.tipoid')
-        ->where('usuario.deleted_at', NULL)
-        ->select('tipousuario.id', 'tipousuario.tipo_nombre', 'usuario.id', 'usuario.nombre', 'usuario.correo')->paginate();
+        $usua = DB::table('usuarios')
+        ->join('tipousuarios', 'tipousuarios.id', '=', 'usuarios.tipoid')
+        ->where('usuarios.deleted_at', NULL)
+        ->select('tipousuarios.id', 'tipousuarios.tipo_nombre', 'usuarios.id', 'usuarios.nombre', 'usuarios.correo')->paginate();
         //dd($usua);*/
         return view('/sgsi/usuario/index', compact('usua'));
     }

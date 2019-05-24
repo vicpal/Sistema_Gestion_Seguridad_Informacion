@@ -11,14 +11,14 @@ class Tipousuario extends Model
     use SoftDeletes;
     protected $dates = ['deleted_at'];
 
-    protected $table = 'tipousuario';
+    protected $table = 'tipousuarios';
     protected $fillable = ['id', 'tipo_nombre'];
 
     /* -------------------------------------------------------- */
     
     //TIPO_US (1)------(1) USUARIO ONE TO ONE
-    public function usuario(){
-        return $this->hasOne('App\Usuario');
+    public function usuarios(){
+        return $this->hasMany('App\Usuario');
     }
 
 }

@@ -96,8 +96,7 @@ class ControlController extends Controller
     
     public function show($id)
     {
-        $contr = Control::find($id);
-        return view('/sgsi/control/show', compact('contr'));
+        //
     }
 
     public function edit($id)
