@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTiposUsuarioTable extends Migration
+class CreateTipoUsuariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTiposUsuarioTable extends Migration
      */
     public function up()
     {
-        Schema::create('tipos_usuario', function (Blueprint $table) {
+        Schema::create('tipousuarios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $$table->string('nombre_tipo');
+            $$table->string('tipo_nombre');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateTiposUsuarioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tipos_usuario');
+        Schema::dropIfExists('tipousuarios');
     }
 }

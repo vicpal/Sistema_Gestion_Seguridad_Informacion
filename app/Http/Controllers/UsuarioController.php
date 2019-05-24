@@ -27,12 +27,12 @@ class UsuarioController extends Controller
 
     public function index()
     {
-        //$usua = DB::table('usuario')->paginate(5);
+        //$usua = Usuario::all();
         $usua = DB::table('usuario')
-        ->join('tipousuario', 'usuario.tipoid', '=', 'tipousuario.id')
+        ->join('tipousuario', 'tipousuario.id', '=', 'usuario.tipoid')
         ->where('usuario.deleted_at', NULL)
-        ->select('usuario.id', 'usuario.nombre', 'usuario.correo', 'tipousuario.id', 'tipousuario.tipo_nombre')->paginate();
-        //dd($usua);
+        ->select('tipousuario.id', 'tipousuario.tipo_nombre', 'usuario.id', 'usuario.nombre', 'usuario.correo')->paginate();
+        //dd($usua);*/
         return view('/sgsi/usuario/index', compact('usua'));
     }
 
@@ -43,8 +43,8 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $usua = Tipousuario::all()->unique('id');
-        return view('/sgsi/usuario/create', compact('usua'));
+        $tipos = Tipousuario::all()->unique('id');
+        return view('/sgsi/usuario/create', compact('tipos'));
     }
 
     /**
@@ -96,7 +96,7 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $usua = Usuario::find($id);
-        //dd($usua);
+        //dd($usua->tipo_nombre);
         return view('/sgsi/usuario/edit', compact('usua'));
     }
 
@@ -117,10 +117,10 @@ class UsuarioController extends Controller
             
         ]);
             $usua = Usuario::find($id);
-            //$usua->tipoid = $request->input('tipoid');
+
             $usua->nombre = $request->input('nombre');
             $usua->correo = $request->input('correo');
-            $usua->clave = $request->input('clave');
+            $usua->clave = bcrypt('clave');
 
             $usua->save();
             return redirect()->route('usuario.edit', $id)->with('success','Usuario Actualizado Satisfactoriamente');

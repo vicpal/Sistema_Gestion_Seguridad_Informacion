@@ -36,11 +36,11 @@
 
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Tipos de Usuario</label>
-                        <div class="col-sm-4">
+                        <div class="col-sm-2">
                             <select class="form-control" name="tipoid" id="tipoid" required onChange="cambio()">
                                 <option value=""> -- Escoja el Tipo -- </option>
-                                @foreach ($usua as $usu)
-                                    <option value="{{ $usu->id }}">{{ $usu->tipo_nombre }}</option>
+                                @foreach ($tipos as $tipo)
+                                    <option value="{{ $tipo->id }}">{{ $tipo->tipo_nombre }}</option>
                                 @endforeach
                             </select>
                         </div>

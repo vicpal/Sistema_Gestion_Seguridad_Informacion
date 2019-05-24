@@ -14,10 +14,9 @@ class usuario extends Model
     protected $table = 'usuario';
     protected $fillable = ['id', 'nombre', 'correo', 'clave', 'tipoid'];
     
-
     /* -------------------------------------------------------- */
     
-    //USUARIOS (*)---------(1) TIPO ONE TO MANY INVERSE
+    //USUARIOS (1)---------(1) TIPO ONE TO ONE
     public function tipousuario(){
         return $this->belongsTo('App\Tipousuario');
     }

@@ -27,8 +27,7 @@ class TipousuarioController extends Controller
 
     public function index()
     {
-        $usua = Tipousuario::all();
-        return view('/sgsi/tipousuario/index', compact('usua'));
+        //
     }
 
     /**

@@ -32,12 +32,13 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Tipo de Usuario</label>
-                        <div class="col-sm-3">
+                        <div class="col-sm-2">
                             <select class="form-control" name="tipoid" id="tipoid" disabled>
                                 <option value="{{ $usua->tipoid }}">{{ $usua->tipoid }}</option>
                             </select> <!-- NO FUNCIONA EL TIPO DE USUARIO -->
                         </div>
                     </div>
+                    <div><strong> -- Esta Variable NO trae el TIPO de USER --> </strong> {{ $usua->nombre }}</div>
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre</label>
                         <div class="col-sm-6">

@@ -16,9 +16,9 @@ class Tipousuario extends Model
 
     /* -------------------------------------------------------- */
     
-    //TIPO_US (1)------(*) USUARIOS Primera relacion (ONE TO MANY)
-    public function usuarios(){
-        return $this->hasMany('App\Usuario');
+    //TIPO_US (1)------(1) USUARIO ONE TO ONE
+    public function usuario(){
+        return $this->hasOne('App\Usuario');
     }
 
 }

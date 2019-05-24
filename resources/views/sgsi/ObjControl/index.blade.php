@@ -78,7 +78,6 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <!-- {{ $objc->links() }} -->
                 </div>
             <!-- /.box-body --> 
             </div>

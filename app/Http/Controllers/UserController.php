@@ -23,11 +23,5 @@ class UserController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $user = User::orderBy('id','ASC');
-        //dd($user);
-        //return view('/sgsi/user/index', compact('user'));
-    }
 
 }

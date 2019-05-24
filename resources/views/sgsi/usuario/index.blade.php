@@ -78,7 +78,6 @@
                             </tr>
                         </tfoot>
                     </table>
-                    <!-- {{ $usua->links() }} Aqui Va el LINKS PAGINATE -->
                 </div>
             <!-- /.box-body -->
             </div>

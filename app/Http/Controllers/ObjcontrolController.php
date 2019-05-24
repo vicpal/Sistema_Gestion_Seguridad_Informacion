@@ -28,7 +28,7 @@ class ObjcontrolController extends Controller
     public function index()
     {
 
-        $objc=Objcontrol::orderBy('id','ASC')->paginate();
+        $objc = Objcontrol::all();
         return view('/sgsi/ObjControl/index', compact('objc'));
         
         /*$objc = Objcontrol::orderBy('id','ASC')->paginate();
@@ -92,7 +92,7 @@ class ObjcontrolController extends Controller
 
     public function edit($id)
     {
-        $objc=Objcontrol::find($id);
+        $objc = Objcontrol::find($id);
         //dd($objc->dominio->nombre_dom, $objc->dominio->id);
         return view('/sgsi/objcontrol/edit', compact('objc'));
     }
