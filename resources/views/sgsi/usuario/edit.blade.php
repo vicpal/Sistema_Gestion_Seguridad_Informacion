@@ -33,9 +33,9 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Tipo de Usuario</label>
                         <div class="col-sm-2">
-                            <select class="form-control" name="tipoid" id="tipoid" disabled>
-                                <option value="{{ $usua->tipoid }}">{{ $usua->tipo_nombre }}</option>
-                            </select> <!-- NO FUNCIONA EL TIPO DE USUARIO -->
+                            <select class="form-control" name="rol_id" id="rol_id" disabled>
+                                <option value="{{ $usua->rol_id }}">{{ $usua->rol->nombre_rol }}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

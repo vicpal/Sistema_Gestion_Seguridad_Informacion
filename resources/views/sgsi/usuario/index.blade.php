@@ -48,7 +48,7 @@
                                 <td>{{ $usu->id }}</td>
                                 <td>{{ $usu->nombre }}</td>
                                 <td>{{ $usu->correo }}</td>
-                                <td>{{ $usu->tipo_nombre }}</td>
+                                <td>{{ $usu->nombre_rol }}</td>
                                 <td align="center">
                                     <a href="{{ route('usuario.edit', $usu->id) }}" class="btn btn-primary btn-xs" method="POST"><span class="glyphicon glyphicon-pencil"></span></a>
                                 </td>

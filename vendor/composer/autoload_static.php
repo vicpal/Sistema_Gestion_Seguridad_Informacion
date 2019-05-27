@@ -439,7 +439,7 @@ class ComposerStaticInit70844d51ba6416e960505cf8ba3612c7
         'App\\Respuestas' => __DIR__ . '/../..' . '/app/Respuestas.php',
         'App\\Tipousuario' => __DIR__ . '/../..' . '/app/Tipousuario.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
-        'App\\usuario' => __DIR__ . '/../..' . '/app/Usuario.php',
+        'App\\Usuario' => __DIR__ . '/../..' . '/app/Usuario.php',
         'Barryvdh\\DomPDF\\Facade' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/Facade.php',
         'Barryvdh\\DomPDF\\PDF' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/PDF.php',
         'Barryvdh\\DomPDF\\ServiceProvider' => __DIR__ . '/..' . '/barryvdh/laravel-dompdf/src/ServiceProvider.php',

@@ -16,6 +16,8 @@ class CreateEncuestaTable extends Migration
         Schema::create('encuesta', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('encuesta_num')->unique();
+
+            
             $table->timestamps();
         });
     }

@@ -19,8 +19,9 @@ class CreateControlsTable extends Migration
             $table->string('nombre_con');
 
             $table->unsignedBigInteger('dominio_id');
-            $table->foreign('dominio_id')->references('id')->on('dominios');
             $table->unsignedBigInteger('objcontrol_id');
+
+            $table->foreign('dominio_id')->references('id')->on('dominios');
             $table->foreign('objcontrol_id')->references('id')->on('objcontrols');
             
             $table->timestamps();

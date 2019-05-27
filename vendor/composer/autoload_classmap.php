@@ -47,7 +47,7 @@ return array(
     'App\\Respuestas' => $baseDir . '/app/Respuestas.php',
     'App\\Tipousuario' => $baseDir . '/app/Tipousuario.php',
     'App\\User' => $baseDir . '/app/User.php',
-    'App\\usuario' => $baseDir . '/app/Usuario.php',
+    'App\\Usuario' => $baseDir . '/app/Usuario.php',
     'Barryvdh\\DomPDF\\Facade' => $vendorDir . '/barryvdh/laravel-dompdf/src/Facade.php',
     'Barryvdh\\DomPDF\\PDF' => $vendorDir . '/barryvdh/laravel-dompdf/src/PDF.php',
     'Barryvdh\\DomPDF\\ServiceProvider' => $vendorDir . '/barryvdh/laravel-dompdf/src/ServiceProvider.php',

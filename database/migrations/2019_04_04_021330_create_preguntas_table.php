@@ -18,7 +18,12 @@ class CreatePreguntasTable extends Migration
             $table->integer('numero_preg')->unique();
             $table->string('nombre_preg');
             
+            $table->unsignedBigInteger('dominio_id');
+            $table->unsignedBigInteger('objcontrol_id');
             $table->unsignedBigInteger('control_id');
+
+            $table->foreign('dominio_id')->references('id')->on('dominios');   
+            $table->foreign('objcontrol_id')->references('id')->on('objcontrols');           
             $table->foreign('control_id')->references('id')->on('controls');
 
             $table->timestamps();

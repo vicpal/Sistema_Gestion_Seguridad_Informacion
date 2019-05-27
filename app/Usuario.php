@@ -16,8 +16,8 @@ class Usuario extends Model
     
     /* -------------------------------------------------------- */
     
-    //USUARIOS (1)---------(1) TIPO ONE TO ONE
-    public function tipousuario(){
-        return $this->belongsTo('App\Tipousuario');
+    //USUARIOS (*)---------(1) TIPO ONE TO ONE
+    public function rol(){
+        return $this->belongsTo(Rol::class);
     }
 }

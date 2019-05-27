@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Tipousuario;
+use App\Rol;
 use App\Usuario;
 
 class UsuarioController extends Controller
@@ -29,9 +29,9 @@ class UsuarioController extends Controller
     {
         //$usua = Usuario::all();
         $usua = DB::table('usuarios')
-        ->join('tipousuarios', 'tipousuarios.id', '=', 'usuarios.tipoid')
+        ->join('roles', 'roles.id', '=', 'usuarios.rol_id')
         ->where('usuarios.deleted_at', NULL)
-        ->select('tipousuarios.id', 'tipousuarios.tipo_nombre', 'usuarios.id', 'usuarios.nombre', 'usuarios.correo')->paginate();
+        ->select('roles.id', 'roles.nombre_rol', 'usuarios.id', 'usuarios.nombre', 'usuarios.correo')->paginate();
         //dd($usua);*/
         return view('/sgsi/usuario/index', compact('usua'));
     }
@@ -43,7 +43,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $tipos = Tipousuario::all()->unique('id');
+        $tipos = Rol::all()->unique('id');
         return view('/sgsi/usuario/create', compact('tipos'));
     }
 
@@ -68,7 +68,7 @@ class UsuarioController extends Controller
         //$password = bcrypt('my-secret-password');
         //$usua->clave = $request->input->('clave');
         $usua->clave = bcrypt('clave');  
-        $usua->tipoid = $request->input('tipoid');
+        $usua->rol_id = $request->input('rol_id');
 
         $usua->save();
         //dd($usua);
@@ -84,7 +84,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        $usua = Usuario::find($id);
+        return view('/sgsi/usuario/show', compact('usua'));
     }
 
     /**

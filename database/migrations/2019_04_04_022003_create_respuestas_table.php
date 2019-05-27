@@ -17,10 +17,16 @@ class CreateRespuestasTable extends Migration
             $table->bigIncrements('id'); /*Esta debe ser llave Primaria */
             $table->unsignedBigInteger('control_id');
             $table->unsignedBigInteger('pregunta_id');
-            $table->enum('respuesta', ['si', 'no', 'n/a']);
+            $table->enum('respuesta', ['SI', 'NO', 'N/A']);
             
+            $table->unsignedBigInteger('dominio_id');
+            $table->unsignedBigInteger('objcontrol_id');
+            
+            $table->foreign('dominio_id')->references('id')->on('dominios');
+            $table->foreign('objcontrol_id')->references('id')->on('objcontrols');
             $table->foreign('control_id')->references('id')->on('controls');
             $table->foreign('pregunta_id')->references('id')->on('preguntas');
+            
             $table->timestamps();
         });
     }
