@@ -47,13 +47,13 @@
                     <div class="form-group">
                         <label for="inputEmail" class="col-sm-3 control-label">Correo</label>
                         <div class="col-sm-6"> <!-- NO VALIDA LA ESTRUCTURA DE CORREO html -->
-                            <input type="email" name="correo" id="correo" class="form-control" value="{{ $usua->correo }}">
+                            <input type="email" name="correo" id="correo" class="form-control" value="{{ $usua->correo }}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputPassword" class="col-sm-3 control-label">Clave</label>
                         <div class="col-sm-6">
-                            <input type="Password" name="clave" id="clave" class="form-control" value="{{ $usua->clave }}">
+                            <input type="Password" name="clave" id="clave" class="form-control" pattern=".{6,}" title="Minimo 6 characteres" autocomplete="off" value="{{ $usua->clave }}" required>
                         </div>
                     </div>
                 </div>

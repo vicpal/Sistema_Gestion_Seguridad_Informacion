@@ -63,7 +63,7 @@
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Clave del Usuario</label>
                         <div class="col-sm-8">
-                            <input type="password" name="clave" id="clave" class="form-control" placeholder="Clave" disabled required>
+                            <input type="password" name="clave" id="clave" class="form-control" placeholder="Clave" pattern=".{6,}" title="Minimo 6 characteres" autocomplete="off" disabled required>
                         </div>
                     </div>
 
