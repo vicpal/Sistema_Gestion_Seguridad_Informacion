@@ -31,9 +31,9 @@
                             <h4 class="box-title">Resumen de la Encuesta</h4>
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fa fa-minus"></i></button>
+                                    <i class="fa fa-minus"></i></button> <!--
                                 <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                                    <i class="fa fa-times"></i></button>
+                                    <i class="fa fa-times"></i></button> -->
                             </div>
                         </div>
                         <!-- Cuerpo de la Vista -->
@@ -55,9 +55,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-8">
+                                        @if (count($encu) )
                                             <label for="">Dominio: </label> {{ $encu->dominio->nombre_dom }} <br>
                                             <label for="">Objetivo de Control: </label> {{ $encu->objcontrol->nombre_objc }} <br>
                                             <label for="">Control: </label> {{ $encu->control->nombre_con }}
+                                        @endif
                                         </div>
                                         
                                     </div>
