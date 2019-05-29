@@ -55,11 +55,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-8">
-                                        @if (count($encu) )
+                                        
                                             <label for="">Dominio: </label> {{ $encu->dominio->nombre_dom }} <br>
                                             <label for="">Objetivo de Control: </label> {{ $encu->objcontrol->nombre_objc }} <br>
                                             <label for="">Control: </label> {{ $encu->control->nombre_con }}
-                                        @endif
+                                        
                                         </div>
                                         
                                     </div>
