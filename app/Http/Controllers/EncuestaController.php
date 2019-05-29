@@ -27,7 +27,7 @@ class EncuestaController extends Controller
      */
     public function index()
     {
-        $encu = Encuesta::orderBy('id','ASC')->paginate(3);
+        $encu = Encuesta::all();
         return view('/sgsi/encuesta/index', compact('encu'));
     }
 
@@ -39,7 +39,7 @@ class EncuestaController extends Controller
 
     public function show($id)
     {
-        $encu = Encuesta::find($id);
+        $encu = Respuestas::find($id);
         //dd($encu);
         return view('/sgsi/encuesta/show', compact('encu'));
     }

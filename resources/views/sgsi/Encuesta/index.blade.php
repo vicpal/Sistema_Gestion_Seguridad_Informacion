@@ -21,23 +21,25 @@
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
 <!-- Main content -->
-<section class="container">
+<section class="content">
     <div class="row">
-        <div class="col-xs-10">
+        <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title"><strong>Listado de Encuentas GTC-IEC/ISO 27002:2015</strong></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="example1" class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>
                                 <th>Núm Encuesta</th>
                                 <th>Usuario</th>
                                 <th>Creada</th>
-                                <th colspan="3">Opciones</th>
+                                <th>Ver</th>
+                                <th>Del</th>
+                                <th>Down</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,22 +48,22 @@
                             <tr>
                                 <td>{{ $enc->id }}</td>
                                 <td>{{ $enc->encuesta_num }}</td>
-                                <td>{{ $enc->usuario_id }}</td>
+                                <td>{{ $enc->usuario->nombre }}</td>
                                 <td>{{ $enc->created_at }}</td>
-                                <td>
+                                <td align="center">
                                     <a href="{{ route('encuesta.show', $enc->id) }}" class="btn btn-primary btn-xs" method="POST">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a>
                                 </td>
-                                <td>
+                                <td align="center">
                                     <form action="{{ route('encuesta.destroy', $enc->id) }}" method="POST">
                                         {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
                                     </form>
                                 </td>
-                                <td>
-                                    <a href="{{ route('encuesta.index', $enc->id) }}" class="btn btn-primary btn-xs" method="POST">
+                                <td align="center">
+                                    <a href="{{ route('report.pdf') }}" class="btn btn-primary btn-xs" method="POST">
                                         <span class="glyphicon glyphicon-download-alt"></span>
                                     </a>
                                 </td>
@@ -79,15 +81,16 @@
                                 <th>Núm Encuesta</th>
                                 <th>Usuario</th>
                                 <th>Creada</th>
-                                <th colspan="3">Opciones</th>
+                                <th>Ver</th>
+                                <th>Edi</th>
+                                <th>Del</th>
                             </tr>
                         </tfoot>
                     </table>
-                    {{ $encu->links() }}
                 </div>
             <!-- /.box-body --> 
             </div>
-          <!-- /.box -->
+          <!-- /.box --> <!-- <a href="{{ route('report.pdf') }}">Clic PDF</a> -->
         </div>
         <!-- /.col -->
     </div>

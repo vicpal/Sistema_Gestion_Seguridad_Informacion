@@ -20,84 +20,61 @@
 
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
-<div class="col-md-10">
-        <!-- Horizontal Form -->
-        <div class="box box-info">
-            <div class="box-header with-border">
-                <h3 class="box-title">Resultados de Encuesta Diligenciada</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- Script para Habilitar los campos del Formulario -->
-            
-            <!-- form start -->
-            <form class="form-horizontal" action="" method="POST" role="form">
-            {{ csrf_field() }}
-                <div class="box-body">
-                    <div class="form-group">
-                        <label for="inputText" class="col-sm-3 control-label">Dominio</label>
-                        <div class="col-sm-8">
-                            <h4 value="{{ $encu->dominio->nombre_dom }}">{{ $encu->dominio->nombre_dom }}</h4>
-                        </div>
-                    </div> 
-                </div>
-                <div class="box-body">
-                    <div class="form-group">
-                        <label for="inputText" class="col-sm-3 control-label">Obj de Control</label>
-                        @if ($encu->objcontrol->dominio_id == $encu->dominio->id)
-                            <div class="col-sm-8">
-                                <h6 value="{{ $encu->objcontrol->nombre_objc }}">{{ $encu->objcontrol->nombre_objc }}</h5>
+    <!-- Content Wrapper. Contains page content -->
+        <section class="content">
+            <!-- Default box -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box">
+                        <!-- Titulo de la Vista -->
+                        <div class="box-header with-border">
+                            <h4 class="box-title">Resumen de la Encuesta</h4>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                    <i class="fa fa-minus"></i></button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                                    <i class="fa fa-times"></i></button>
                             </div>
-                        @endif
-                    </div> 
-                </div>
-                <div class="box-body">
-                    <div class="form-group">
-                        <label for="inputText" class="col-sm-3 control-label">Control</label>
-                        @if ($encu->control->dominio_id == $encu->dominio->id)
-                            @if($encu->control->objcontrol_id == $encu->objcontrol->id)
-                                <div class="col-sm-8">
-                                    <h6 value="{{ $encu->control->nombre_con }}">{{ $encu->control->nombre_con }}</h5>
-                                </div>
-                                <!-- ---- DESDE AQUI TRAIGO LAS PREGUNTAS Y RESPUESTAS POR CONTROL ------- -->
-                                @if($encu->pregunta->id == $encu->pregunta_id)
-                                <div class="box-body">
-                                        <table id="example2" class="table table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>Pregunta</th>
-                                                    <th>Respuesta</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            @if($encu->count())
-                                                @foreach($encu as $enc)
-                                                <tr>
-                                                    <td>{{ $encu->pregunta->nombre_preg }}</td>
-                                                    <td>{{ $encu->respuesta }}</td>
-                                                </tr>
-                                                @endforeach
-                                                @else
-                                                    <tr>
-                                                        <td colspan="8">No ha Respondido !!</td>
-                                                    </tr>
-                                            @endif
-                                            </tbody>
-                                        </table>
+                        </div>
+                        <!-- Cuerpo de la Vista -->
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-sm-2">
+                                            <h4>Numero: {{ $encu->encuesta->encuesta_num }}</h4>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <h4>Usuario Encuestado: {{ $encu->usuario->nombre }}</h4>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <h4>Fecha de Realización: {{ $encu->encuesta->created_at }}</h4>
+                                        </div>
                                     </div>
-                                @endif
-                            @endif
-                        @endif
-                    </div> 
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-8">
+                                            <label for="">Dominio: </label> {{ $encu->dominio->nombre_dom }} <br>
+                                            <label for="">Objetivo de Control: </label> {{ $encu->objcontrol->nombre_objc }} <br>
+                                            <label for="">Control: </label> {{ $encu->control->nombre_con }}
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer">
+                            <h5>Encuesta Realizada: {{ $encu->encuesta->created_at }}</h5>
+                        </div>
+                        <!-- /.box-footer-->
+                    </div>
+                    <!-- /.box -->
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                    <a href="{{ route('encuesta.index') }}" class="btn btn-default">Volver al Listado</a>
-                    <button type="submit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-download-alt"></span></button>
-                </div>
-              <!-- /.box-footer -->
-            </form>
-        </div>
-    </div>
-    
+            </div>
+        </section>
+    <!-- /.content -->
+   
 @endsection
 
