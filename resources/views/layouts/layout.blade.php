@@ -128,7 +128,7 @@
 			<li class="treeview">
 			<a href="#">
 				<i class="fa fa-laptop"></i>
-				<span>Preparar Encuesta</span>
+				<span>Reportes</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>
@@ -143,7 +143,7 @@
 			<li class="treeview">
 			<a href="#">
 				<i class="fa fa-user-o"></i>
-				<span>Usuarios de Sistema</span>
+				<span>Usuarios</span>
 				<span class="pull-right-container">
 				<i class="fa fa-angle-left pull-right"></i>
 				</span>

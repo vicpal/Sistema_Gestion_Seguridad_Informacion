@@ -69,6 +69,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <h5>Encuesta Realizada: {{ $encu->encuesta->created_at }}</h5>
+                            <a href="{{ route('encuesta.index') }}" class="btn btn-default">Volver al Listado</a>
                         </div>
                         <!-- /.box-footer-->
                     </div>
