@@ -21,63 +21,98 @@
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
     <!-- Content Wrapper. Contains page content -->
-        <section class="content">
-            <!-- Default box -->
+    <div class="content">
+    <!-- Main content -->
+        <section class="invoice">
+        <!-- title row -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="box">
-                        <!-- Titulo de la Vista -->
-                        <div class="box-header with-border">
-                            <h4 class="box-title">Resumen de la Encuesta</h4>
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                                    <i class="fa fa-minus"></i></button> <!--
-                                <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                                    <i class="fa fa-times"></i></button> -->
-                            </div>
-                        </div>
-                        <!-- Cuerpo de la Vista -->
-                        <div class="box-body">
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="col-sm-2">
-                                            <h4>Numero: {{ $encu->encuesta->encuesta_num }}</h4>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <h4>Usuario Encuestado: {{ $encu->usuario->nombre }}</h4>
-                                        </div>
-                                        <div class="col-sm-5">
-                                            <h4>Fecha de Realización: {{ $encu->encuesta->created_at }}</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="col-md-8">
-                                        
-                                            <label for="">Dominio: </label> {{ $encu->dominio->nombre_dom }} <br>
-                                            <label for="">Objetivo de Control: </label> {{ $encu->objcontrol->nombre_objc }} <br>
-                                            <label for="">Control: </label> {{ $encu->control->nombre_con }}
-                                        
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer">
-                            <h5>Encuesta Realizada: {{ $encu->encuesta->created_at }}</h5>
-                            <a href="{{ route('encuesta.index') }}" class="btn btn-default">Volver al Listado</a>
-                        </div>
-                        <!-- /.box-footer-->
-                    </div>
-                    <!-- /.box -->
+                    <h2 class="page-header">
+                        <i class="fa fa-area-chart"></i> SGSI, Ltda.
+                        <small class="pull-right">Fecha: <input type="datetime" name="fecha" step="1" min="2013-01-01T00:00Z" max="2013-12-31T12:00Z" value="  <?php echo date("Y-m-d");?>"></small>
+                    </h2>
+                </div>
+            </div>
+            <!-- info row -->
+            <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                    De
+                    <address>
+                        <strong>SGSI, Ltda.</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        Telefono: +1 (804) 123-5432<br>
+                        Correo: info@sgsicorp.com
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    Para
+                    <address>
+                        <strong>{{ $encu->usuario->nombre }}</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        Telefono: +1 (555) 539-1037<br>
+                        Correo: {{ $encu->usuario->correo }}
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    <b>Encuesta: #{{ $encu->encuesta->encuesta_num }}</b><br>
+                    <br>
+                    <b>Usuario ID:</b> 000{{ $encu->usuario->id }}<br>
+                    <b>Realizada por: </b>{{ $encu->usuario->nombre }}<br>
+                    <b>Fecha:</b> {{ $encu->encuesta->created_at }} <br>
+                    <!-- <b>Account:</b> 968-34567 -->
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <!-- Table row -->
+            <div class="row">
+                <h2 align="center">Resultado de la Encuesta - GTC ISO/IEC 27002:2015</h2>
+                <div class="col-xs-12 table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Número</th>
+                                <th>Sección</th>
+                                <th>Cumplimiento</th>
+                                <th>Ponderado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ $encu->dominio->numero_dom }}</td>
+                                <td>{{ $encu->dominio->nombre_dom }}</td>
+                                <td> No Realizado </td>
+                                <td> 0% </td>
+                            </tr>
+                            <tr>
+                                <th>Número</th>
+                                <th>Sección</th>
+                                <th>Cumplimiento</th>
+                                <th>Ponderado</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- this row will not appear when printing -->
+            <div class="row no-print">
+                <div class="col-xs-12">
+                <a href="{{ route('encuesta.index') }}" class="btn btn-default">Volver al Listado</a>
+                    <a href="{{ route('report.pdf') }}" class="btn btn-primary pull-right" method="POST"><i class="fa fa-download"></i> Generar PDF</a>
                 </div>
             </div>
         </section>
-    <!-- /.content -->
-   
+        <!-- /.content -->
+        <div class="clearfix"></div>
+    </div>
+    <!-- /.content-wrapper -->
+
 @endsection
 
