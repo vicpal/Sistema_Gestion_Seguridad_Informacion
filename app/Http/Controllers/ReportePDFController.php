@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use App\Preguntas;
+use App\Respuestas;
+use App\Usuario;
 
 
 class ReportePDFController extends Controller
@@ -64,7 +66,7 @@ class ReportePDFController extends Controller
         $reports = Preguntas::get();
         $pdf = PDF::loadView('sgsi/reportepdf/report', compact('reports'));
         
-        return $pdf->download('report-list.pdf');
+        return $pdf->download('report-sgsi.pdf');
     }
 
 
