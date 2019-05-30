@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <h4><strong>GUIA TÉCNICA COLOMBIANA IEC/ISO 27002:2015</strong></h4>
             <p align="justify">
             El Instituto Colombiano de Normas Técnicas y Certificación, ICONTEC, es el organismo
