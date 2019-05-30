@@ -21,16 +21,16 @@
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
 <!-- Main content -->
-<section class="container">
+<section class="content">
     <div class="row">
-        <div class="col-xs-10">
+        <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
                     <h3 class="box-title"><strong>Listado de Respuestas - GTC-IEC/ISO 27002:2015</strong></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="example1" class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -38,9 +38,9 @@
                                 <th>Núm Obj. Control</th>
                                 <th>Núm Control</th>
                                 <th>Núm Preg</th>
+                                <th>Respuesta</th>
                                 <th>Núm Encue</th>
                                 <th>Usuario</th>
-                                <th>Respuesta</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,9 +52,9 @@
                                 <td>{{ $resp->objcontrol->numero_objc }}</td>
                                 <td>{{ $resp->control->numero_con }}</td>
                                 <td>{{ $resp->pregunta->numero_preg }}</td>
-                                <td>{{ $resp->encuesta->encuesta_num }}</td>
-                                <td>{{ $resp->id }}</td>
                                 <td>{{ $resp->respuesta }}</td>
+                                <td>{{ $resp->encuesta->encuesta_num }}</td>
+                                <td>{{ $resp->usuario->nombre }}</td>
                             </tr>
                             @endforeach
                             @else
@@ -70,13 +70,12 @@
                                 <th>Núm Obj. Control</th>
                                 <th>Núm Control</th>
                                 <th>Núm Preg</th>
+                                <th>Respuesta</th>
                                 <th>Núm Encue</th>
                                 <th>Usuario</th>
-                                <th>Respuesta</th>
                             </tr>
                         </tfoot>
                     </table>
-                    {{ $respu->links() }}
                 </div>
             <!-- /.box-body --> 
             </div>

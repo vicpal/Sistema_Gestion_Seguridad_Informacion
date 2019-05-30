@@ -29,7 +29,7 @@ class RespuestasController extends Controller
      */
     public function index()
     {
-        $respu = Respuestas::orderBy('id','ASC')->paginate(3);
+        $respu = Respuestas::all();
         return view('/sgsi/respuesta/index', compact('respu'));
     }
    
