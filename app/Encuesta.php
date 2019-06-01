@@ -31,6 +31,11 @@ class Encuesta extends Model
         return $this->belongsTo('App\Control');
     }
 
+    // ENCUESTAS (*)---------(1) USUARIO ONE TO MANY INVERSE
+    public function usuario(){
+        return $this->belongsTo('App\Usuario');
+    }
+
     /* ------------------------------------------------------------ */
 
     //ENCUESTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
@@ -43,9 +48,5 @@ class Encuesta extends Model
         return $this->hasMany('App\Respuestas');
     }
 
-    // ENCUESTAS (*)---------(1) USUARIO ONE TO MANY INVERSE
-    public function usuario(){
-        return $this->belongsTo('App\Usuario');
-    }
 
 }
