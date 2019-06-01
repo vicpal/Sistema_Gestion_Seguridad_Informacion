@@ -30,4 +30,9 @@ class Usuario extends Model
     public function respuestas(){
         return $this->hasMany('App\Respuestas');
     }
+
+    //USUARIO (1) ------------> (*) REPORTES (ONE TO MANY)
+    public function reportepdfs(){
+        return $this->hasMany('App\ReportePDF');
+    }
 }

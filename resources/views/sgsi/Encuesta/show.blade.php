@@ -29,7 +29,7 @@
                 <div class="col-md-12">
                     <h2 class="page-header">
                         <i class="fa fa-area-chart"></i> SGSI, Ltda.
-                        <small class="pull-right">Fecha: <input type="datetime" name="fecha" step="1" min="2013-01-01T00:00Z" max="2013-12-31T12:00Z" value="  <?php echo date("Y-m-d");?>"></small>
+                        <small class="pull-right">Fecha: <input type="datetime" name="fecha" step="1" min="2013-01-01T00:00Z" max="2013-12-31T12:00Z" value="  <?php echo date("Y-m-d");?>" disabled></small>
                     </h2>
                 </div>
             </div>
