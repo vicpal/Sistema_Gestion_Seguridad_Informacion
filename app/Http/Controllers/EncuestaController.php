@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
 use App\Encuesta;
 use App\Preguntas;
 use App\Respuestas;
@@ -50,5 +51,13 @@ class EncuestaController extends Controller
         return redirect()->route('encuesta.index')->with('success','Encuesta Eliminada Satisfactoriamente');
     }
 
+    // ---------------- PDF ---------------------------------
+    public function reportPDF(){
+        $encu = Respuestas::get();
+        $pdf = PDF::loadView('sgsi/reportepdf/report', compact('encu'));
+        //dd($encu);
+        return $pdf->download('report-sgsi.pdf');
+    }
+    // -------------------------------------------------------
 
 }

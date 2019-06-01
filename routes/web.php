@@ -38,7 +38,7 @@ Route::resource('sgsi/control','ControlController');
 Route::resource('sgsi/preguntas','PreguntasController');
 Route::resource('sgsi/respuestas','RespuestasController');
 Route::resource('sgsi/usuario','UsuarioController');
-Route::resource('sgsi/tipousuario','TipousuarioController');
+//Route::resource('sgsi/tipousuario','TipousuarioController');
 Route::resource('sgsi/encuesta','EncuestaController');
 //Route::resource('sgsi/reportepdf','ReportePDFController');
 
@@ -47,5 +47,6 @@ Route::get('sgsi/ajax/objcontrol/{id}', 'ObjcontrolController@findById');
 Route::get('sgsi/ajax/control/{id}', 'ControlController@findById');
 
 // Ruta Personalizada para crear un PDF
-Route::get('sgsi/reportepdf', 'ReportePDFController@reportPDF')->name('report.pdf');
+//Route::get('sgsi/reportepdf', 'ReportePDFController@reportPDF')->name('report.pdf');
+Route::get('sgsi/reportepdf','EncuestaController@reportPDF')->name('report.pdf');
 

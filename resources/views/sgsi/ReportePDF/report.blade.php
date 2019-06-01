@@ -13,15 +13,31 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>
-                                Hola
-                            </td>
+                            <th>
+                                Número
+                            </th>
+                            <th>
+                                Sección
+                            </th>
+                            <th>
+                                Cumplimiento
+                            </th>
+                            <th>
+                                Ponderado
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
+                    @if($encu->count())
+                        @foreach($encu as $enc)
                         <tr>
-                            <td>Recibido</td>
+                            <td>{{ $enc->dominio->numero_dom }}</td>
+                            <td>{{ $enc->dominio->nombre_dom}}</td>
+                            <td>No Realizado</td>
+                            <td>0 %</td>
                         </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
