@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reporte SGSI</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -32,7 +37,7 @@
                         @foreach($encu as $enc)
                         <tr>
                             <td>{{ $enc->dominio->numero_dom }}</td>
-                            <td>{{ $enc->dominio->nombre_dom}}</td>
+                            <td>{{ $enc->dominio->nombre_dom }}</td>
                             <td>No Realizado</td>
                             <td>0 %</td>
                         </tr>
