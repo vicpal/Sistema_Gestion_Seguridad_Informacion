@@ -52,6 +52,7 @@ class EncuestaController extends Controller
     }
 
     // ---------------- PDF ---------------------------------
+   
     public function reportPDF(){
         $encu = Respuestas::get();
         $pdf = PDF::loadView('sgsi/reportepdf/report', compact('encu'));

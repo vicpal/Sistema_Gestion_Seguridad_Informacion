@@ -38,7 +38,7 @@ class Encuesta extends Model
 
     /* ------------------------------------------------------------ */
 
-    //ENCUESTA (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    //ENCUESTA (1) ------------> (*) PREGUNTAS (ONE TO MANY)
     public function preguntas(){
         return $this->hasMany('App\Preguntas');
     }
@@ -48,5 +48,9 @@ class Encuesta extends Model
         return $this->hasMany('App\Respuestas');
     }
 
+    //ENCUESTA (1) ------------> (*) CRITERIO (ONE TO MANY)
+    public function criterios(){
+        return $this->hasMany('App\Criterio');
+    }
 
 }
