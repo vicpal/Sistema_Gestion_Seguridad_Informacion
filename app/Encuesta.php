@@ -16,9 +16,9 @@ class Encuesta extends Model
 
     /* ------------------------------------------------------------ */
 
-    //ENCUESTA (*)---------(1) DOMINIO ONE TO MANY INVERSE
-    public function dominio(){
-        return $this->belongsTo('App\Dominios');
+    //ENCUESTA (1)---------(*) DOMINIOS ONE TO MANY INVERSE
+    public function dominios(){
+        return $this->hasMany(Dominios::Class);
     }
     
     //ENCUESTA (*)---------(1) OBJCONTROL ONE TO MANY INVERSE

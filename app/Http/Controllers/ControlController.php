@@ -109,12 +109,12 @@ class ControlController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'numero_con' => 'required|integer',
+            //'numero_con' => 'required|integer',
             'nombre_con' => 'required|string',
             
         ]);
             $contr = Control::find($id);
-            $contr->numero_con = $request->input('numero_con');
+            //$contr->numero_con = $request->input('numero_con');
             $contr->nombre_con = $request->input('nombre_con');
 
             $contr->save();

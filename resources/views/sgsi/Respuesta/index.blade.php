@@ -34,13 +34,14 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Núm Dominio</th>
-                                <th>Núm Obj. Control</th>
-                                <th>Núm Control</th>
-                                <th>Núm Preg</th>
+                                <th>Dominio</th>
+                                <th>Objetivo</th>
+                                <th>Control</th>
+                                <th>Pregunta</th>
                                 <th>Respuesta</th>
-                                <th>Núm Encue</th>
+                                <th>Encuesta</th>
                                 <th>Usuario</th>
+                                <th>Creada</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,24 +56,26 @@
                                 <td>{{ $resp->respuesta }}</td>
                                 <td>{{ $resp->encuesta->encuesta_num }}</td>
                                 <td>{{ $resp->usuario->nombre }}</td>
+                                <td>{{ $resp->encuesta->created_at }}</td>
                             </tr>
                             @endforeach
                             @else
                                 <tr>
-                                    <td colspan="8">No hay registro !!</td>
+                                    <td colspan="10">No hay registro !!</td>
                                 </tr>
                         @endif
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Id</th>
-                                <th>Núm Dominio</th>
-                                <th>Núm Obj. Control</th>
-                                <th>Núm Control</th>
-                                <th>Núm Preg</th>
+                                <th>Dominio</th>
+                                <th>Objetivo</th>
+                                <th>Control</th>
+                                <th>Pregunta</th>
                                 <th>Respuesta</th>
-                                <th>Núm Encue</th>
+                                <th>Encuesta</th>
                                 <th>Usuario</th>
+                                <th>Creada</th>
                             </tr>
                         </tfoot>
                     </table>

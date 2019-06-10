@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Dominios;
+use App\Objcontrol;
 use App\Control;
 use App\Preguntas;
 use App\Respuestas;
-use App\ReportePDF;
 use App\Encuesta;
 
 class RespuestasController extends Controller
@@ -33,5 +34,4 @@ class RespuestasController extends Controller
         return view('/sgsi/respuesta/index', compact('respu'));
     }
    
-
 }

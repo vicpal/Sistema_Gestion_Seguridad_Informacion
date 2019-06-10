@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
+use App\Dominios;
+use App\Objcontrol;
+use App\Control;
+use App\Criterio;
 use App\Encuesta;
 use App\Preguntas;
 use App\Respuestas;
@@ -37,7 +41,7 @@ class EncuestaController extends Controller
         $encu = Encuesta::all();
         return view('/sgsi/encuesta/create', compact('encu'));
     }
-
+    
     public function show($id)
     {
         $encu = Respuestas::find($id);
@@ -51,7 +55,7 @@ class EncuestaController extends Controller
         return redirect()->route('encuesta.index')->with('success','Encuesta Eliminada Satisfactoriamente');
     }
 
-    // ---------------- PDF ---------------------------------
+    // ---------------------------- PDF ---------------------------------
    
     public function reportPDF(){
         $encu = Respuestas::get();
@@ -59,6 +63,6 @@ class EncuestaController extends Controller
         //dd($encu);
         return $pdf->download('report-sgsi.pdf');
     }
-    // -------------------------------------------------------
+    // -------------------------------------------------------------------
 
 }

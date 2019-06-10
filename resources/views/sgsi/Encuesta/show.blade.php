@@ -58,11 +58,11 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Encuesta: #{{ $encu->encuesta->encuesta_num }}</b><br>
+                    <b>Encuesta: #{{ $encu->encuesta_num }}</b><br>
                     <br>
                     <b>Usuario ID:</b> 000{{ $encu->usuario->id }}<br>
                     <b>Realizada por: </b>{{ $encu->usuario->nombre }}<br>
-                    <b>Fecha:</b> {{ $encu->encuesta->created_at }} <br>
+                    <b>Fecha:</b> {{ $encu->created_at }} <br>
                     <!-- <b>Account:</b> 968-34567 -->
                 </div>
             </div>
@@ -71,8 +71,8 @@
             <!-- Table row -->
             <div class="row">
                 <h2 align="center">Resultado de la Encuesta - GTC ISO/IEC 27002:2015</h2>
-                <div class="col-xs-12 table-responsive">
-                    <table class="table table-striped">
+                <div class="box-body">
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
                                 <th>Número</th>
@@ -82,13 +82,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>{{ $encu->dominio->numero_dom }}</td>
-                                <td>{{ $encu->dominio->nombre_dom }}</td>
-                                <td> No Realizado </td>
-                                <td> 0% </td>
-                            </tr>
-                            <tr>
+                            @if($encu->count())
+                                <pre>
+                                    @php
+                                        printf($encu);
+                                    @endphp
+                                </pre>
+                            @endif
+                             <tr>
                                 <th>Número</th>
                                 <th>Sección</th>
                                 <th>Cumplimiento</th>
@@ -102,7 +103,7 @@
             <!-- /.row -->
 
             <!-- this row will not appear when printing -->
-            <div class="row no-print">
+            <div class="row">
                 <div class="col-xs-12">
                 <a href="{{ route('encuesta.index') }}" class="btn btn-default">Volver al Listado</a>
                     <a href="{{ route('report.pdf') }}" class="btn btn-primary pull-right" method="POST"><i class="fa fa-download"></i> Generar PDF</a>

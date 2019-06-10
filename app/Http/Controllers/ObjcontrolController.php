@@ -100,12 +100,12 @@ class ObjcontrolController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'numero_objc' => 'required|integer',
+            //'numero_objc' => 'required|integer',
             'nombre_objc' => 'required|string',
 
         ]);
             $objc = Objcontrol::find($id);
-            $objc->numero_objc = $request->input('numero_objc');
+            //$objc->numero_objc = $request->input('numero_objc');
             $objc->nombre_objc = $request->input('nombre_objc');
 
             $objc->save();
