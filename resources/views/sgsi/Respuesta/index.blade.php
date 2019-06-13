@@ -51,12 +51,12 @@
                                 <td>{{ $resp->usuario->nombre }}</td>
                                 <td>{{ $resp->created_at }}</td>
                                 <td align="center">
-                                    <a href="{{ route('encuesta.show', $resp->id) }}" class="btn btn-primary btn-xs" method="POST">
+                                    <a href="{{ route('respuestas.show', $resp->id) }}" class="btn btn-primary btn-xs" method="POST">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a>
                                 </td>
                                 <td align="center">
-                                    <form action="{{ route('encuesta.destroy', $resp->id) }}" method="POST">
+                                    <form action="{{ route('respuestas.destroy', $resp->id) }}" method="POST">
                                         {{csrf_field()}}
                                         <input name="_method" type="hidden" value="DELETE">
                                         <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>

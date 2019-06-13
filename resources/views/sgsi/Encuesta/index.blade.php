@@ -20,86 +20,97 @@
 
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
 
-<!-- Main content -->
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header">
-                    <h3 class="box-title"><strong>Listado de Encuentas GTC-IEC/ISO 27002:2015</strong></h3>
+<!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
+    
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content">
+    <!-- Main content -->
+        <section class="invoice">
+        <!-- title row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="page-header">
+                        <i class="fa fa-area-chart"></i> SGSI, Ltda.
+                        <small class="pull-right">Fecha: <input type="datetime" name="fecha" step="1" min="2013-01-01T00:00Z" max="2013-12-31T12:00Z" value="  <?php echo date("Y-m-d");?>" disabled></small>
+                    </h2>
                 </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                    <table id="example1" class="table table-bordered table-hover">
+            </div>
+            <!-- info row -->
+            <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                    De
+                    <address>
+                        <strong>SGSI, Ltda.</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        Telefono: +1 (804) 123-5432<br>
+                        Correo: info@sgsicorp.com
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    Para
+                    <address>
+                        <strong>{{ $respu->usuario->nombre }}</strong><br>
+                        795 Folsom Ave, Suite 600<br>
+                        San Francisco, CA 94107<br>
+                        Telefono: +1 (555) 539-1037<br>
+                        Correo: {{ $respu->usuario->correo }}
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    <b>respuesta: #{{ $respu->encuesta_num }}</b><br>
+                    <br>
+                    <b>Usuario ID:</b> 000{{ $respu->usuario->id }}<br>
+                    <b>Realizada por:</b> {{ $respu->usuario->nombre }}<br>
+                    <b>Fecha:</b> {{ $respu->created_at }}<br>
+                    <!-- <b>Account:</b> 968-34567 -->
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <!-- Table row -->
+            <div class="row">
+                <h2 align="center">Resultado de la Encuesta - GTC ISO/IEC 27002:2015</h2>
+                <div class="box-body"> <div class="btn" id="vip"></div>
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Núm Encuesta</th>
-                                <th>Usuario</th>
-                                <th>Creada</th>
-                                <th>Ver</th>
-                                <th>Del</th>
-                                <th>Down</th>
+                                <th>Número</th>
+                                <th>Sección</th>
+                                <th>Cumplimiento</th>
+                                <th>Ponderado</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @if($encu->count())
-                            @foreach($encu as $enc)
+                            
+                            @foreach($respu as $enc)
                             <tr>
-                                <td>{{ $enc->id }}</td>
-                                <td>{{ $enc->encuesta_num }}</td>
-                                <td>{{ $enc->usuario->nombre }}</td>
-                                <td>{{ $enc->created_at }}</td>
-                                <td align="center">
-                                    <a href="{{ route('encuesta.show', $enc->id) }}" class="btn btn-primary btn-xs" method="POST">
-                                        <span class="glyphicon glyphicon-eye-open"></span>
-                                    </a>
-                                </td>
-                                <td align="center">
-                                    <form action="{{ route('encuesta.destroy', $enc->id) }}" method="POST">
-                                        {{csrf_field()}}
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
-                                    </form>
-                                </td>
-                                <td align="center">
-                                    <a href="{{ route('report.pdf') }}" class="btn btn-primary btn-xs" method="POST">
-                                        <span class="glyphicon glyphicon-download-alt"></span>
-                                    </a>
-                                </td>
+                                <td>{{ $enc->dominio->numero_dom }}</td>
+                                <td>{{ $enc->dominio->nombre_dom }}</td>
                             </tr>
                             @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="8">No hay registro !!</td>
-                                </tr>
-                        @endif
+                            
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Id</th>
-                                <th>Núm Encuesta</th>
-                                <th>Usuario</th>
-                                <th>Creada</th>
-                                <th>Ver</th>
-                                <th>Edi</th>
-                                <th>Del</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
-            <!-- /.box-body --> 
+                <!-- /.col -->
             </div>
-          <!-- /.box --> <!-- <a href="{{ route('report.pdf') }}">Clic PDF</a> -->
-        </div>
-        <!-- /.col -->
+            <!-- /.row -->
+
+            <!-- this row will not appear when printing -->
+            <div class="row">
+                <div class="col-xs-12">
+                <a href="{{ route('respuesta.index') }}" class="btn btn-default">Volver al Listado</a>
+                    <a href="{{ route('report.pdf') }}" class="btn btn-primary pull-right" method="POST"><i class="fa fa-download"></i> Generar PDF</a>
+                </div>
+            </div>
+        </section>
+        <!-- /.content -->
+        <div class="clearfix"></div>
     </div>
-    <!-- /.row -->
-        <div class="footer">
-            <a href="{{ route('encuesta.create') }}" class="btn btn-primary">Crear Encuesta</a>
-        </div>
-</section>
-<!-- /.content -->
+    <!-- /.content-wrapper -->
     
 @endsection
 

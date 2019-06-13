@@ -49,20 +49,20 @@
                 <div class="col-sm-4 invoice-col">
                     Para
                     <address>
-                        <strong>{{ $encu->usuario->nombre }}</strong><br>
+                        <strong>{{ $respu->usuario->nombre }}</strong><br>
                         795 Folsom Ave, Suite 600<br>
                         San Francisco, CA 94107<br>
                         Telefono: +1 (555) 539-1037<br>
-                        Correo: {{ $encu->usuario->correo }}
+                        Correo: {{ $respu->usuario->correo }}
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Encuesta: #{{ $encu->encuesta_num }}</b><br>
+                    <b>Encuesta: #{{ $respu->encuesta_num }}</b><br>
                     <br>
-                    <b>Usuario ID:</b> 000{{ $encu->usuario->id }}<br>
-                    <b>Realizada por:</b> {{ $encu->usuario->nombre }}<br>
-                    <b>Fecha:</b> {{ $encu->created_at }}<br>
+                    <b>Usuario ID:</b> 000{{ $respu->usuario->id }}<br>
+                    <b>Realizada por:</b> {{ $respu->usuario->nombre }}<br>
+                    <b>Fecha:</b> {{ $respu->created_at }}<br>
                     <!-- <b>Account:</b> 968-34567 -->
                 </div>
             </div>
@@ -82,14 +82,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            @foreach($encu as $enc)
                             <tr>
-                                <td>{{ $enc->dominio->numero_dom }}</td>
-                                <td>{{ $enc->dominio->nombre_dom }}</td>
+                                <td> {{ $respu->dominio->numero_dom }}</td>
+                                <td> {{ $respu->dominio->nombre_dom }}</td>
+                                <td> {{ $respu->criterio->criterio }}</td>
+                                <td>  0% </td>
                             </tr>
-                            @endforeach
-                            
+                            <tr>
+                                <td> {{ $respu->objcontrol->numero_objc }}</td>
+                                <td> {{ $respu->objcontrol->nombre_objc }}</td>
+                                <td> {{ $respu->criterio->criterio }}</td>
+                                <td>  0% </td>
+                            </tr>
+                            <tr>
+                                <td> {{ $respu->control->numero_con }}</td>
+                                <td> {{ $respu->control->nombre_con }}</td>
+                                <td> {{ $respu->criterio->criterio }}</td>
+                                <td>  0% </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -100,7 +110,7 @@
             <!-- this row will not appear when printing -->
             <div class="row">
                 <div class="col-xs-12">
-                <a href="{{ route('encuesta.index') }}" class="btn btn-default">Volver al Listado</a>
+                <a href="{{ route('respuestas.index') }}" class="btn btn-default">Volver al Listado</a>
                     <a href="{{ route('report.pdf') }}" class="btn btn-primary pull-right" method="POST"><i class="fa fa-download"></i> Generar PDF</a>
                 </div>
             </div>

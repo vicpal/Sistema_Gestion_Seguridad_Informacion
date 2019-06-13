@@ -19,17 +19,6 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-/* ;
-Route::get('/sgsi/create', 'DominiosController@create')->name('create');
-Route::get('/sgsi/edit/{id}', 'DominiosController@edit')->name('edit');
-Route::get('/sgsi/update/{id}', 'DominiosController@update')->name('update');
-Route::delete('/sgsi/destroy/{id}', 'DominiosController@destroy')->name('destroy');
-Route::get('/sgsi/show/{id}', 'DominiosController@show')->name('show');
-Route::get('/sgsi/store', 'DominiosController@store')->name('store'); */
-
-// Vistas con contenido para el Sitio. Pero además de crear aqui, tambien se debe crear en el Controlador.
-//Route::get('/sgsi/listado', 'DominiosController@listado')->name('listado');
-
 // Controladores Globales
 Route::get('/sgsi', 'HomeController@index');//url que se coloca en el navegador
 Route::resource('sgsi/dominios','DominiosController');//(index, create, edit, delete) una ruta
@@ -38,16 +27,15 @@ Route::resource('sgsi/control','ControlController');
 Route::resource('sgsi/preguntas','PreguntasController');
 Route::resource('sgsi/respuestas','RespuestasController');
 Route::resource('sgsi/usuario','UsuarioController');
-//Route::resource('sgsi/tipousuario','TipousuarioController');
 Route::resource('sgsi/encuesta','EncuestaController');
-//Route::resource('sgsi/reportepdf','ReportePDFController');
+
+// Vistas Personalizadas
+//Route::get('sgsi/reporte','EncuestaController');
 
 // Ruta Personalizada para llamar una Funcion por Allax
 Route::get('sgsi/ajax/objcontrol/{id}', 'ObjcontrolController@findById');
 Route::get('sgsi/ajax/control/{id}', 'ControlController@findById');
-Route::get('sgsi/ajax/encuesta/{id}', 'EncuestaController@findById');
 
 // Ruta Personalizada para crear un PDF
-//Route::get('sgsi/reportepdf', 'ReportePDFController@reportPDF')->name('report.pdf');
 Route::get('sgsi/reportepdf','EncuestaController@reportPDF')->name('report.pdf');
 

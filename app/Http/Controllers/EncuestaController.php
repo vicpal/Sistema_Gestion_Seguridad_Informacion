@@ -33,10 +33,19 @@ class EncuestaController extends Controller
      */
     public function index()
     {
-        $encu = Encuesta::all();
-        return view('/sgsi/encuesta/index', compact('encu'));
+        //$encu = Encuesta::all();
+        //return view('/sgsi/encuesta/index', compact('encu'));
+
+        $respu = DB::table('respuestas')->where('deleted_at', NULL)->get();
+        return view('/sgsi/encuesta/index', compact('respu'));
     }
         
+    public function reporte()
+    {
+        $encu = Respuestas::all();
+        return view('/sgsi/encuesta/reporte', compact('encu'));
+    }
+    
     public function create()
     {
         $encu = Encuesta::all();
