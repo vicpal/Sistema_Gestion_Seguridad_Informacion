@@ -16,6 +16,10 @@ class Criterio extends Model
 
     /* ------------------------------------------------------------ */
 
+    //CRITERIO (1) ------------> (*) RESPUESTAS (ONE TO MANY)
+    public function respuestas(){
+        return $this->hasMany('App\Respuestas');
+    }
     // CRITERIOS (*)---------(1) ENCUESTA ONE TO MANY INVERSE
     public function encuesta(){
         return $this->belongsTo('App\Encuesta');

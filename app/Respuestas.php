@@ -12,9 +12,9 @@ class Respuestas extends Model
     protected $dates = ['deleted_at'];
     
     protected $table = 'respuestas';
-    protected $fillable = ['id', 'dominio_id', 'objcontrol_id', 'control_id', 'pregunta_id', 'respuesta', 'encuesta_id', 'usuario_id'];
+    protected $fillable = ['id', 'dominio_id', 'objcontrol_id', 'control_id', 'pregunta_id', 'respuesta', 'encuesta_num', 'criterio_id', 'usuario_id'];
  
-    /* -------------------------------------------------------------- */
+    /* ---------------------------- INVERSE ------------------------------- */
     
     //RESPUESTAS (*)---------(1) DOMINIO one to many inverse
     public function dominio(){
@@ -36,9 +36,14 @@ class Respuestas extends Model
         return $this->belongsTo('App\Preguntas');
     }
 
-    // RESPUESTAS (*) -------------> (1) ENCUESTA one to many inverse
+    // RESPUESTAS (*) -------------> (1) CRITERIO one to many inverse
     public function encuesta(){
         return $this->belongsTo('App\Encuesta');
+    }
+
+    // RESPUESTAS (*) -------------> (1) ENCUESTA one to many inverse
+    public function criterio(){
+        return $this->belongsTo('App\Criterio');
     }
 
     // RESPUESTAS (*) -------------> (1) ENCUESTA one to many inverse

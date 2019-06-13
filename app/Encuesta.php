@@ -12,32 +12,14 @@ class Encuesta extends Model
     protected $dates = ['deleted_at'];
 
     protected $table = 'encuesta';
-    protected $fillable = ['id', 'encuesta_num'];
+    protected $fillable = ['id', 'encuesta_num', 'criterio_id', 'usuario_id'];
 
-    /* ------------------------------------------------------------ */
-
-    //ENCUESTA (1)---------(*) DOMINIOS ONE TO MANY INVERSE
+    /* -------------------------- ONE TO MANY ------------------------------*/
+    //ENCUESTA (1) ---------> (*) DOMINIOS ONE TO MANY
     public function dominios(){
-        return $this->hasMany(Dominios::Class);
+        return $this->hasMany('App\Dominios');
     }
     
-    //ENCUESTA (*)---------(1) OBJCONTROL ONE TO MANY INVERSE
-    public function objcontrol(){
-        return $this->belongsTo('App\Objcontrol');
-    }
-
-    //ENCUESTA (*)---------(1) CONTROL ONE TO MANY INVERSE
-    public function control(){
-        return $this->belongsTo('App\Control');
-    }
-
-    // ENCUESTAS (*)---------(1) USUARIO ONE TO MANY INVERSE
-    public function usuario(){
-        return $this->belongsTo('App\Usuario');
-    }
-
-    /* ------------------------------------------------------------ */
-
     //ENCUESTA (1) ------------> (*) PREGUNTAS (ONE TO MANY)
     public function preguntas(){
         return $this->hasMany('App\Preguntas');
@@ -52,5 +34,22 @@ class Encuesta extends Model
     public function criterios(){
         return $this->hasMany('App\Criterio');
     }
+
+    /* ---------------------------- INVERSE ------------------------------- */
+
+    //ENCUESTA (*) ---------> (1) OBJCONTROL ONE TO MANY INVERSE
+    public function objcontrol(){
+        return $this->belongsTo('App\Objcontrol');
+    }
+
+    //ENCUESTA (*) ---------> (1) CONTROL ONE TO MANY INVERSE
+    public function control(){
+        return $this->belongsTo('App\Control');
+    }
+
+    // ENCUESTAS (*) --------- (1) USUARIO ONE TO MANY INVERSE
+    public function usuario(){
+        return $this->belongsTo('App\Usuario');
+    } 
 
 }

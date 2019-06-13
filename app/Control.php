@@ -14,7 +14,7 @@ class Control extends Model
     protected $table = 'controls';
     protected $fillable = ['id', 'numero_con', 'nombre_con', 'dominio_id', 'objcontrol_id'];
 
-    /* ---------------------------------------------------------------------- */
+    /* ---------------------------- INVERSE ---------------------------------- */
 
     // CONTROL (*) -------------> (1) DOMINIOS ONE TO MANY INVERSE
     public function dominio(){
@@ -26,7 +26,7 @@ class Control extends Model
         return $this->belongsTo('App\Objcontrol');
     }
 
-    /* --------------------------------------------------------------------- */
+    /* --------------------------- ONE TO MANY --------------------------------- */
 
     //CONTROL (1) ------------> (*) PREGUNTAS (ONE TO MANY)
     public function preguntas(){

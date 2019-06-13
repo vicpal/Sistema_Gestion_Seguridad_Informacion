@@ -21,7 +21,7 @@ class Usuario extends Model
         return $this->belongsTo(Rol::class);
     }
 
-    // USUARIO (1)------(*) OBJCONTROLS Primera relacion (ONE TO MANY)
+    // USUARIO (1)------(*) ENCUESTAS Primera relacion (ONE TO MANY)
     public function encuestas(){
       return $this->hasMany('App\Encuesta');
    }

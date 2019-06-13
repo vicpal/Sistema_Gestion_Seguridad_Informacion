@@ -15,7 +15,7 @@ class Dominios extends Model
    protected $table = 'dominios';
    protected $fillable = ['id', 'numero_dom', 'nombre_dom'];
 
-   //DOMINIO (1)------(*) OBJCONTROLS Primera relacion (ONE TO MANY)
+   //DOMINIO (1) ------------> (*) OBJCONTROLS (ONE TO MANY) Primera relación
    public function objcontrols(){
       return $this->hasMany('App\Objcontrol');
    }
@@ -35,9 +35,10 @@ class Dominios extends Model
       return $this->hasMany('App\Respuestas');
    }
 
+   // ------------------------ INVERSE ---------------------------------//
    //DOMINIO (*) ------------> (1) ENCUESTA (ONE TO MANY)
    public function encuesta(){
-      return $this->belongsToMany(Encuesta::Class);
+      return $this->belongsTo('App\Encuesta');
    }
 
 }

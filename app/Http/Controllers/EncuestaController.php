@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\Facades\DB;
 use App\Dominios;
 use App\Objcontrol;
 use App\Control;
@@ -35,18 +36,22 @@ class EncuestaController extends Controller
         $encu = Encuesta::all();
         return view('/sgsi/encuesta/index', compact('encu'));
     }
-
+        
     public function create()
     {
         $encu = Encuesta::all();
         return view('/sgsi/encuesta/create', compact('encu'));
     }
-    
+
+    public function store(Request $request)
+    {
+        //
+    }
+       
     public function show($id)
     {
         $encu = Respuestas::find($id);
-        //dd($encu);
-        return view('/sgsi/encuesta/show', compact('encu'));
+        return view('/sgsi/encuesta/show',compact('encu'));
     }
     
     public function destroy($id)

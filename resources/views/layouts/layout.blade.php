@@ -135,8 +135,8 @@
 			</a>
 			<ul class="treeview-menu">
 				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
-				<li><a href="{{ route('encuesta.index') }}"><i class="fa fa-circle-o"></i> Encuestas</a></li>
-				<li><a href="{{ route('respuestas.index') }}"><i class="fa fa-circle-o"></i> Resultados</a></li>
+				<li><a href="{{ route('respuestas.index') }}"><i class="fa fa-circle-o"></i> Encuestas</a></li>
+				<!-- <li><a href="{{ route('encuesta.index') }}"><i class="fa fa-circle-o"></i> Resultados</a></li> -->
 			</ul>
 			</li>
 

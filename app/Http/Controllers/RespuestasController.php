@@ -33,5 +33,11 @@ class RespuestasController extends Controller
         $respu = Respuestas::all();
         return view('/sgsi/respuesta/index', compact('respu'));
     }
-   
+
+    public function show($id)
+    {
+        $respu = Respuestas::find($id);
+        return view('/sgsi/respuesta/show', compact('respu'));
+    }
+
 }

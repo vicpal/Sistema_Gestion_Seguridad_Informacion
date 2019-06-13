@@ -34,14 +34,12 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Dominio</th>
-                                <th>Objetivo</th>
-                                <th>Control</th>
-                                <th>Pregunta</th>
-                                <th>Respuesta</th>
-                                <th>Encuesta</th>
+                                <th>Núm Encuesta</th>
                                 <th>Usuario</th>
                                 <th>Creada</th>
+                                <th>Ver</th>
+                                <th>Del</th>
+                                <th>Down</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,33 +47,43 @@
                             @foreach($respu as $resp)
                             <tr>
                                 <td>{{ $resp->id }}</td>
-                                <td>{{ $resp->dominio->numero_dom }}</td>
-                                <td>{{ $resp->objcontrol->numero_objc }}</td>
-                                <td>{{ $resp->control->numero_con }}</td>
-                                <td>{{ $resp->pregunta->numero_preg }}</td>
-                                <td>{{ $resp->respuesta }}</td>
-                                <td>{{ $resp->encuesta->encuesta_num }}</td>
+                                <td>{{ $resp->encuesta_num }}</td>
                                 <td>{{ $resp->usuario->nombre }}</td>
-                                <td>{{ $resp->encuesta->created_at }}</td>
+                                <td>{{ $resp->created_at }}</td>
+                                <td align="center">
+                                    <a href="{{ route('encuesta.show', $resp->id) }}" class="btn btn-primary btn-xs" method="POST">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                </td>
+                                <td align="center">
+                                    <form action="{{ route('encuesta.destroy', $resp->id) }}" method="POST">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <button class="btn btn-danger btn-xs" type="submit"><span class="glyphicon glyphicon-trash"></span></button>
+                                    </form>
+                                </td>
+                                <td align="center">
+                                    <a href="{{ route('report.pdf') }}" class="btn btn-primary btn-xs" method="POST">
+                                        <span class="glyphicon glyphicon-download-alt"></span>
+                                    </a>
+                                </td>
                             </tr>
                             @endforeach
                             @else
                                 <tr>
-                                    <td colspan="10">No hay registro !!</td>
+                                    <td colspan="8">No hay registro !!</td>
                                 </tr>
                         @endif
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Id</th>
-                                <th>Dominio</th>
-                                <th>Objetivo</th>
-                                <th>Control</th>
-                                <th>Pregunta</th>
-                                <th>Respuesta</th>
-                                <th>Encuesta</th>
+                                <th>Núm Encuesta</th>
                                 <th>Usuario</th>
                                 <th>Creada</th>
+                                <th>Ver</th>
+                                <th>Del</th>
+                                <th>Down</th>
                             </tr>
                         </tfoot>
                     </table>
