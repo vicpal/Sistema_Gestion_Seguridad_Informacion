@@ -30,7 +30,7 @@ Route::resource('sgsi/usuario','UsuarioController');
 Route::resource('sgsi/encuesta','EncuestaController');
 
 // Vistas Personalizadas
-//Route::get('sgsi/reporte','EncuestaController');
+Route::get('sgsi/detalle','RespuestasController@detalle')->name('detalle');
 
 // Ruta Personalizada para llamar una Funcion por Allax
 Route::get('sgsi/ajax/objcontrol/{id}', 'ObjcontrolController@findById');

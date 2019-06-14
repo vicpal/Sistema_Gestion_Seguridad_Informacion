@@ -12,7 +12,7 @@ class Usuario extends Model
     protected $dates = ['deleted_at'];
 
     protected $table = 'usuarios';
-    protected $fillable = ['id', 'nombre', 'correo', 'clave', 'tipoid'];
+    protected $fillable = ['id', 'nombre', 'correo', 'clave', 'rol_id'];
     
     /* -------------------------------------------------------- */
     

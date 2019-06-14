@@ -36,6 +36,22 @@ class RespuestasController extends Controller
         return view('/sgsi/respuesta/index', compact('respu'));
     }
 
+    /* ----------------- VISTA PARA MOSTRAR EL INFORME TÉCNICO --------------- */
+        public function detalle()
+        {
+            /*$respu = DB::table('respuestas')
+            ->join('dominios', 'dominios.id', '=', 'respuestas.dominio_id')
+            ->join('objcontrols', 'objcontrols.id', '=', 'respuestas.objcontrol_id')
+            ->join('controls', 'controls.id', '=', 'respuestas.control_id')
+            ->join('usuarios', 'usuarios.id', '=', 'respuestas.usuario_id')
+            ->where('respuestas.deleted_at', NULL)
+            ->select('dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'controls.numero_con', 'controls.nombre_con', 'usuarios.nombre')
+            ->groupBy('respuestas.control_id')->get();*/
+            $respu = Respuestas::groupBy('respuestas.control_id')->get();
+            return view('/sgsi/respuesta/detalle', compact('respu'));
+        }
+    /* ----------------- VISTA PARA MOSTRAR EL INFORME TÉCNICO --------------- */
+
     public function show($id)
     {
         $respu = Respuestas::find($id);
