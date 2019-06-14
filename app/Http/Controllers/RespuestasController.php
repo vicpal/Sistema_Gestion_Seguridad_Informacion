@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Dominios;
 use App\Objcontrol;
@@ -54,17 +55,17 @@ class RespuestasController extends Controller
 
     public function show($id)
     {
-        $respu = Respuestas::find($id);
-        //dd($respu);
-        return view('/sgsi/respuesta/show', compact('respu'));
+        return 'Estamos Trabajando en Vincular en esta Función SHOW la nueva vista Detalle. <br> Atte. <strong>VicPal</strong><br>';
     }
 
-    public function reporte()
-    {
-        //$respu = Respuestas::groupBy('respuestas.encuesta_num')->get();
-        //dd($respu);
-        //return view('/sgsi/respuesta/reporte', compact('respu'));
-        return view('/sgsi/respuestas/reporte');
+    // ---------------------------- PDF ---------------------------------
+   
+    public function reportPDF(){
+        $respu = Respuestas::get();
+        $pdf = PDF::loadView('sgsi/reportepdf/report', compact('respu'));
+        //dd($encu);
+        return $pdf->download('report-sgsi.pdf');
     }
+    // -------------------------------------------------------------------
 
 }

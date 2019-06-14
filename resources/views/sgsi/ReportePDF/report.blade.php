@@ -33,24 +33,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($encu as $enc)
+                        @foreach($respu as $resp)
                             <tr>
-                                <td>{{ $encu->dominio->numero_dom }}</td>
-                                <td>{{ $encu->dominio->nombre_dom }}</td>
+                                <td>{{ $resp->dominio->numero_dom }}</td>
+                                <td>{{ $resp->dominio->nombre_dom }}</td>
                                 <td> No Realizado </td>
                                 <td> 0% </td>
                             </tr>
-                                @foreach($encu as $enc)
+                                @foreach(respu as $resp2)
                                 <tr>
-                                    <td>{{ $encu->objcontrol->numero_objc }}</td>
-                                    <td>{{ $encu->objcontrol->nombre_objc }}</td>
+                                    <td>{{ $resp2->objcontrol->numero_objc }}</td>
+                                    <td>{{ $resp2->objcontrol->nombre_objc }}</td>
                                     <td> No Realizado </td>
                                     <td> 0% </td>
                                 </tr>
-                                    @foreach($encu as $enc)
+                                    @foreach($respu as $resp3)
                                     <tr>
-                                        <td>{{ $encu->control->numero_con }}</td>
-                                        <td>{{ $encu->control->nombre_con }}</td>
+                                        <td>{{ $resp3->control->numero_con }}</td>
+                                        <td>{{ $resp3->control->nombre_con }}</td>
                                         <td> No Realizado </td>
                                         <td> 0% </td>
                                     </tr>
