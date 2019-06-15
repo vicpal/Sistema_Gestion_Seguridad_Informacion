@@ -51,7 +51,7 @@
                                 <td>{{ $resp->usuario->nombre }}</td>
                                 <td>{{ $resp->created_at }}</td>
                                 <td align="center">
-                                    <a href="{{ route('respuestas.show', $resp->id) }}" class="btn btn-primary btn-xs" method="POST">
+                                    <a href="{{ route('respuestas.show', $resp->encuesta_num) }}" class="btn btn-primary btn-xs" method="POST">
                                         <span class="glyphicon glyphicon-eye-open"></span>
                                     </a>
                                 </td>

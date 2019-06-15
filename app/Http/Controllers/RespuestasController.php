@@ -40,26 +40,21 @@ class RespuestasController extends Controller
     /* ----------------- VISTA PARA MOSTRAR EL INFORME TÉCNICO --------------- */
         public function detalle()
         {
-            /*$respu = DB::table('respuestas')
-            ->join('dominios', 'dominios.id', '=', 'respuestas.dominio_id')
-            ->join('objcontrols', 'objcontrols.id', '=', 'respuestas.objcontrol_id')
-            ->join('controls', 'controls.id', '=', 'respuestas.control_id')
-            ->join('usuarios', 'usuarios.id', '=', 'respuestas.usuario_id')
-            ->where('respuestas.deleted_at', NULL)
-            ->select('dominios.numero_dom', 'dominios.nombre_dom', 'objcontrols.numero_objc', 'objcontrols.nombre_objc', 'controls.numero_con', 'controls.nombre_con', 'usuarios.nombre')
-            ->groupBy('respuestas.control_id')->get();*/
+            //$respu = Respuestas::all();
             $respu = Respuestas::groupBy('respuestas.control_id')->get();
+            
             return view('/sgsi/respuesta/detalle', compact('respu'));
         }
     /* ----------------- VISTA PARA MOSTRAR EL INFORME TÉCNICO --------------- */
 
-    public function show($id)
+    public function show($encuesta_num)
     {
-        return 'Estamos Trabajando en Vincular en esta Función SHOW la nueva vista Detalle. <br> Atte. <strong>VicPal</strong><br>';
+        $respu = Respuestas::select('*')->groupBy('control_id')->where('encuesta_num', '=', $encuesta_num)->get();
+        //dd($respu);
+        return view('/sgsi/respuesta/detalle', compact('respu'));
     }
 
     // ---------------------------- PDF ---------------------------------
-   
     public function reportPDF(){
         $respu = Respuestas::get();
         $pdf = PDF::loadView('sgsi/reportepdf/report', compact('respu'));

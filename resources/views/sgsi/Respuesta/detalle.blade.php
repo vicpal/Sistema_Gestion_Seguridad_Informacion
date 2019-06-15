@@ -82,34 +82,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($respu as $resp)
-                            @if ($loop->first)
+                        
+                        @foreach($respu as $resp)
+                            
                             <tr>
                                 <td> {{ $resp->dominio->numero_dom }}</td>
                                 <td> {{ $resp->dominio->nombre_dom }}</td>
                                 <td> {{ $resp->criterio->criterio }}</td>
                                 <td>  0% </td>
                             </tr>
-                                @foreach($respu as $resp1)
-                                @if ($loop->first)
+                                
                                 <tr>
-                                    <td> {{ $resp1->objcontrol->numero_objc }}</td>
-                                    <td> {{ $resp1->objcontrol->nombre_objc }}</td>
-                                    <td> {{ $resp1->criterio->criterio }}</td>
-                                    <td>  0% </td>
+                                    <td> {{ $resp->objcontrol->numero_objc }}</td>
+                                    <td> {{ $resp->objcontrol->nombre_objc }}</td>
+                                    <td> {{ $resp->criterio->criterio }}</td>
+                                    <td>  10% </td>
                                 </tr>
-                                    @foreach($respu as $resp2)
+                                    
                                     <tr>
-                                        <td> {{ $resp2->control->numero_con }}</td>
-                                        <td> {{ $resp2->control->nombre_con }}</td>
-                                        <td> {{ $resp2->criterio->criterio }}</td>
+                                        <td> {{ $resp->control->numero_con }}</td>
+                                        <td> {{ $resp->control->nombre_con }}</td>
+                                        <td> {{ $resp->criterio->criterio }}</td>
                                         <td>  0% </td>
                                     </tr>
-                                    @endforeach
-                                @endif
-                                @endforeach
-                            @endif
-                            @endforeach
+                                    
+                        @endforeach
+                            
                         </tbody>
                     </table>
                 </div>

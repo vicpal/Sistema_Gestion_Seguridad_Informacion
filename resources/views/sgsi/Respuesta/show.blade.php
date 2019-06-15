@@ -86,19 +86,19 @@
                                 <td> {{ $respu->dominio->numero_dom }}</td>
                                 <td> {{ $respu->dominio->nombre_dom }}</td>
                                 <td> {{ $respu->criterio->criterio }}</td>
-                                <td>  0% </td>
+                                <td>  10% </td>
                             </tr>
                             <tr>
                                 <td> {{ $respu->objcontrol->numero_objc }}</td>
                                 <td> {{ $respu->objcontrol->nombre_objc }}</td>
                                 <td> {{ $respu->criterio->criterio }}</td>
-                                <td>  0% </td>
+                                <td>  10% </td>
                             </tr>
-                            <tr>
-                                <td> {{ $respu->control->numero_con }}</td>
-                                <td> {{ $respu->control->nombre_con }}</td>
-                                <td> {{ $respu->criterio->criterio }}</td>
-                                <td>  0% </td>
+                            <tr> @foreach($respu as $resp)
+                                <td> {{ $resp->control->numero_con }}</td>
+                                <td> {{ $resp->control->nombre_con }}</td>
+                                <td> {{ $resp->criterio->criterio }}</td>
+                                <td>  10% </td> @endforeach
                             </tr>
                         </tbody>
                     </table>
