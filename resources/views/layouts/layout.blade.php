@@ -136,7 +136,6 @@
 			<ul class="treeview-menu">
 				<li><a href="{{ route('preguntas.index') }}"><i class="fa fa-circle-o"></i> Preguntas</a></li>
 				<li><a href="{{ route('respuestas.index') }}"><i class="fa fa-circle-o"></i> Encuestas</a></li>
-				<li><a href="{{ route('detalle') }}"><i class="fa fa-circle-o"></i> Detalle</a></li> -->
 			</ul>
 			</li>
 
@@ -161,20 +160,6 @@
 
 	<!-- Content Wrapper. Contains page content -->
 	<div class="content-wrapper">
-		<!-- Content Header (Page header) -->
-		<section class="content-header">
-			<h1>
-				Sistema de Gestión de la Seguridad de la Información <br>
-				<!-- <small>Inicia Aqui</small> -->
-			</h1>
-			<!-- MAPA DE SITIO -->
-			<ol class="breadcrumb">
-				<li><a href="{{ route('dominios.index') }}"><i class="fa fa-dashboard"></i> Inicio</a></li>
-				<!-- <li><a href="#">Paso 1</a></li> -->
-				<li class="active">Usted Esta Aqui</li>
-			</ol>
-			<!-- FIN MAPA -->
-		</section>
 
 		<!-- Main content -->
 		<section class="content">
@@ -195,7 +180,7 @@
 
 	<footer class="main-footer">
 		<div class="pull-right hidden-xs">
-		<b>Version</b> 1.0
+		<b>Version</b> 2.0
 		</div>
 		<strong>Copyright &copy; 2018-2019 <a href="{{ route('dominios.index') }}"> ViPCorp - SGSI</a>.</strong> All rights
 		reserved.

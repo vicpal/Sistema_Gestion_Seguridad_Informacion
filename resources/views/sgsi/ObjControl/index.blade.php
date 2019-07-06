@@ -19,6 +19,20 @@
     @endif
 
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sistema de Gestión de la Seguridad de la Información <br>
+            <!-- <small>Inicia Aqui</small> -->
+        </h1>
+        <!-- MAPA DE SITIO -->
+        <ol class="breadcrumb">
+            <li><a href="http://127.0.0.1:8000/sgsi"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('objcontrol.index') }}"> Objetivos</a></li>
+            <li class="active"> Listado</li>
+        </ol>
+        <!-- FIN MAPA -->
+    </section>
 
 <!-- Main content -->
 <section class="content">

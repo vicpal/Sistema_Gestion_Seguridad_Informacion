@@ -17,12 +17,26 @@
             {{Session::get('success')}}
         </div>
     @endif
-
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sistema de Gestión de la Seguridad de la Información <br>
+            <!-- <small>Inicia Aqui</small> -->
+        </h1>
+        <!-- MAPA DE SITIO -->
+        <ol class="breadcrumb">
+            <li><a href="http://127.0.0.1:8000/sgsi"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('dominios.index') }}"> Dominios</a></li>
+            <li class="active"> Crear Dominios</li>
+        </ol>
+        <!-- FIN MAPA -->
+    </section>
+    <br/>
     <div class="col-md-10">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Registrar Nuevo Dominio</h3>
+                <h3 class="box-title">Crear Dominio</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

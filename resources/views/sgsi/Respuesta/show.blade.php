@@ -17,10 +17,23 @@
             {{Session::get('success')}}
         </div>
     @endif
-
-<!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
     
-    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sistema de Gestión de la Seguridad de la Información <br>
+            <!-- <small>Inicia Aqui</small> -->
+        </h1>
+        <!-- MAPA DE SITIO -->
+        <ol class="breadcrumb">
+            <li><a href="{{ route('dominios.index') }}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('respuestas.index') }}"> Encuesta</a></li>
+            <li class="active"> Detalle de la Encuesta</li>
+        </ol>
+        <!-- FIN MAPA -->
+    </section>
+
+    <!-- Content. Contains page content -->
     <div class="content">
     <!-- Main content -->
         <section class="invoice">
@@ -35,6 +48,7 @@
             </div>
             <!-- info row -->
             <div class="row invoice-info">
+            @foreach($respu as $data) @if($loop->first)
                 <div class="col-sm-4 invoice-col">
                     De
                     <address>
@@ -49,28 +63,30 @@
                 <div class="col-sm-4 invoice-col">
                     Para
                     <address>
-                        <strong>{{ $respu->usuario->nombre }}</strong><br>
+                        <strong>{{ $data->usuario->nombre }}</strong><br>
                         795 Folsom Ave, Suite 600<br>
                         San Francisco, CA 94107<br>
                         Telefono: +1 (555) 539-1037<br>
-                        Correo: {{ $respu->usuario->correo }}
+                        Correo: <strong>{{ $data->usuario->correo }}</strong>
                     </address>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-4 invoice-col">
-                    <b>Encuesta: #{{ $respu->encuesta_num }}</b><br>
-                    <br>
-                    <b>Usuario ID:</b> 000{{ $respu->usuario->id }}<br>
-                    <b>Realizada por:</b> {{ $respu->usuario->nombre }}<br>
-                    <b>Fecha:</b> {{ $respu->created_at }}<br>
+                    Información <br>
+                    <b>Encuesta: #</b>{{ $data->encuesta_num }}<br>
+                    <b>Empresa: </b>SGSI Corporation Inn.<br>
+                    <b>Usuario ID: </b>000{{ $data->usuario->id }}<br>
+                    <b>Realizada por: </b>{{ $data->usuario->nombre }}<br>
+                    <b>Fecha: </b>{{ $data->created_at }}<br>
                     <!-- <b>Account:</b> 968-34567 -->
                 </div>
+            @endif @endforeach
             </div>
             <!-- /.row -->
-
+                       
             <!-- Table row -->
             <div class="row">
-                <h2 align="center">Resultado de la Encuesta - GTC ISO/IEC 27002:2015</h2>
+                <h2 align="center">Informe General - GTC ISO/IEC 27002:2015</h2>
                 <div class="box-body"> <div class="btn" id="vip"></div>
                     <table class="table table-bordered table-hover">
                         <thead>
@@ -82,32 +98,43 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td> {{ $respu->dominio->numero_dom }}</td>
-                                <td> {{ $respu->dominio->nombre_dom }}</td>
-                                <td> {{ $respu->criterio->criterio }}</td>
-                                <td>  10% </td>
-                            </tr>
-                            <tr>
-                                <td> {{ $respu->objcontrol->numero_objc }}</td>
-                                <td> {{ $respu->objcontrol->nombre_objc }}</td>
-                                <td> {{ $respu->criterio->criterio }}</td>
-                                <td>  10% </td>
-                            </tr>
-                            <tr> @foreach($respu as $resp)
-                                <td> {{ $resp->control->numero_con }}</td>
-                                <td> {{ $resp->control->nombre_con }}</td>
-                                <td> {{ $resp->criterio->criterio }}</td>
-                                <td>  10% </td> @endforeach
-                            </tr>
+                        @foreach($respu as $resp)
+                        <tr>
+                            <td> {{ $resp->dominio->numero_dom }}</td>
+                            <td> {{ $resp->dominio->nombre_dom }}</td>
+                            <td>@if(($resp->criterio->valor >= 0 && $resp->criterio->valor < 20) || ($resp->criterio->valor >= 20 && $resp->criterio->valor < 40) || ($resp->criterio->valor >= 40 && $resp->criterio->valor < 60) || ($resp->criterio->valor >= 60 && $resp->criterio->valor < 80) || ($resp->criterio->valor >= 80 && $resp->criterio->valor < 100) || ($resp->criterio->valor == 100))
+                                    {{ $resp->criterio->criterio }}
+                                @endif
+                            </td>
+                            <td> {{ $resp->criterio->valor }} %</td>
+                        </tr>
+                        <tr>
+                            <td> {{ $resp->objcontrol->numero_objc }}</td>
+                            <td> {{ $resp->objcontrol->nombre_objc }}</td>
+                            <td>@if(($resp->criterio->valor >= 0 && $resp->criterio->valor < 20) || ($resp->criterio->valor >= 20 && $resp->criterio->valor < 40) || ($resp->criterio->valor >= 40 && $resp->criterio->valor < 60) || ($resp->criterio->valor >= 60 && $resp->criterio->valor < 80) || ($resp->criterio->valor >= 80 && $resp->criterio->valor < 100) || ($resp->criterio->valor == 100))
+                                    {{ $resp->criterio->criterio }}
+                                @endif
+                            </td>
+                            <td> {{ $resp->criterio->valor }} %</td>
+                        </tr>
+                        <tr>
+                            <td> {{ $resp->control->numero_con }}</td>
+                            <td> {{ $resp->control->nombre_con }}</td>
+                            <td>@if(($resp->criterio->valor >= 0 && $resp->criterio->valor < 20) || ($resp->criterio->valor >= 20 && $resp->criterio->valor < 40) || ($resp->criterio->valor >= 40 && $resp->criterio->valor < 60) || ($resp->criterio->valor >= 60 && $resp->criterio->valor < 80) || ($resp->criterio->valor >= 80 && $resp->criterio->valor < 100) || ($resp->criterio->valor == 100))
+                                    {{ $resp->criterio->criterio }}
+                                @endif
+                            </td>
+                            <td> {{ $resp->criterio->valor }} %</td>
+                        </tr>
+                        @endforeach
                         </tbody>
                     </table>
                 </div>
                 <!-- /.col -->
             </div>
             <!-- /.row -->
-
-            <!-- this row will not appear when printing -->
+            
+        <!-- this row will not appear when printing -->
             <div class="row">
                 <div class="col-xs-12">
                 <a href="{{ route('respuestas.index') }}" class="btn btn-default">Volver al Listado</a>
@@ -119,6 +146,5 @@
         <div class="clearfix"></div>
     </div>
     <!-- /.content-wrapper -->
-    
-@endsection
 
+@endsection

@@ -19,14 +19,29 @@
     @endif
 
 <!-- Desde aqui comienza la tabla de los Datos consultados en la BD -->
-
+    
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sistema de Gestión de la Seguridad de la Información <br>
+            <!-- <small>Inicia Aqui</small> -->
+        </h1>
+        <!-- MAPA DE SITIO -->
+        <ol class="breadcrumb">
+            <li><a href="http://127.0.0.1:8000/sgsi"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('respuestas.index') }}"> Reporte</a></li>
+            <li class="active"> Listado</li>
+        </ol>
+        <!-- FIN MAPA -->
+    </section>
+   
 <!-- Main content -->
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
                 <div class="box-header">
-                    <h3 class="box-title"><strong>Listado de Respuestas - GTC-IEC/ISO 27002:2015</strong></h3>
+                    <h3 class="box-title"><strong>Listado de Encuestas - GTC-IEC/ISO 27002:2015</strong></h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">

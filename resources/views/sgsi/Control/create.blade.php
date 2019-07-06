@@ -17,12 +17,26 @@
             {{Session::get('success')}}
         </div>
     @endif
-
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sistema de Gestión de la Seguridad de la Información <br>
+            <!-- <small>Inicia Aqui</small> -->
+        </h1>
+        <!-- MAPA DE SITIO -->
+        <ol class="breadcrumb">
+            <li><a href="http://127.0.0.1:8000/sgsi"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('control.index') }}"> Controles</a></li>
+            <li class="active"> Crear Control</li>
+        </ol>
+        <!-- FIN MAPA -->
+    </section>
+    <br/>
     <div class="col-md-12">
         <!-- Horizontal Form -->
         <div class="box box-info" id="createControl">
             <div class="box-header with-border">
-                <h3 class="box-title">Registrar Nuevo Control</h3>
+                <h3 class="box-title">Crear Control</h3>
             </div>
             <!-- /.box-header -->
             <!-- Script para Habilitar los campos del Formulario -->
@@ -46,12 +60,6 @@
                             </select>
                         </div>
                     </div>
-                   <!-- {{ $cont->id }} /
-                        {{ $cont->numero_objc }} /
-                        {{ $cont->nombre_objc }} /
-                        {{ $cont->dominio->numero_dom }} /
-                        {{ $cont->dominio->nombre_dom }} /
-                        {{ $cont->dominio_id }} -->
                     <div class="form-group">
                         <label for="inputText" class="col-sm-3 control-label">Nombre del Obj Control</label>
                         <div class="col-sm-8">

@@ -17,12 +17,26 @@
             {{Session::get('success')}}
         </div>
     @endif
-
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            Sistema de Gestión de la Seguridad de la Información <br>
+            <!-- <small>Inicia Aqui</small> -->
+        </h1>
+        <!-- MAPA DE SITIO -->
+        <ol class="breadcrumb">
+            <li><a href="http://127.0.0.1:8000/sgsi"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li><a href="{{ route('preguntas.index') }}"> Preguntas</a></li>
+            <li class="active"> Editar Preguntas</li>
+        </ol>
+        <!-- FIN MAPA -->
+    </section>
+    <br/>
     <div class="col-md-12">
         <!-- Horizontal Form -->
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Editar Control</h3>
+                <h3 class="box-title">Editar Preguntas</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

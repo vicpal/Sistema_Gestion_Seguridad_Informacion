@@ -31,8 +31,7 @@ class DominiosController extends Controller
         return view('/sgsi/listado', compact('dominios'));
         
         /*$dominios = Dominios::orderBy('id','ASC')->paginate();
-        return view('/sgsi/listado', compact('dominios'));*/
-        
+        return view('/sgsi/listado', compact('dominios'));*/   
     }
 
     public function create()
