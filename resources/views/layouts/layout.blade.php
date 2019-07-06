@@ -182,7 +182,7 @@
 		<div class="pull-right hidden-xs">
 		<b>Version</b> 2.0
 		</div>
-		<strong>Copyright &copy; 2018-2019 <a href="{{ route('dominios.index') }}"> ViPCorp - SGSI</a>.</strong> All rights
+		<strong>Copyright &copy; 2018-2019 <a href="http://127.0.0.1:8000/sgsi"> ViPCorp - SGSI</a>.</strong> All rights
 		reserved.
 	</footer>
 
