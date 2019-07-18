@@ -29,9 +29,11 @@ class RespuestasController extends Controller
 
     public function show($encuesta_num)
     {
-        $respu = Respuestas::select('*')->groupBy('control_id')->where('encuesta_num', '=', $encuesta_num)->get();
+        $respu  = Respuestas::select('*')->groupBy('dominio_id')->where('encuesta_num', '=', $encuesta_num)->get();
+        $respu1 = Respuestas::select('*')->groupBy('objcontrol_id')->where('encuesta_num', '=', $encuesta_num)->get();
+        $respu2 = Respuestas::select('*')->groupBy('control_id')->where('encuesta_num', '=', $encuesta_num)->get();
         //dd($respu);
-        return view('/sgsi/respuesta/show', compact('respu'));
+        return view('/sgsi/respuesta/show', compact('respu', 'respu1', 'respu2'));
     }
 
     // ---------------------------- PDF ---------------------------------
